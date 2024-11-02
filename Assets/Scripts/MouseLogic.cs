@@ -15,7 +15,7 @@ public class MouseLogic : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(rayPosition, Vector2.zero, 15);
             
-            if (hit.collider)
+            if (hit)
             {
                 Debug.Log(hit.collider.name);
             }

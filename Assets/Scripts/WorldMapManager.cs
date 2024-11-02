@@ -27,7 +27,7 @@ public class WorldMapManager : MonoBehaviour
         _tileDataDictionary = new Dictionary<TileBase, TileData>();
         foreach (var tileData in _tileDataList)
         {
-            foreach (var tile in tileData.tiles)
+            foreach (var tile in tileData.ruleTiles)
             {
                 _tileDataDictionary.Add(tile, tileData); // assign each tile to desired tileData (grass, rock, etc.)
             }

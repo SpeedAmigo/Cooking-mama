@@ -12,39 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc2437cc5721304d897386a147234d4, type: 3}
   m_Name: Grass
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 11400000, guid: 10b0144639e26ee49a5d484c561af248, type: 2}
-  - {fileID: 11400000, guid: b3bd270b3ad50ea47b47ef4f117f52b0, type: 2}
-  - {fileID: 11400000, guid: dc5d240637ea9384f9a99fbbcad6ad9f, type: 2}
-  - {fileID: 11400000, guid: 84465980d5ea20b409679198dd3378b3, type: 2}
-  - {fileID: 11400000, guid: a0cd57f5cfdd5d042bba3051e332eec5, type: 2}
-  - {fileID: 11400000, guid: b9e39b140fa82e448aeb5d980e71135d, type: 2}
-  - {fileID: 11400000, guid: bcc89aa7cdf7e5240a33d5e206c2ccd8, type: 2}
-  - {fileID: 11400000, guid: 3ec078043e28d724882fb23c9cad9829, type: 2}
-  - {fileID: 11400000, guid: 72e0fa72526e9f041b8153977c5a903c, type: 2}
-  - {fileID: 11400000, guid: a076a1c49a2294442acdd10564b43a96, type: 2}
-  - {fileID: 11400000, guid: 9febeb9d9ea81154381b1ec262b22e69, type: 2}
-  - {fileID: 11400000, guid: d1f0e7e80339f754e8513d476bef5c8b, type: 2}
-  - {fileID: 11400000, guid: 5e775fe86c22c384daa3386a1d64b8f7, type: 2}
-  - {fileID: 11400000, guid: 45f458fd01c10ab43a0a4eee3ac744f0, type: 2}
-  - {fileID: 11400000, guid: fbc0d47bae3bb4d4e8fad8adef89807e, type: 2}
-  - {fileID: 11400000, guid: 89262b0ea85bf634abbbf5e8a995c320, type: 2}
-  - {fileID: 11400000, guid: d7373fdfa039a864f80d1eaccec8352d, type: 2}
-  - {fileID: 11400000, guid: ecb3b1bacae76a44abdfa46e8334d338, type: 2}
-  - {fileID: 11400000, guid: a44b2d7ef76fd0e4ba0d75250cc9b13b, type: 2}
-  - {fileID: 11400000, guid: a470f4ce0101f954197f80bfaceefcda, type: 2}
-  - {fileID: 11400000, guid: 279e3d22df525344b829d2968aeabd0c, type: 2}
-  - {fileID: 11400000, guid: 46909680962749b4cba94dce7f84aadb, type: 2}
-  - {fileID: 11400000, guid: 4d8e1a87a8d0f634fa8df51f27a9957d, type: 2}
-  - {fileID: 11400000, guid: ffe3999e81889914aa3805f15f99bdd4, type: 2}
-  - {fileID: 11400000, guid: c15e999fb1825644c89f3b19df42c48a, type: 2}
-  - {fileID: 11400000, guid: 4c55e45542d501c44ae57aca0a514dd8, type: 2}
-  - {fileID: 11400000, guid: 7d0379f309c9a1941a171fceeb0cd6d6, type: 2}
-  - {fileID: 11400000, guid: ab629448115b56e43bf43a61b2adcbaf, type: 2}
-  - {fileID: 11400000, guid: b02306cc7d792284fbefe8b98403105d, type: 2}
-  - {fileID: 11400000, guid: 1036cc40da31a5a4c8394cdee0229dc6, type: 2}
-  - {fileID: 11400000, guid: 9e84e071a61ee544da57e5539e41c9d8, type: 2}
-  - {fileID: 11400000, guid: 30c6164ae7386624b81429457dd0f6c5, type: 2}
+  ruleTiles:
+  - {fileID: 11400000, guid: 8eacfb8cc53a59543887da6de7f8328f, type: 2}
   audioClips:
   - {fileID: 8300000, guid: ddc8111265eac5449ab704ae05bbbe05, type: 3}
   - {fileID: 8300000, guid: 5bf82d2f41ab92f438584a2e5d732e50, type: 3}

@@ -1,3 +1,4 @@
+using UnityEditor.Graphs;
 using UnityEngine;
 
 //  OutlineFx © NullTale - https://x.com/NullTale/
@@ -6,8 +7,7 @@ namespace OutlineFx
     [ExecuteAlways]
     public class OutlineFx : Outline
     {
-        public   Color    _color = Color.white;
-
+        public   Color    _color = Color.yellow;
         public override Color Color
         {
             get => _color;

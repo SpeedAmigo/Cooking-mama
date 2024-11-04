@@ -1,19 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SignScript : Interaction
 {
-    [SerializeField] private signType _signType;
-
+    [SerializeField] private SignType _signType;
+    
+    public void Start()
+    {
+        base.Start();
+    }
+    
     private string SignType()
     {
         switch (_signType)
         {
-            case signType.East:
+            case global::SignType.East:
                 description = "East";
                 break;
-            case signType.West:
+            case global::SignType.West:
                 description = "West";
                 break;
         }
@@ -24,10 +30,4 @@ public class SignScript : Interaction
     {
         Debug.Log($"{newName} is pointing to the {SignType()}");
     }
-}
-
-public enum signType
-{
-    East,
-    West
 }

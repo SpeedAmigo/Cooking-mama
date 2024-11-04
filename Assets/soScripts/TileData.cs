@@ -11,10 +11,4 @@ public class TileData : ScriptableObject
    public FloorType floorType;
 }
 
-public enum FloorType
-{
-    Grass,
-    Dirt,
-    Rock,
-    Wood,
-}
+

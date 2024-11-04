@@ -12,11 +12,6 @@ public class PlayerScript : MonoBehaviour
     private AudioSource _audio;
     
     [SerializeField] private float _speed;
-
-    public void MouseTest()
-    {
-        Debug.Log("Mouse Test");
-    }
     public void Step()
     {
         if (WorldMapManager.Instance != null && _audio != null)

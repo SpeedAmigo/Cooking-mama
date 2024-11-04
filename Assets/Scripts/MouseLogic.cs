@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,22 +8,11 @@ public class MouseLogic : MonoBehaviour
 {
     private PlayerScript _playerScript;
     private Vector3 _screenPosition;
-
+    private readonly OnMouseHoverLogic _onMouseHoverLogic = new();
+    private readonly OnMouseInteraction _onMouseInteraction = new();
+    
     [SerializeField] private float _maxDistance;
     
-    private void ObjectInteraction(Vector2 position)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, 15);
-
-        if (!hit.collider) return;
-        {
-            if (hit.collider.gameObject.TryGetComponent(out IInteractAble interactable))
-            {
-                interactable.Interact();
-            }
-        }
-    }
-
     private bool IsWithinRange(Vector2 mousePosition, Vector2 characterPosition)
     {
         float range = Vector2.Distance(mousePosition, characterPosition);
@@ -39,10 +29,15 @@ public class MouseLogic : MonoBehaviour
     {
         _screenPosition = Input.mousePosition;
         Vector2 rayPosition = Camera.main.ScreenToWorldPoint(_screenPosition);
-        
-        if (Input.GetMouseButtonDown(0) && IsWithinRange(rayPosition, _playerScript.transform.position))
+
+        if (IsWithinRange(rayPosition, _playerScript.transform.position))
         {
-            ObjectInteraction(rayPosition);
+            _onMouseHoverLogic.OnMouseHover(rayPosition);
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                _onMouseInteraction.ObjectInteraction(rayPosition);
+            }
         }
     }
     

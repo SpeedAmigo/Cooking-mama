@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,12 @@ public abstract class Interaction : MonoBehaviour, IInteractAble
 {
     public string newName;
     public string description;
+
+    protected virtual void Start()
+    {
+        var outline = gameObject.AddComponent<OutlineFx.OutlineFx>();
+        outline.enabled = false;
+    }
     
     public abstract void Interact();
 }

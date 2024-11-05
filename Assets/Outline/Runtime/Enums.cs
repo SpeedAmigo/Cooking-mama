@@ -8,5 +8,13 @@ public enum FloorType
     Grass,
     Dirt,
     Rock,
-    Wood,
+    Wood
+}
+
+public enum GameState
+{
+    MainMenu,
+    PauseMenu,
+    InGame,
+    None
 }

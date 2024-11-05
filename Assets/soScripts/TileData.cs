@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "TileData", menuName = "Tile Data", order = 1)]
 public class TileData : ScriptableObject

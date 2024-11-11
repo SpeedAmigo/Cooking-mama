@@ -16,5 +16,6 @@ public enum GameState
     MainMenu,
     PauseMenu,
     InGame,
+    Inventory,
     None
 }

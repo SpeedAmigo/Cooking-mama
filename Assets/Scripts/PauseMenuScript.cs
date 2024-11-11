@@ -4,35 +4,11 @@ public class PauseMenuScript : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     
-    private void PauseToggle()
-    {
-        if (GameStateManager.CurrentGameState == GameState.InGame)
-        {
-            ActivatePauseMenu();
-        }
-        else if (GameStateManager.CurrentGameState == GameState.PauseMenu)
-        {
-            DeactivatePauseMenu();
-        }
-    }
-
-    private void ActivatePauseMenu()
-    {
-        pauseMenu.SetActive(true);
-        GameStateManager.ChangeGameState(GameState.PauseMenu);
-        Time.timeScale = 0f;
-    }
-
-    private void DeactivatePauseMenu()
-    {
-        pauseMenu.SetActive(false);
-        GameStateManager.ChangeGameState(GameState.InGame);
-        Time.timeScale = 1f;
-    }
+    private WindowHandler _windowHandler = new();
 
     public void ResumeMethod()
     {
-        DeactivatePauseMenu();
+        _windowHandler.WindowClose(pauseMenu, GameState.InGame);
     }
 
     public void MainMenuMethod()
@@ -57,7 +33,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseToggle();
+            _windowHandler.WindowToggle(pauseMenu, GameState.InGame, GameState.PauseMenu);
         }
     }
 }

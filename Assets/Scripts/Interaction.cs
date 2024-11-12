@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public abstract class Interaction : MonoBehaviour, IInteractAble
+public abstract class Interaction : MonoBehaviour, IInteractable
 {
     public string newName;
     public string description;

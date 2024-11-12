@@ -6,6 +6,10 @@ public class MouseLogic : MonoBehaviour
     private Vector3 _screenPosition;
     private readonly OnMouseHoverLogic _onMouseHoverLogic = new();
     private readonly OnMouseInteraction _onMouseInteraction = new();
+
+    [SerializeField] private Texture2D pickCursor;
+    [SerializeField] private Texture2D interactCursor;
+    [SerializeField] private Texture2D normalCursor;
     
     [SerializeField] private float _maxDistance;
     
@@ -28,12 +32,17 @@ public class MouseLogic : MonoBehaviour
 
         if (IsWithinRange(rayPosition, _playerScript.transform.position))
         {
-            _onMouseHoverLogic.OnMouseHover(rayPosition);
+            //_onMouseHoverLogic.OnMouseHover(rayPosition);
+            _onMouseHoverLogic.OnMouseHover(rayPosition, normalCursor, interactCursor, pickCursor);
             
             if (Input.GetMouseButtonDown(0))
             {
                 _onMouseInteraction.ObjectInteraction(rayPosition);
             }
+        }
+        else
+        {
+            //Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
         }
     }
     

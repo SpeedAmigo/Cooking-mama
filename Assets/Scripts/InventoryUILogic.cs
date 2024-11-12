@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,7 @@ public class InventoryUILogic : MonoBehaviour
 {
     [SerializeField] private GameObject grid;
     public List<GameObject> slots = new();
-    
+
     private WindowHandler _windowHandler = new();
 
     private void OnEnable()
@@ -28,8 +29,10 @@ public class InventoryUILogic : MonoBehaviour
                 GameObject item = new GameObject("Item");
                 item.transform.SetParent(slots[i].transform);
 
+                item.AddComponent<DragDrop>();
                 var image = item.AddComponent<Image>();
                 image.sprite = itemInstance.sprite;
+                image.transform.localScale = new Vector3(1, 1, 1);
                 image.preserveAspect = true;
                 break;
             }

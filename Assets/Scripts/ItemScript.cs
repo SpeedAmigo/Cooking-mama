@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemScript : Interaction
+public class ItemScript : MonoBehaviour, IPickable
 {
     [SerializeField] private ItemData itemData;
     public ItemInstance itemInstance;
@@ -11,19 +11,14 @@ public class ItemScript : Interaction
     public static event Action<ItemInstance> AddItemEvent;
     public void Start()
     {
-        base.Start();
+        //base.Start();
 
         if (itemData)
         {
             itemInstance = new ItemInstance(itemData);
         }
     }
-
-    public override void Interact()
-    {
-        Pick();
-    }
-
+    
     public void Pick()
     {
         AddItemEvent?.Invoke(itemInstance);

@@ -8,9 +8,14 @@ public class OnMouseInteraction
 
         if (!hit.collider) return;
         {
-            if (hit.collider.gameObject.TryGetComponent(out IInteractAble interactable))
+            if (hit.collider.gameObject.TryGetComponent(out IInteractable interactable))
             {
                 interactable.Interact();
+            }
+
+            if (hit.collider.gameObject.TryGetComponent(out IPickable pickable))
+            {
+                pickable.Pick();
             }
         }
     }

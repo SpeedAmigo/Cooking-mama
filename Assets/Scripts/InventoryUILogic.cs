@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryUILogic : MonoBehaviour
 {
-    [SerializeField] private GameObject grid;
+    [SerializeField] private List<GameObject> windows;
     public List<GameObject> slots = new();
 
     private WindowHandler _windowHandler = new();
@@ -41,7 +41,10 @@ public class InventoryUILogic : MonoBehaviour
 
     private void Start()
     {
-        grid.SetActive(false);
+        foreach (var window in windows)
+        {
+            window.SetActive(false);
+        }
     }
     
     private void Update()
@@ -51,7 +54,7 @@ public class InventoryUILogic : MonoBehaviour
 
         if (inputTab || inputI)
         {
-            _windowHandler.WindowToggle(grid, GameState.InGame, GameState.Inventory);
+            _windowHandler.WindowToggle(windows, GameState.InGame, GameState.Inventory);
         }
     }
 }

@@ -9,11 +9,15 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private RectTransform _rectTransform;
     private Transform _itemParent;
     private Image _image;
+    public ItemInstance itemInstance;
 
     private void Awake()
     {
         _image = GetComponent<Image>();
-        _itemParent = GetComponentInParent<InventoryUILogic>().transform;
+        
+        var inventoryUILogic = GetComponentInParent<InventoryUILogic>();
+        _itemParent = inventoryUILogic.transform;
+        _rectTransform = inventoryUILogic.rectTransform;
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -37,7 +41,8 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         }
         else
         {
-            Debug.Log($"Dropped {gameObject.name}");
+            Destroy(gameObject);
+            EventsManager.InvokeRemoveItemEvent(itemInstance);
         }
         _image.raycastTarget = true;
     }

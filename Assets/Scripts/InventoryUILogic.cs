@@ -7,17 +7,18 @@ public class InventoryUILogic : MonoBehaviour
 {
     [SerializeField] private List<GameObject> windows;
     public List<GameObject> slots = new();
+    public RectTransform rectTransform;
 
     private WindowHandler _windowHandler = new();
 
     private void OnEnable()
     {
-        ItemScript.AddItemEvent += AddItemToSlot;
+        EventsManager.AddItemEvent += AddItemToSlot;
     }
 
     private void OnDisable()
     {
-        ItemScript.AddItemEvent -= AddItemToSlot;
+        EventsManager.AddItemEvent -= AddItemToSlot;
     }
     
     public void AddItemToSlot(ItemInstance itemInstance)
@@ -28,8 +29,8 @@ public class InventoryUILogic : MonoBehaviour
             {
                 GameObject item = new GameObject("Item");
                 item.transform.SetParent(slots[i].transform);
-
-                item.AddComponent<DragDrop>();
+                
+                item.AddComponent<DragDrop>().itemInstance = itemInstance;
                 var image = item.AddComponent<Image>();
                 image.sprite = itemInstance.sprite;
                 image.transform.localScale = new Vector3(1, 1, 1);

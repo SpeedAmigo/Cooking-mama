@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<ItemInstance> items = new();
+    public SO_Inventory SoInventory;
 
     private void OnEnable()
     {
         EventsManager.RemoveItemEvent += RemoveItem;
         EventsManager.AddItemEvent += AddItem;
+    }
+
+    private void Start()
+    {
+        EventsManager.InvokeAddInventoryReference(SoInventory);
     }
 
     private void OnDisable()
@@ -19,18 +24,23 @@ public class Inventory : MonoBehaviour
         EventsManager.AddItemEvent -= AddItem;
     }
 
-    public void AddItem(ItemInstance itemToAdd)
+    private void AddItem(ItemScript item)
     {
-        items.Add(itemToAdd);
+        if (SoInventory.items.Count < SoInventory.maxInventorySize)
+        {
+            SoInventory.items.Add(item.itemInstance);
+            EventsManager.InvokeAddItemToUI(item.itemInstance);
+            Destroy(item.gameObject);
+        }
     }
 
-    public void RemoveItem(ItemInstance itemToRemove)
+    private void RemoveItem(ItemInstance itemInstance)
     {
-        DropItem(itemToRemove, transform.root.position);
-        items.Remove(itemToRemove);
+        DropItem(itemInstance, transform.root.position);
+        SoInventory.items.Remove(itemInstance);
     }
-
-    private GameObject DropItem(ItemInstance itemInstance, Vector3 spawnPosition)
+    
+    private void DropItem(ItemInstance itemInstance, Vector3 spawnPosition)
     {
         Vector3 spawnOffset = new Vector2(0f, -1f);
         
@@ -48,7 +58,5 @@ public class Inventory : MonoBehaviour
         droppedItem.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         
         droppedItem.transform.position = spawnPosition + spawnOffset;
-        
-        return droppedItem;
     }
 }   

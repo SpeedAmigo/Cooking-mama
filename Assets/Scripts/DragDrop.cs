@@ -8,7 +8,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     
     [SerializeField] private RectTransform _rectTransform;
     private Transform _itemParent;
-    private Image _image;
+    [SerializeField] private Image _image;
     public ItemInstance itemInstance;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         _itemParent = inventoryUILogic.transform;
         _rectTransform = inventoryUILogic.rectTransform;
     }
-    
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentAfterDrag = transform.parent;

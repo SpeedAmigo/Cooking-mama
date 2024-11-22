@@ -13,12 +13,12 @@ public class InventoryUILogic : MonoBehaviour
 
     private void OnEnable()
     {
-        EventsManager.AddItemEvent += AddItemToSlot;
+        EventsManager.AddItemToUI += AddItemToSlot;
     }
-
     private void OnDisable()
     {
-        EventsManager.AddItemEvent -= AddItemToSlot;
+        EventsManager.AddItemToUI -= AddItemToSlot;
+        EventsManager.AddInventoryReference -= RestoreItems;
     }
     
     public void AddItemToSlot(ItemInstance itemInstance)
@@ -40,12 +40,22 @@ public class InventoryUILogic : MonoBehaviour
         }
     }
 
+    private void RestoreItems(SO_Inventory inventory)
+    {
+        foreach (ItemInstance item in inventory.items)
+        {
+            AddItemToSlot(item);
+        }
+    }
+
     private void Start()
     {
         foreach (var window in windows)
         {
             window.SetActive(false);
         }
+        
+        EventsManager.AddInventoryReference += RestoreItems;
     }
     
     private void Update()

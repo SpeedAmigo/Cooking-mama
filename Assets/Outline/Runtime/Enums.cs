@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using UnityEngine;
+
 public enum SignType
 {
     East,
@@ -18,4 +21,11 @@ public enum GameState
     InGame,
     Inventory,
     None
+}
+
+public enum InventorySize
+{
+    Small = 5,
+    Medium = 10,
+    Large = 15,
 }

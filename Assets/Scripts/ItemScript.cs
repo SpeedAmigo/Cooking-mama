@@ -7,8 +7,7 @@ public class ItemScript : MonoBehaviour, IPickable
 {
     [SerializeField] private ItemData itemData;
     public ItemInstance itemInstance;
-    
-    
+
     public void Start()
     {
         //base.Start();
@@ -21,7 +20,9 @@ public class ItemScript : MonoBehaviour, IPickable
     
     public void Pick()
     {
-        EventsManager.InvokeAddItemEvent(itemInstance);
-        Destroy(gameObject);
+        if (GameStateManager.CurrentGameState == GameState.InGame)
+        {
+            EventsManager.InvokeAddItemEvent(this);
+        }
     }
 }

@@ -29,3 +29,10 @@ public enum InventorySize
     Medium = 10,
     Large = 15,
 }
+
+public enum MinesweeperSize
+{
+    Small,
+    Medium,
+    Large,
+}

@@ -9,6 +9,12 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     {
         GameObject droppedItem = eventData.pointerDrag;
         DragDrop dragDrop = droppedItem.GetComponent<DragDrop>();
+
+        if (transform.childCount > 0)
+        {
+            Debug.Log("Slot is occupied!");
+            return;
+        }
         dragDrop.parentAfterDrag = transform;
     }
 }

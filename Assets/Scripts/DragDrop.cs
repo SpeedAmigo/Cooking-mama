@@ -17,7 +17,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         
         var inventoryUILogic = GetComponentInParent<InventoryUILogic>();
         _itemParent = inventoryUILogic.transform;
-        _rectTransform = inventoryUILogic.rectTransform;
+        _rectTransform = inventoryUILogic._rectTransform;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

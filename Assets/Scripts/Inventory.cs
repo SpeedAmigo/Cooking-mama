@@ -6,30 +6,33 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public SO_Inventory SoInventory;
+    private InventoryUILogic _inventoryUILogic;
 
     private void OnEnable()
     {
         EventsManager.RemoveItemEvent += RemoveItem;
         EventsManager.AddItemEvent += AddItem;
     }
-
-    private void Start()
-    {
-        EventsManager.InvokeAddInventoryReference(SoInventory);
-    }
-
+    
     private void OnDisable()
     {
         EventsManager.RemoveItemEvent -= RemoveItem;
         EventsManager.AddItemEvent -= AddItem;
     }
 
+    private void Start()
+    {
+        _inventoryUILogic = GetComponentInChildren<InventoryUILogic>();
+        _inventoryUILogic.CreateItemSlots(SoInventory.maxInventorySize);
+        _inventoryUILogic.RestoreItems(SoInventory);
+    }
+    
     private void AddItem(ItemScript item)
     {
         if (SoInventory.items.Count < SoInventory.maxInventorySize)
         {
             SoInventory.items.Add(item.itemInstance);
-            EventsManager.InvokeAddItemToUI(item.itemInstance);
+            _inventoryUILogic.AddItemToSlot(item.itemInstance);
             Destroy(item.gameObject);
         }
     }

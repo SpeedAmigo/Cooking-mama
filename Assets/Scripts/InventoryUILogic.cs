@@ -5,22 +5,15 @@ using UnityEngine.UI;
 
 public class InventoryUILogic : MonoBehaviour
 {
+    [SerializeField] private GameObject itemSlotprefab;
     [SerializeField] private List<GameObject> windows;
-    public List<GameObject> slots = new();
-    public RectTransform rectTransform;
-
-    private WindowHandler _windowHandler = new();
-
-    private void OnEnable()
-    {
-        EventsManager.AddItemToUI += AddItemToSlot;
-    }
-    private void OnDisable()
-    {
-        EventsManager.AddItemToUI -= AddItemToSlot;
-        EventsManager.AddInventoryReference -= RestoreItems;
-    }
     
+    public List<GameObject> slots = new();
+    
+    private WindowHandler _windowHandler = new(); 
+    private  GridLayoutGroup _layoutGroup;
+    [HideInInspector] public RectTransform _rectTransform;
+
     public void AddItemToSlot(ItemInstance itemInstance)
     {
         for (int i = 0; i < slots.Count; i++)
@@ -40,7 +33,16 @@ public class InventoryUILogic : MonoBehaviour
         }
     }
 
-    private void RestoreItems(SO_Inventory inventory)
+    public void CreateItemSlots(int slotCount)
+    {
+        for (int i = 0; i < slotCount; i++)
+        {
+            GameObject slot = Instantiate(itemSlotprefab, _layoutGroup.transform);
+            slots.Add(slot);
+        }
+    }
+
+    public void RestoreItems(SO_Inventory inventory)
     {
         foreach (ItemInstance item in inventory.items)
         {
@@ -48,14 +50,23 @@ public class InventoryUILogic : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        _layoutGroup = GetComponentInChildren<GridLayoutGroup>();
+        _rectTransform = transform.GetChild(0).GetComponent<RectTransform>();
+    }
+
     private void Start()
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            windows.Add(transform.GetChild(i).gameObject);
+        }
+        
         foreach (var window in windows)
         {
             window.SetActive(false);
         }
-        
-        EventsManager.AddInventoryReference += RestoreItems;
     }
     
     private void Update()

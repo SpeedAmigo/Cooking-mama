@@ -1,18 +1,21 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MinesweeperManager : MonoBehaviour
 {
     [SerializeField] private Transform tilePrefab;
     [SerializeField] private Transform filed;
-    
     [SerializeField] private MinesweeperSize minesweeperSize;
-    
-    private int width;
-    private int height;
-    private int mineCount;
 
+    [SerializeField] private List<GameObject> tilesList;
+    [SerializeField] private List<GameObject> mineList;
+
+    public static event Action MsDebug;
+    
+    private BoardSize boardSize;
     private BoardSize GetBoardSize(MinesweeperSize size)
     {
         switch (size)
@@ -30,10 +33,6 @@ public class MinesweeperManager : MonoBehaviour
 
     public void CreateBoard(int width, int height, int mineCount)
     {
-        this.width = width;
-        this.height = height;
-        this.mineCount = mineCount;
-        
         for (int row = 0; row < height; row++)
         {
             for (int col = 0; col < width; col++)
@@ -44,13 +43,70 @@ public class MinesweeperManager : MonoBehaviour
                 float yIndex = row - ((height - 1) / 2f);
                 tileTransform.localPosition = new Vector2(xIndex, yIndex);
                 
+                tilesList.Add(tileTransform.gameObject);
             }
         }
     }
 
+    private void PlaceMines(List<GameObject> tilesList)
+    {
+        List<TileScript> minesScripts = new List<TileScript>();
+        
+        for (int i = 0; i < boardSize.mines; i++)
+        {
+            int randomIndex = Random.Range(0, tilesList.Count);
+            
+            GameObject randomTile = tilesList[randomIndex];
+
+            TileScript tile = randomTile.GetComponent<TileScript>();
+            
+            tile.isMine = true;
+            
+            mineList.Add(randomTile);
+            tilesList.Remove(randomTile);
+            
+            minesScripts.Add(tile);
+        }
+        
+        //SetNumbers(minesScripts);
+    }
+
+    private void SetNumbers(List<TileScript> minesScripts) 
+    {
+        /*
+        foreach (TileScript mine in mineList)
+        {
+            List<TileScript> neighbours = mine.GetNeighbours();
+            
+            //Debug.Log($"Mine at {mine.transform.position} has neighbours: {neighbours.Count}");
+
+            foreach (TileScript neighbour in neighbours)
+            {
+                neighbour.mineCount++;
+            }
+        }
+        */
+    }
+
     private void Start()
     {
-        BoardSize boardSize = GetBoardSize(minesweeperSize);
+        boardSize = GetBoardSize(minesweeperSize);
         CreateBoard(boardSize.width, boardSize.height, boardSize.mines);
+        
+        PlaceMines(tilesList);
     }
+
+
+    #region DebugRegion
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            MsDebug?.Invoke();
+        }
+    }
+    
+    #endregion
+
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,14 +11,28 @@ public class TileScript : MonoBehaviour
     [SerializeField] private Sprite mineWrongTile;
     [SerializeField] private Sprite mineHitTile;
     
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer _spriteRenderer;
+    private bool _clicked;
     
+    private readonly HashSet<TileScript> _visitedTiles = new();
+    
+    //public MinesweeperManager manager;
     public bool flagged = false;
     public bool active = true;
     public bool isMine = false;
     public int mineCount = 0;
-    
-    private bool clicked;
+
+    private readonly List<Vector2> _directions = new()
+    {
+        Vector2.up,
+        Vector2.down,
+        Vector2.left,
+        Vector2.right,
+        Vector2.up + Vector2.left,
+        Vector2.up + Vector2.right,
+        Vector2.down + Vector2.left,
+        Vector2.down + Vector2.right
+    };
 
     private void OnMouseOver()
     {
@@ -25,6 +40,12 @@ public class TileScript : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                /*
+                if (manager.gameStarted == false)
+                {
+                    manager.GameStarter();
+                }
+                */
                 ClickedTile();
             }
 
@@ -34,11 +55,11 @@ public class TileScript : MonoBehaviour
 
                 if (flagged)
                 {
-                    spriteRenderer.sprite = flaggedTile;
+                    _spriteRenderer.sprite = flaggedTile;
                 }
                 else
                 {
-                    spriteRenderer.sprite = unclickedTile;
+                    _spriteRenderer.sprite = unclickedTile;
                 }
             }
         }
@@ -51,37 +72,29 @@ public class TileScript : MonoBehaviour
             active = false;
             if (isMine)
             {
-                //gameOver
-                spriteRenderer.sprite = mineHitTile;
+                Debug.Log("Game Over");
+                _spriteRenderer.sprite = mineHitTile;
+                //manager.gameStarted = false;
             }
             else
             {
-                spriteRenderer.sprite = clickedTiles[mineCount];
+                if (mineCount == 0)
+                {
+                    DeactivateEmpty(transform.position);
+                }
+                _spriteRenderer.sprite = clickedTiles[mineCount];
             }
         }
     }
-
-    public void GetNeighbours()
+    
+    private void GetNeighbours()
     {
-        List<TileScript> neighbours = new List<TileScript>();
-        List<Vector2> directions = new List<Vector2>()
-        {
-            Vector2.up,
-            Vector2.down,
-            Vector2.left,
-            Vector2.right,
-            Vector2.up + Vector2.left,
-            Vector2.up + Vector2.right,
-            Vector2.down + Vector2.left,
-            Vector2.down + Vector2.right
-        };
-
-        foreach (Vector2 dir in directions)
+        foreach (Vector2 dir in _directions)
         {
             Vector2 positionOfNeighbor = new Vector2(transform.position.x, transform.position.y) + dir;
             Collider2D hit = Physics2D.OverlapPoint(positionOfNeighbor);
-
-            if (hit != null)
+            
+            if ( hit != null)
             {
                 Debug.DrawRay(transform.position, dir, Color.cyan, 1000f);
                 TileScript tileScript = hit.GetComponent<TileScript>();
@@ -90,21 +103,46 @@ public class TileScript : MonoBehaviour
                 {
                     tileScript.mineCount++;
                 }
-                neighbours.Add(tileScript);
             }
         }
-        Debug.Log(neighbours.Count);
+    }
+
+    public void DeactivateEmpty(Vector2 position)
+    {
+        if (_visitedTiles.Contains(this)) return;
+        _visitedTiles.Add(this);
+        
+        _spriteRenderer.sprite = clickedTiles[mineCount];
+        
+        foreach (Vector2 dir in _directions)
+        {
+            Vector2 positionOfNeighbor = new Vector2(transform.position.x, transform.position.y) + dir;
+            Collider2D hit = Physics2D.OverlapPoint(positionOfNeighbor);
+
+            if (hit != null)
+            {
+                TileScript script = hit.GetComponent<TileScript>();
+                    
+                if (script!= null && script.mineCount == 0)
+                {
+                    script.DeactivateEmpty(positionOfNeighbor);
+                }
+                else if (script != null) {
+                    script._spriteRenderer.sprite = clickedTiles[script.mineCount];
+                }
+            }  
+        }
     }
     
-
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = unclickedTile;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite = unclickedTile;
     }
 
     private void Start()
     {
+        // it's called from here because otherwise indicators are messed up
         if (isMine)
         {
             GetNeighbours();
@@ -114,33 +152,35 @@ public class TileScript : MonoBehaviour
     private void OnEnable()
     {
         MinesweeperManager.MsDebug += DebugVisible;
+        EventsManager.TileClickedEvent += DeactivateEmpty;
     }
 
     private void OnDisable()
     {
         MinesweeperManager.MsDebug -= DebugVisible;
+        EventsManager.TileClickedEvent -= DeactivateEmpty;
     }
 
     public void DebugVisible()
     {
-        clicked = !clicked;
+        _clicked = !_clicked;
         
-        if (active && clicked)
+        if (active && _clicked)
         {
             active = false;
             if (isMine)
             {
-                spriteRenderer.sprite = mineTile;
+                _spriteRenderer.sprite = mineTile;
             }
             else
             {
-                spriteRenderer.sprite = clickedTiles[mineCount];
+                _spriteRenderer.sprite = clickedTiles[mineCount];
             }
         }
 
-        if (!active && !clicked)
+        if (!active && !_clicked)
         {
-            spriteRenderer.sprite = unclickedTile;
+            _spriteRenderer.sprite = unclickedTile;
             active = true;
         }
     }

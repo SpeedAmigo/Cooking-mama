@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,12 +9,14 @@ public class MinesweeperManager : MonoBehaviour
     [SerializeField] private Transform filed;
     [SerializeField] private MinesweeperSize minesweeperSize;
 
-    [SerializeField] private List<GameObject> tilesList;
-    [SerializeField] private List<GameObject> mineList;
+    [SerializeField] private List<TileScript> tilesList;
+    [SerializeField] private List<TileScript> mineList;
 
     public static event Action MsDebug;
     
-    private BoardSize boardSize;
+    private BoardSize _boardSize;
+    public bool gameStarted = false;
+    
     private BoardSize GetBoardSize(MinesweeperSize size)
     {
         switch (size)
@@ -27,7 +28,7 @@ public class MinesweeperManager : MonoBehaviour
             case MinesweeperSize.Large:
                 return new BoardSize(24, 24, 99);
             default:
-                throw new System.ArgumentException("Invalid Minesweeper size");
+                throw new ArgumentException("Invalid Minesweeper size");
         }
     }
 
@@ -37,63 +38,44 @@ public class MinesweeperManager : MonoBehaviour
         {
             for (int col = 0; col < width; col++)
             {
-                Transform tileTransform = Instantiate(tilePrefab);
-                tileTransform.parent = filed;
+                Transform tileTransform = Instantiate(tilePrefab, filed, true);
                 float xIndex = col - ((width - 1) / 2f);
                 float yIndex = row - ((height - 1) / 2f);
                 tileTransform.localPosition = new Vector2(xIndex, yIndex);
+
+                TileScript tileScript = tileTransform.GetComponent<TileScript>();
+                //tileScript.manager = this;
                 
-                tilesList.Add(tileTransform.gameObject);
+                tilesList.Add(tileScript);
             }
         }
+        PlaceMines(tilesList);
     }
 
-    private void PlaceMines(List<GameObject> tilesList)
+    public void GameStarter()
     {
-        List<TileScript> minesScripts = new List<TileScript>();
-        
-        for (int i = 0; i < boardSize.mines; i++)
+        PlaceMines(tilesList);
+        gameStarted = true;
+    }
+
+    private void PlaceMines(List<TileScript> tileList)
+    {
+        for (int i = 0; i < _boardSize.mines; i++)
         {
-            int randomIndex = Random.Range(0, tilesList.Count);
+            int randomIndex = Random.Range(0, tileList.Count);
             
-            GameObject randomTile = tilesList[randomIndex];
+            TileScript randomTile = tileList[randomIndex];
 
             TileScript tile = randomTile.GetComponent<TileScript>();
             
             tile.isMine = true;
-            
-            mineList.Add(randomTile);
-            tilesList.Remove(randomTile);
-            
-            minesScripts.Add(tile);
         }
-        
-        //SetNumbers(minesScripts);
-    }
-
-    private void SetNumbers(List<TileScript> minesScripts) 
-    {
-        /*
-        foreach (TileScript mine in mineList)
-        {
-            List<TileScript> neighbours = mine.GetNeighbours();
-            
-            //Debug.Log($"Mine at {mine.transform.position} has neighbours: {neighbours.Count}");
-
-            foreach (TileScript neighbour in neighbours)
-            {
-                neighbour.mineCount++;
-            }
-        }
-        */
     }
 
     private void Start()
     {
-        boardSize = GetBoardSize(minesweeperSize);
-        CreateBoard(boardSize.width, boardSize.height, boardSize.mines);
-        
-        PlaceMines(tilesList);
+        _boardSize = GetBoardSize(minesweeperSize);
+        CreateBoard(_boardSize.width, _boardSize.height, _boardSize.mines);
     }
 
 
@@ -106,7 +88,5 @@ public class MinesweeperManager : MonoBehaviour
             MsDebug?.Invoke();
         }
     }
-    
     #endregion
-
 }

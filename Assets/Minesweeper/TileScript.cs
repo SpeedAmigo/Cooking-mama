@@ -15,8 +15,7 @@ public class TileScript : MonoBehaviour
     private bool _clicked;
     
     private readonly HashSet<TileScript> _visitedTiles = new();
-    
-    //public MinesweeperManager manager;
+
     public bool flagged = false;
     public bool active = true;
     public bool isMine = false;
@@ -40,12 +39,6 @@ public class TileScript : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                /*
-                if (manager.gameStarted == false)
-                {
-                    manager.GameStarter();
-                }
-                */
                 ClickedTile();
             }
 
@@ -74,7 +67,6 @@ public class TileScript : MonoBehaviour
             {
                 Debug.Log("Game Over");
                 _spriteRenderer.sprite = mineHitTile;
-                //manager.gameStarted = false;
             }
             else
             {
@@ -87,7 +79,7 @@ public class TileScript : MonoBehaviour
         }
     }
     
-    private void GetNeighbours()
+    public void GetNeighbours()
     {
         foreach (Vector2 dir in _directions)
         {
@@ -104,7 +96,7 @@ public class TileScript : MonoBehaviour
                     tileScript.mineCount++;
                 }
             }
-        }
+        }   
     }
 
     public void DeactivateEmpty(Vector2 position)
@@ -152,13 +144,11 @@ public class TileScript : MonoBehaviour
     private void OnEnable()
     {
         MinesweeperManager.MsDebug += DebugVisible;
-        EventsManager.TileClickedEvent += DeactivateEmpty;
     }
 
     private void OnDisable()
     {
         MinesweeperManager.MsDebug -= DebugVisible;
-        EventsManager.TileClickedEvent -= DeactivateEmpty;
     }
 
     public void DebugVisible()

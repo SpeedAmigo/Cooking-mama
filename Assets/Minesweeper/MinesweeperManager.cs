@@ -15,7 +15,6 @@ public class MinesweeperManager : MonoBehaviour
     public static event Action MsDebug;
     
     private BoardSize _boardSize;
-    public bool gameStarted = false;
     
     private BoardSize GetBoardSize(MinesweeperSize size)
     {
@@ -42,22 +41,13 @@ public class MinesweeperManager : MonoBehaviour
                 float xIndex = col - ((width - 1) / 2f);
                 float yIndex = row - ((height - 1) / 2f);
                 tileTransform.localPosition = new Vector2(xIndex, yIndex);
-
-                TileScript tileScript = tileTransform.GetComponent<TileScript>();
-                //tileScript.manager = this;
                 
-                tilesList.Add(tileScript);
+                tilesList.Add(tileTransform.GetComponent<TileScript>());
             }
         }
         PlaceMines(tilesList);
     }
-
-    public void GameStarter()
-    {
-        PlaceMines(tilesList);
-        gameStarted = true;
-    }
-
+    
     private void PlaceMines(List<TileScript> tileList)
     {
         for (int i = 0; i < _boardSize.mines; i++)

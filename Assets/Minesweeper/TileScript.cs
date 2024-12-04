@@ -1,38 +1,25 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TileScript : MonoBehaviour
 {
     [SerializeField] private Sprite unclickedTile;
-    [SerializeField] private List<Sprite> clickedTiles;
     [SerializeField] private Sprite flaggedTile;
     [SerializeField] private Sprite mineTile;
     [SerializeField] private Sprite mineWrongTile;
     [SerializeField] private Sprite mineHitTile;
+    public List<Sprite> clickedTiles;
     
-    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer _spriteRenderer;
+    public MinesweeperManager manager;
+    
     private bool _clicked;
     
-    private readonly HashSet<TileScript> _visitedTiles = new();
-
     public bool flagged = false;
     public bool active = true;
     public bool isMine = false;
     public int mineCount = 0;
-
-    private readonly List<Vector2> _directions = new()
-    {
-        Vector2.up,
-        Vector2.down,
-        Vector2.left,
-        Vector2.right,
-        Vector2.up + Vector2.left,
-        Vector2.up + Vector2.right,
-        Vector2.down + Vector2.left,
-        Vector2.down + Vector2.right
-    };
-
+    
     private void OnMouseOver()
     {
         if (active)
@@ -72,57 +59,12 @@ public class TileScript : MonoBehaviour
             {
                 if (mineCount == 0)
                 {
-                    DeactivateEmpty(transform.position);
+                    Vector2Int gridPosition = new Vector2Int((int)transform.position.x, (int)transform.position.y);
+                    
+                    manager.DeactivateEmpty(gridPosition);
                 }
                 _spriteRenderer.sprite = clickedTiles[mineCount];
             }
-        }
-    }
-    
-    public void GetNeighbours()
-    {
-        foreach (Vector2 dir in _directions)
-        {
-            Vector2 positionOfNeighbor = new Vector2(transform.position.x, transform.position.y) + dir;
-            Collider2D hit = Physics2D.OverlapPoint(positionOfNeighbor);
-            
-            if ( hit != null)
-            {
-                Debug.DrawRay(transform.position, dir, Color.cyan, 1000f);
-                TileScript tileScript = hit.GetComponent<TileScript>();
-
-                if (!tileScript.isMine)
-                {
-                    tileScript.mineCount++;
-                }
-            }
-        }   
-    }
-
-    public void DeactivateEmpty(Vector2 position)
-    {
-        if (_visitedTiles.Contains(this)) return;
-        _visitedTiles.Add(this);
-        
-        _spriteRenderer.sprite = clickedTiles[mineCount];
-        
-        foreach (Vector2 dir in _directions)
-        {
-            Vector2 positionOfNeighbor = new Vector2(transform.position.x, transform.position.y) + dir;
-            Collider2D hit = Physics2D.OverlapPoint(positionOfNeighbor);
-
-            if (hit != null)
-            {
-                TileScript script = hit.GetComponent<TileScript>();
-                    
-                if (script!= null && script.mineCount == 0)
-                {
-                    script.DeactivateEmpty(positionOfNeighbor);
-                }
-                else if (script != null) {
-                    script._spriteRenderer.sprite = clickedTiles[script.mineCount];
-                }
-            }  
         }
     }
     
@@ -131,16 +73,7 @@ public class TileScript : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.sprite = unclickedTile;
     }
-
-    private void Start()
-    {
-        // it's called from here because otherwise indicators are messed up
-        if (isMine)
-        {
-            GetNeighbours();
-        }
-    }
-
+    
     private void OnEnable()
     {
         MinesweeperManager.MsDebug += DebugVisible;

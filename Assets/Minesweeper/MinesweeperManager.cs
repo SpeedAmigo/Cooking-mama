@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System.Linq;
 
 public class MinesweeperManager : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class MinesweeperManager : MonoBehaviour
     [SerializeField] private MinesweeperSize minesweeperSize;
 
     [SerializeField] private List<TileScript> tilesList;
-    [SerializeField] private List<TileScript> mineList;
 
     public static event Action MsDebug;
+    public bool isStarted = false;
     
     private readonly HashSet<TileScript> _visitedTiles = new();
     private Dictionary<Vector2Int, TileScript> _tileDictionary = new();
@@ -46,14 +47,13 @@ public class MinesweeperManager : MonoBehaviour
     };
 
 
-    public void CreateBoard(int width, int height, int mineCount)
+    private void CreateBoard(int width, int height)
     {
         for (int row = 0; row < height; row++)
         {
             for (int col = 0; col < width; col++)
             {
                 Transform tileTransform = Instantiate(tilePrefab, filed, true);
-                //Vector2Int gridPosition = new Vector2Int(col, row);
                 float xIndex = col - ((width - 1) / 2f);
                 float yIndex = row - ((height - 1) / 2f);
                 tileTransform.localPosition = new Vector2(xIndex, yIndex);
@@ -62,18 +62,22 @@ public class MinesweeperManager : MonoBehaviour
                 TileScript tileScript = tileTransform.GetComponent<TileScript>();
                 _tileDictionary[gridPosition] = tileScript;
                 tileScript.manager = this;
+                tilesList.Add(tileScript);
 
                 Debug.Log(gridPosition);
-                //tilesList.Add(tileTransform.GetComponent<TileScript>());
             }
         }
-        
-        PlaceMines(mineCount);
+    }
+
+    public void GameStarter(Vector2Int gridPosition)
+    {
+        PlaceMines(_boardSize.mines, gridPosition);
     }
     
-    private void PlaceMines(int mineCount)
+    private void PlaceMines(int mineCount, Vector2Int gridPosition)
     {
         List<Vector2Int> avaliblePositions = new List<Vector2Int>(_tileDictionary.Keys);
+        avaliblePositions.Remove(gridPosition);
         
         for (int i = 0; i < mineCount; i++)
         {
@@ -82,6 +86,7 @@ public class MinesweeperManager : MonoBehaviour
             
             TileScript mineTile = _tileDictionary[randomPosition];
             mineTile.isMine = true;
+            tilesList.Remove(mineTile);
             
             avaliblePositions.RemoveAt(randomIndex);
             
@@ -89,7 +94,7 @@ public class MinesweeperManager : MonoBehaviour
         }
     }
     
-    public void GetNeighbours(Vector2Int minePosition)
+    private void GetNeighbours(Vector2Int minePosition)
     {
         foreach (Vector2Int dir in _directions)
         {
@@ -102,7 +107,8 @@ public class MinesweeperManager : MonoBehaviour
                     neighborScript.mineCount++;
                 }
             }
-        }   
+        }
+        isStarted = true;
     }
     
     public void DeactivateEmpty(Vector2Int gridPosition)
@@ -113,6 +119,7 @@ public class MinesweeperManager : MonoBehaviour
         _visitedTiles.Add(currentTile);
         
         currentTile._spriteRenderer.sprite = currentTile.clickedTiles[currentTile.mineCount];
+        currentTile.active = false;
         
         foreach (Vector2Int dir in _directions)
         {
@@ -127,15 +134,27 @@ public class MinesweeperManager : MonoBehaviour
                 else if (!neighborScript.isMine)
                 {
                     neighborScript._spriteRenderer.sprite = neighborScript.clickedTiles[neighborScript.mineCount];
+                    neighborScript.active = false;
                 }
             }
+        }
+    }
+
+    public void UpdateTileState()
+    {
+        Debug.Log("dziala");
+        bool stateCheck = tilesList.All(tileScript => tileScript.active == false);
+
+        if (stateCheck)
+        {
+            Debug.Log("Game Won!");
         }
     }
     
     private void Start()
     {
         _boardSize = GetBoardSize(minesweeperSize);
-        CreateBoard(_boardSize.width, _boardSize.height, _boardSize.mines);
+        CreateBoard(_boardSize.width, _boardSize.height);
     }
     
     #region DebugRegion

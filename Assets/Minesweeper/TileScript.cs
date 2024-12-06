@@ -26,7 +26,15 @@ public class TileScript : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                ClickedTile();
+                if (manager.isStarted == false)
+                {
+                    manager.GameStarter(new Vector2Int((int)transform.position.x, (int)transform.position.y));
+                }
+
+                if (manager.isStarted)
+                {
+                    ClickedTile();
+                }
             }
 
             if (Input.GetMouseButtonDown(1))
@@ -64,6 +72,7 @@ public class TileScript : MonoBehaviour
                     manager.DeactivateEmpty(gridPosition);
                 }
                 _spriteRenderer.sprite = clickedTiles[mineCount];
+                manager.UpdateTileState();
             }
         }
     }

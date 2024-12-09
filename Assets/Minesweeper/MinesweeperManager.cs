@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class MinesweeperManager : MonoBehaviour
 {
@@ -11,10 +12,12 @@ public class MinesweeperManager : MonoBehaviour
     [SerializeField] private MinesweeperSize minesweeperSize;
 
     [SerializeField] private List<TileScript> tilesList;
+    private List<TileScript> minesList = new();
 
     public static event Action MsDebug;
     public bool isStarted = false;
     
+    [HideInInspector] public Timer timer;
     private readonly HashSet<TileScript> _visitedTiles = new();
     private Dictionary<Vector2Int, TileScript> _tileDictionary = new();
     private BoardSize _boardSize;
@@ -63,14 +66,28 @@ public class MinesweeperManager : MonoBehaviour
                 _tileDictionary[gridPosition] = tileScript;
                 tileScript.manager = this;
                 tilesList.Add(tileScript);
-
-                Debug.Log(gridPosition);
+                
+                //Debug.Log(gridPosition);
             }
         }
     }
 
+    public void GameRestart()
+    {
+        foreach (TileScript tileScript in tilesList)
+        {
+            tileScript.ResetTile();
+        }
+        
+        isStarted = false;
+        timer.StopTimer();
+        timer.ResetTimer();
+        _visitedTiles.Clear();
+    }
+
     public void GameStarter(Vector2Int gridPosition)
     {
+        timer.ResetTimer();
         PlaceMines(_boardSize.mines, gridPosition);
     }
     
@@ -86,11 +103,13 @@ public class MinesweeperManager : MonoBehaviour
             
             TileScript mineTile = _tileDictionary[randomPosition];
             mineTile.isMine = true;
-            tilesList.Remove(mineTile);
+            minesList.Add(mineTile);
+            //tilesList.Remove(mineTile);
             
             avaliblePositions.RemoveAt(randomIndex);
             
             GetNeighbours(randomPosition);
+            ListUpdate();
         }
     }
     
@@ -109,6 +128,7 @@ public class MinesweeperManager : MonoBehaviour
             }
         }
         isStarted = true;
+        timer.StartTimer();
     }
     
     public void DeactivateEmpty(Vector2Int gridPosition)
@@ -140,21 +160,28 @@ public class MinesweeperManager : MonoBehaviour
         }
     }
 
+    private List<TileScript> ListUpdate()
+    {
+        List<TileScript> updatedTilesList = tilesList.Except(minesList).ToList();
+        
+        return updatedTilesList;
+    }
+
     public void UpdateTileState()
     {
-        Debug.Log("dziala");
-        bool stateCheck = tilesList.All(tileScript => tileScript.active == false);
+        bool stateCheck = ListUpdate().All(tileScript => tileScript.active == false);
 
         if (stateCheck)
         {
             Debug.Log("Game Won!");
+            timer.StopTimer();
         }
     }
-    
     private void Start()
     {
         _boardSize = GetBoardSize(minesweeperSize);
         CreateBoard(_boardSize.width, _boardSize.height);
+        timer = GetComponentInChildren<Timer>();
     }
     
     #region DebugRegion

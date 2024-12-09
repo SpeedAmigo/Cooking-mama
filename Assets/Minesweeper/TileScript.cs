@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TileScript : MonoBehaviour
 {
-    [SerializeField] private Sprite unclickedTile;
+    [SerializeField] private  Sprite unclickedTile;
     [SerializeField] private Sprite flaggedTile;
     [SerializeField] private Sprite mineTile;
     [SerializeField] private Sprite mineWrongTile;
@@ -62,6 +62,7 @@ public class TileScript : MonoBehaviour
             {
                 Debug.Log("Game Over");
                 _spriteRenderer.sprite = mineHitTile;
+                manager.timer.StopTimer();
             }
             else
             {
@@ -75,6 +76,15 @@ public class TileScript : MonoBehaviour
                 manager.UpdateTileState();
             }
         }
+    }
+
+    public void ResetTile()
+    {
+        active = true;
+        isMine = false;
+        mineCount = 0;
+        flagged = false;
+        _spriteRenderer.sprite = unclickedTile;
     }
     
     private void Awake()

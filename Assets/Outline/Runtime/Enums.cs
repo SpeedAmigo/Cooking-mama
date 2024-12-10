@@ -37,7 +37,11 @@ public enum MinesweeperSize
     Large,
 }
 
-public enum TimeCycle
+public enum DayCycles
 {
-    
+    Sunrise = 0,
+    Day = 1,
+    Sunset = 2,
+    Midnight = 3,
+    Night = 4,
 }

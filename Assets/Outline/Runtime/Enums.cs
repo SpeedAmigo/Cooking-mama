@@ -36,3 +36,8 @@ public enum MinesweeperSize
     Medium,
     Large,
 }
+
+public enum TimeCycle
+{
+    
+}

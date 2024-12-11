@@ -20,22 +20,15 @@ public class DayNightScript : MonoBehaviour
     [SerializeField] private Color _night;
     
     [SerializeField] private float transitionTime;
-
-    [SerializeField] private Light2D[] _lightMaps;
-
-    private void ControlLightsMaps(bool state)
-    {
-        if (_lightMaps.Length > 0)
-        {
-            foreach (Light2D light in _lightMaps)
-            {
-                light.enabled = state;
-            }
-        }
-    }
-
+    
+    private Color _currentColor;
+    
     private void ChangeDayColor(Color newColor)
     {
+        if (_currentColor == newColor) return; // avoid restarting the same coroutine
+        
+        _currentColor = newColor;
+        
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
@@ -55,6 +48,15 @@ public class DayNightScript : MonoBehaviour
             yield return null;
         }
         _globalLight.color = targetColor;
+
+        if (_dayCycles == DayCycles.Midnight || _dayCycles == DayCycles.Night)
+        {
+            EventsManager.InvokeLightToggleEvent(true);
+        }
+        else
+        {
+            EventsManager.InvokeLightToggleEvent(false);
+        }
     }
     
     private void Update()
@@ -79,15 +81,6 @@ public class DayNightScript : MonoBehaviour
             default:
                 print("DayCycles not implemented");
                 break;
-        }
-
-        if (_dayCycles == DayCycles.Midnight || _dayCycles == DayCycles.Night)
-        {
-            ControlLightsMaps(true);
-        }
-        else
-        {
-            ControlLightsMaps(false);
         }
     }
 

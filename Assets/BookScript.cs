@@ -1,36 +1,42 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class BookScript : MonoBehaviour, IPointerClickHandler
 {
-    [Range(0f, 300f)]
-    public float snapDistance;
-
+    private ShelfManager _shelfManager;
     private bool _dragging;
+    private Transform _snapTarget;
     
-    [SerializeField] private Transform snapTarget;
-    [SerializeField] private List<Transform> startPoints;
+    private Vector3 offset = new Vector3(0, 1f, 0);
     
-    
-    public void OnPointerClick(PointerEventData eventData) 
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (!_dragging)
+        if (!_dragging && _shelfManager.heldBook.Count >= 1)
+        {
+            _shelfManager.SwapBooks(_shelfManager.heldBook[0], gameObject);
+            return;
+        }
+
+        if (!_dragging && _shelfManager.heldBook.Count < 1)
         {
             _dragging = true;
+            _shelfManager.heldBook.Add(gameObject);
+            transform.SetParent(_shelfManager.booksParent.transform);
             return;
         }
         
         _dragging = false;
+        _shelfManager.heldBook.Remove(gameObject);
+        transform.SetParent(_shelfManager.booksSlots.transform);
         TrySnapToTarget();
     }
 
     // this try to snap book to target if released close enough
-    private void TrySnapToTarget()
+    public void TrySnapToTarget()
     {
-        if (!_dragging && GetDistance() <= snapDistance)
+        if (!_dragging && GetDistance() <= _shelfManager.snapDistance)
         {
-            gameObject.transform.position = snapTarget.position;
+            gameObject.transform.position = _snapTarget.position;
             Debug.Log("Snapped to target");
         }
     }
@@ -38,34 +44,31 @@ public class BookScript : MonoBehaviour, IPointerClickHandler
     // essential for measuring distance between book and its snapping target
     private float GetDistance()
     {
-        return Vector3.Distance(gameObject.transform.position, snapTarget.position);
+        return Vector3.Distance(gameObject.transform.position, _snapTarget.position);
+    }
+
+    public void SetDragging(bool dragging)
+    {
+        _dragging = dragging;
+    }
+
+    // essential for keeping _shelfManager private
+    public void ManagerReference(ShelfManager manager)
+    {
+        _shelfManager = manager;
     }
     
     // needed for picking target
-    private Transform PickSnapTarget()
+    public void SetSnapTarget(Transform target)
     {
-        Transform pickedTarget = startPoints[Random.Range(0, startPoints.Count)];
-        startPoints.Remove(pickedTarget);
-        return pickedTarget;
+        _snapTarget = target;
     }
 
-    // set start position for the book
-    private Transform PickStartPoint()
-    {
-        Transform pickedStartPoint = startPoints[Random.Range(0, startPoints.Count)];
-        return pickedStartPoint;
-    }
-
-    private void Start()
-    {
-        snapTarget = PickSnapTarget();
-        gameObject.transform.position = PickStartPoint().position;
-    }
     void Update()
     {
         if (_dragging)
         {
-            transform.position = Input.mousePosition;
+            transform.position = Input.mousePosition + offset;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShelfManager : MonoBehaviour
 {
-    [Range(0f, 300f)]
+    [Range(0f, 100f)]
     public float snapDistance;
     public List<BookScript> books = new();
     public List<Transform> bookTargets = new();
@@ -13,28 +13,56 @@ public class ShelfManager : MonoBehaviour
     [SerializeField] public List<GameObject> heldBook;
     
     private readonly Dictionary<BookScript, Transform> _bookTargetDict = new();
+    
+    private readonly Vector3 _offset = new(0f, 1f, 0f);
 
-    public void SwapBooks(GameObject book1, GameObject book2)
+    public void GrabBook(GameObject book)
     {
-        BookScript script1 = book1.GetComponent<BookScript>();
-        BookScript script2 = book2.GetComponent<BookScript>();
+        heldBook.Add(book);
+    }
+
+    private void ReleaseBook()
+    {
+        if (heldBook.Count == 0) return;
         
-        Vector3 book1Pos = book1.transform.position;
-        Vector3 book2Pos = book2.transform.position;
+        BookScript bookScript = heldBook[0].GetComponent<BookScript>();
+        TrySnapToTarget(bookScript);
         
-        book1.transform.position = book2Pos;
-        book2.transform.position = book1Pos;
+        heldBook.RemoveAt(0);
+    }
+
+    private void BookHandler()
+    {
+        if (heldBook.Count == 0) return;
         
-        script1.SetDragging(false);
-        script2.SetDragging(true);
+        heldBook[0].transform.position = Input.mousePosition + _offset;
+    }
+
+    private void TrySnapToTarget(BookScript book)
+    {
+        if (GetDistance(book) > snapDistance) return;
         
-        heldBook.Clear();
-        heldBook.Add(book2);
+        book.transform.position = _bookTargetDict[book].position;
+        book.SetNewParent(_bookTargetDict[book]);
         
-        script1.TrySnapToTarget();
-        script2.TrySnapToTarget();
+        if (_bookTargetDict[book].childCount <= 1) return;
         
-        Debug.Log(script1.name + " | " + script2.name);
+        SwapBooks(_bookTargetDict[book].GetChild(0).gameObject, book.gameObject);
+    }
+    
+    private float GetDistance(BookScript book)
+    {
+        return Vector3.Distance(book.transform.position, _bookTargetDict[book].position);
+    }
+    
+    private void SwapBooks(GameObject bookIndex0, GameObject bookIndex1)
+    {
+        BookScript script0 = bookIndex0.GetComponent<BookScript>();
+        BookScript script1 = bookIndex1.GetComponent<BookScript>();
+        
+        GrabBook(bookIndex0);
+        
+        script0.SetNewParent(script1.GetPreviousParent());
     }
     
     private void BooksStartup()
@@ -61,6 +89,7 @@ public class ShelfManager : MonoBehaviour
             
             int index = Random.Range(0, avaliblePositions.Count);
             book.gameObject.transform.position = avaliblePositions[index].position;
+            book.SetNewParent(avaliblePositions[index]);
             avaliblePositions.RemoveAt(index);
         }
     }
@@ -70,5 +99,15 @@ public class ShelfManager : MonoBehaviour
     {
         BooksStartup();
         BooksPlacement();
+    }
+    
+    void Update()
+    {
+        BookHandler();
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            ReleaseBook();
+        }
     }
 }

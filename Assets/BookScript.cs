@@ -4,54 +4,32 @@ using UnityEngine.EventSystems;
 public class BookScript : MonoBehaviour, IPointerClickHandler
 {
     private ShelfManager _shelfManager;
-    private bool _dragging;
-    private Transform _snapTarget;
+    public Transform SnapTarget { get; private set; }
+
+    [SerializeField] private Transform _oldParent;
+    [SerializeField] private Transform _currentParent;
     
-    private Vector3 offset = new Vector3(0, 1f, 0);
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!_dragging && _shelfManager.heldBook.Count >= 1)
-        {
-            _shelfManager.SwapBooks(_shelfManager.heldBook[0], gameObject);
-            return;
-        }
+        _shelfManager.GrabBook(gameObject);
+    }
 
-        if (!_dragging && _shelfManager.heldBook.Count < 1)
-        {
-            _dragging = true;
-            _shelfManager.heldBook.Add(gameObject);
-            transform.SetParent(_shelfManager.booksParent.transform);
-            return;
-        }
+    public void SetNewParent(Transform newParent)
+    {
+        _oldParent = _currentParent;
+        _currentParent = newParent;
         
-        _dragging = false;
-        _shelfManager.heldBook.Remove(gameObject);
-        transform.SetParent(_shelfManager.booksSlots.transform);
-        TrySnapToTarget();
+        transform.SetParent(newParent);
     }
 
-    // this try to snap book to target if released close enough
-    public void TrySnapToTarget()
+    public Transform GetPreviousParent()
     {
-        if (!_dragging && GetDistance() <= _shelfManager.snapDistance)
-        {
-            gameObject.transform.position = _snapTarget.position;
-            Debug.Log("Snapped to target");
-        }
+        if (_oldParent == null) return null;
+        
+        return _oldParent;
     }
-
-    // essential for measuring distance between book and its snapping target
-    private float GetDistance()
-    {
-        return Vector3.Distance(gameObject.transform.position, _snapTarget.position);
-    }
-
-    public void SetDragging(bool dragging)
-    {
-        _dragging = dragging;
-    }
-
+    
     // essential for keeping _shelfManager private
     public void ManagerReference(ShelfManager manager)
     {
@@ -61,14 +39,6 @@ public class BookScript : MonoBehaviour, IPointerClickHandler
     // needed for picking target
     public void SetSnapTarget(Transform target)
     {
-        _snapTarget = target;
-    }
-
-    void Update()
-    {
-        if (_dragging)
-        {
-            transform.position = Input.mousePosition + offset;
-        }
+        SnapTarget = target;
     }
 }

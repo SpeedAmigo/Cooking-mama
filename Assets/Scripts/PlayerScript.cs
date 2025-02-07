@@ -61,6 +61,6 @@ public class PlayerScript : MonoBehaviour, IInputHandler
 
     private void FixedUpdate()
     {
-        _rb.velocity = new Vector2(_movement.x, _movement.y).normalized * (_speed * Time.fixedDeltaTime);
+        _rb.linearVelocity = new Vector2(_movement.x, _movement.y).normalized * (_speed * Time.fixedDeltaTime);
     }
 }

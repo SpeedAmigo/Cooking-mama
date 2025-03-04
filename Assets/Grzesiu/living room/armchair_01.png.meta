@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d750b4e9d3b799e43b3905b7ac6ec3d5
+guid: 2847b4d2cda18774a9566dacd5558ee1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8090469202783123456
-    second: vanity_table_0
+      213: 3036887939252632537
+    second: armchair_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vanity_table_0
+      name: armchair_01_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 41
-        height: 35
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 008cfdd0021e8bf80800000000000000
-      internalID: -8090469202783123456
+      spriteID: 9db32d99d71352a20800000000000000
+      internalID: 3036887939252632537
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vanity_table_0: -8090469202783123456
+      armchair_01_0: 3036887939252632537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

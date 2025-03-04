@@ -3,12 +3,7 @@ using UnityEngine;
 public class SignScript : Interaction
 {
     [SerializeField] private SignType _signType;
-    
-    public void Start()
-    {
-        base.Start();
-    }
-    
+
     private string SignType()
     {
         switch (_signType)

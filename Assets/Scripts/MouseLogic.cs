@@ -32,8 +32,8 @@ public class MouseLogic : MonoBehaviour
 
         if (IsWithinRange(rayPosition, _playerScript.transform.position))
         {
-            //_onMouseHoverLogic.OnMouseHover(rayPosition);
-            _onMouseHoverLogic.OnMouseHover(rayPosition, normalCursor, interactCursor, pickCursor);
+            _onMouseHoverLogic.OnMouseHover(rayPosition);
+            //_onMouseHoverLogic.OnMouseHover(rayPosition, normalCursor, interactCursor, pickCursor);
             
             if (Input.GetMouseButtonDown(0))
             {

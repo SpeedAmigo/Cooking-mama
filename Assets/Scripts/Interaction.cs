@@ -9,7 +9,12 @@ public abstract class Interaction : MonoBehaviour, IInteractable
     public string newName;
     public string description;
 
-    protected virtual void Start()
+    protected virtual void Awake()
+    {
+        SetOutline();
+    }
+
+    private void SetOutline()
     {
         var outline = gameObject.AddComponent<OutlineFx.OutlineFx>();
         outline.enabled = false;

@@ -1,25 +1,29 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MinigameManager : Interaction
 {
-    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject image;
+    [SerializeField] private MinigameType minigameType;
 
     private void Start()
     {
-        panel.SetActive(false);
+        image.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && panel.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape) && image.activeInHierarchy)
         {
-            panel.SetActive(false);
+            image.SetActive(false);
+            SceneManager.UnloadSceneAsync(minigameType.ToString());
         }
     }
 
     public override void Interact()
     {
-        panel.SetActive(true);
+        image.SetActive(true);
+        SceneManager.LoadScene(minigameType.ToString(), LoadSceneMode.Additive);
     }
 }

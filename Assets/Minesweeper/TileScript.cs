@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TileScript : MonoBehaviour
 {
@@ -19,7 +20,40 @@ public class TileScript : MonoBehaviour
     public bool active = true;
     public bool isMine = false;
     public int mineCount = 0;
-    
+
+    public void MouseLeftClick()
+    {
+        if (active)
+        {
+            if (manager.isStarted == false)
+            {
+                manager.GameStarter(new Vector2Int((int)transform.position.x, (int)transform.position.y));
+            }
+
+            if (manager.isStarted)
+            {
+                ClickedTile();
+            }
+        }
+    }
+
+    public void MouseRightClick()
+    {
+        if (active)
+        {
+            flagged = !flagged;
+
+            if (flagged)
+            {
+                _spriteRenderer.sprite = flaggedTile;
+            }
+            else
+            {
+                _spriteRenderer.sprite = unclickedTile;
+            }
+        }
+    }
+    /*
     private void OnMouseOver()
     {
         if (active)
@@ -52,7 +86,8 @@ public class TileScript : MonoBehaviour
             }
         }
     }
-
+    */
+    
     private void ClickedTile()
     {
         if (active && !flagged)

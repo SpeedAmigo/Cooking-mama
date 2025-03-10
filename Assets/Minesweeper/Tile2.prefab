@@ -53,6 +53,7 @@ SpriteRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101,6 +102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unclickedTile: {fileID: 2528945350537408158, guid: 82768e69121000b48a84f9f4e35714e0, type: 3}
+  flaggedTile: {fileID: 1805158079502305607, guid: df8c2f1a52d408e4eba93fa08f910aad, type: 3}
+  mineTile: {fileID: 8135663367076951168, guid: 103d9d05d41662243991946937b85281, type: 3}
+  mineWrongTile: {fileID: -851801900025170881, guid: ceb75dbe5da00694ba57edb87b699f8b, type: 3}
+  mineHitTile: {fileID: 8250157587147991992, guid: 17d13d9e78044fe46985206f62b5bd61, type: 3}
   clickedTiles:
   - {fileID: 8995154407686431259, guid: e588f853e3e0ced42a41ff0b26f3b74a, type: 3}
   - {fileID: -855298285791758126, guid: 8cec594c1bde99a43b51651f51e14e34, type: 3}
@@ -111,10 +116,8 @@ MonoBehaviour:
   - {fileID: 3465286685962602723, guid: 5387e423b4c41b44dac5d81bf78a8e63, type: 3}
   - {fileID: 7028616704906629411, guid: ce258998dc97d9540abc2ac2efd55ef7, type: 3}
   - {fileID: 8288426215254106694, guid: 46b038e1c769a634ca9778e2940861b2, type: 3}
-  flaggedTile: {fileID: 1805158079502305607, guid: df8c2f1a52d408e4eba93fa08f910aad, type: 3}
-  mineTile: {fileID: 8135663367076951168, guid: 103d9d05d41662243991946937b85281, type: 3}
-  mineWrongTile: {fileID: -851801900025170881, guid: ceb75dbe5da00694ba57edb87b699f8b, type: 3}
-  mineHitTile: {fileID: 8250157587147991992, guid: 17d13d9e78044fe46985206f62b5bd61, type: 3}
+  _spriteRenderer: {fileID: 0}
+  manager: {fileID: 0}
   flagged: 0
   active: 1
   isMine: 0

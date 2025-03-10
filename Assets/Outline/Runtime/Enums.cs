@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -44,4 +45,11 @@ public enum DayCycles
     Sunset = 2,
     Midnight = 3,
     Night = 4,
+}
+
+public enum MinigameType
+{
+    FlappyCake,
+    Minesweeper,
+    Books
 }

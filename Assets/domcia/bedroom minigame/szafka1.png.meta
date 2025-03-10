@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      szafka1_0: 3420868176234083482
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

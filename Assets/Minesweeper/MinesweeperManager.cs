@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class MinesweeperManager : MonoBehaviour
@@ -57,6 +58,9 @@ public class MinesweeperManager : MonoBehaviour
             for (int col = 0; col < width; col++)
             {
                 Transform tileTransform = Instantiate(tilePrefab, filed, true);
+
+                tileTransform.gameObject.layer = LayerMask.NameToLayer("Minigame"); // set all tiles to "Minigame" layer
+                
                 float xIndex = col - ((width - 1) / 2f);
                 float yIndex = row - ((height - 1) / 2f);
                 tileTransform.localPosition = new Vector2(xIndex, yIndex);

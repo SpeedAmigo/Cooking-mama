@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class PipeSpawnerScript : MonoBehaviour
@@ -39,12 +40,29 @@ public class PipeSpawnerScript : MonoBehaviour
         }
     }
 
+    private void MoveToScene(GameObject obj, string sceneName)
+    {
+        Scene additiveScene = SceneManager.GetSceneByName(sceneName);
+
+        if (additiveScene.IsValid())
+        {
+            SceneManager.MoveGameObjectToScene(obj, additiveScene);
+        }
+        else
+        {
+            Debug.LogError($"Scene '{sceneName}' not found");
+        }
+    }
+
     #region ObjectPool
     private PipeLogic CreatePipe()
     {
         var pipeInstance = Instantiate(pipePrefab,new Vector2(transform.position.x, RandomPipePosition()), Quaternion.identity).GetComponent<PipeLogic>();
         pipeInstance.SetPool(_pipePool);
         pipeInstance.gameManager = _gameManagerScript; // adds reference to gameManager
+        
+        MoveToScene(pipeInstance.gameObject, "FlappyCake");
+        
         return pipeInstance;
     }
 

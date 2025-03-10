@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7568002546597458091}
   - component: {fileID: 2745424034920904248}
   - component: {fileID: 3323771187996252232}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pipe_whole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144045234175416094}
   - component: {fileID: 7683557250313847200}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,10 +221,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -266,6 +266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pipe_top
       objectReference: {fileID: 0}
+    - target: {fileID: 1336557247134487465, guid: 05aadba99a3a9a44993ffab93a5b2f98, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2191233599777840309, guid: 05aadba99a3a9a44993ffab93a5b2f98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -306,6 +310,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 2299271622686596756, guid: 05aadba99a3a9a44993ffab93a5b2f98, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163974321958652261, guid: 05aadba99a3a9a44993ffab93a5b2f98, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -343,7 +355,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -394,7 +406,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -436,6 +448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pipe_bottom
       objectReference: {fileID: 0}
+    - target: {fileID: 1336557247134487465, guid: 2fd7cbcb361c17c4d9f7b347a4c373cc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2191233599777840309, guid: 2fd7cbcb361c17c4d9f7b347a4c373cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -476,6 +492,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2299271622686596756, guid: 2fd7cbcb361c17c4d9f7b347a4c373cc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163974321958652261, guid: 2fd7cbcb361c17c4d9f7b347a4c373cc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -513,7 +537,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -564,7 +588,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

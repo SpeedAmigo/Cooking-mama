@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eaae417003c31da45a1f8b39fab94047
+guid: ab95dd3d6047f734aa4ff5db45060ea6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7341407202210888751
-    second: door_0
+      213: 832586574948529037
+    second: wall_plant_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_0
+      name: wall_plant_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 22
-        height: 37
+        width: 12
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d3c9b8cb051e1a90800000000000000
-      internalID: -7341407202210888751
+      spriteID: d83f0942411fd8b00800000000000000
+      internalID: 832586574948529037
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      door_0: -7341407202210888751
+      wall_plant_0: 832586574948529037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

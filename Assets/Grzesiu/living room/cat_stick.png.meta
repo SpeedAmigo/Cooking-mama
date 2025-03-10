@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eaae417003c31da45a1f8b39fab94047
+guid: 22ac5fc31564bbf4887dd064422ac28a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7341407202210888751
-    second: door_0
+      213: -7113051559210308497
+    second: cat_stick_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_0
+      name: cat_stick_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 22
-        height: 37
+        y: 1
+        width: 23
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d3c9b8cb051e1a90800000000000000
-      internalID: -7341407202210888751
+      spriteID: f6c2b302b4d594d90800000000000000
+      internalID: -7113051559210308497
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      door_0: -7341407202210888751
+      cat_stick_0: -7113051559210308497
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -21,6 +21,7 @@ public enum GameState
     PauseMenu,
     InGame,
     Inventory,
+    Minigame,
     None
 }
 

@@ -18,12 +18,16 @@ public class MinigameManager : Interaction
         {
             image.SetActive(false);
             SceneManager.UnloadSceneAsync(minigameType.ToString());
+            GameStateManager.ChangeGameState(GameState.InGame);
         }
     }
 
     public override void Interact()
     {
+        if (GameStateManager.CurrentGameState != GameState.InGame) return;
+        
         image.SetActive(true);
         SceneManager.LoadScene(minigameType.ToString(), LoadSceneMode.Additive);
+        GameStateManager.ChangeGameState(GameState.Minigame);
     }
 }

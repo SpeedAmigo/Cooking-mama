@@ -8,30 +8,22 @@ public class PlayerScript : MonoBehaviour, IInputHandler
     
     private Vector2 _movement;
     private Rigidbody2D _rb;
+    private SpriteRenderer _sr;
     private Animator _animator;
     private AudioSource _audio;
     
     [SerializeField] private float _speed;
-    [SerializeField] private WorldMapManager _worldMapManager;
+    
     public void Step()
     {
-        /*
+        float randomPitch = Random.Range(0.8f, 1.2f);
+        
         if (WorldMapManager.Instance != null && _audio != null)
         {
             AudioClip currentFloorClip = WorldMapManager.Instance.GetCurretnAudioClip(transform.position);
+            _audio.pitch = randomPitch;
             _audio.PlayOneShot(currentFloorClip);
         }   
-        */     
-        if (_worldMapManager != null && _audio != null)
-        {
-            AudioClip currentFloorClip = _worldMapManager.GetCurretnAudioClip(transform.position - new Vector3(0, 0.5f, 0));
-            _audio.PlayOneShot(currentFloorClip);
-        }
-    }
-
-    private void OnEnable()
-    {
-        
     }
 
     private void OnDisable()
@@ -58,6 +50,7 @@ public class PlayerScript : MonoBehaviour, IInputHandler
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _audio = GetComponent<AudioSource>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()

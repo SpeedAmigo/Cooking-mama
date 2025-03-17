@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class WorldMapManager : MonoBehaviour
 {
-    //public static WorldMapManager Instance { get; set; } 
+    public static WorldMapManager Instance { get; set; } 
 
     [SerializeField] private Tilemap _tilemap;
     [SerializeField] private List<TileData> _tileDataList;
@@ -14,7 +14,6 @@ public class WorldMapManager : MonoBehaviour
     
     private void Awake()
     {
-        /*
         //singleton setup
         if (Instance && Instance != this)
         {
@@ -24,7 +23,7 @@ public class WorldMapManager : MonoBehaviour
         
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        */
+        
         // Initialize tile data dictionary
         _tileDataDictionary = new Dictionary<TileBase, TileData>();
         foreach (var tileData in _tileDataList)

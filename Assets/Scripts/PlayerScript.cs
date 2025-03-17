@@ -24,14 +24,14 @@ public class PlayerScript : MonoBehaviour, IInputHandler
         */     
         if (_worldMapManager != null && _audio != null)
         {
-            AudioClip currentFloorClip = _worldMapManager.GetCurretnAudioClip(transform.position);
+            AudioClip currentFloorClip = _worldMapManager.GetCurretnAudioClip(transform.position - new Vector3(0, 0.5f, 0));
             _audio.PlayOneShot(currentFloorClip);
         }
     }
 
     private void OnEnable()
     {
-        InputManager.Instance.RegisterHandler(this);
+        
     }
 
     private void OnDisable()
@@ -54,6 +54,7 @@ public class PlayerScript : MonoBehaviour, IInputHandler
     
     void Start()
     {
+        InputManager.Instance.RegisterHandler(this);
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _audio = GetComponent<AudioSource>();

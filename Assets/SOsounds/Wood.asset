@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc2437cc5721304d897386a147234d4, type: 3}
+  m_Name: Wood
+  m_EditorClassIdentifier: 
+  ruleTiles:
+  - {fileID: 11400000, guid: 763065dc6cd5fe1479c3b6394498fe2f, type: 2}
+  audioClips:
+  - {fileID: 8300000, guid: bfd13ecd92eca8940ae9f12a555b7af0, type: 3}
+  - {fileID: 8300000, guid: c7b15d0d63f5e614e844b55b3a1903af, type: 3}
+  - {fileID: 8300000, guid: bcb9f4f06a8ccb04585caa77b751cbb8, type: 3}
+  - {fileID: 8300000, guid: afa822b5d22bff94fb2bb134e53e0fbb, type: 3}
+  - {fileID: 8300000, guid: d44bd07b932ee9644ba3ed1b8f5edc0e, type: 3}
+  - {fileID: 8300000, guid: 9388363745ef2d74dbd840b0ac83a057, type: 3}
+  - {fileID: 8300000, guid: bd9a19f6edd065745b8d22715ab345c7, type: 3}
+  - {fileID: 8300000, guid: 18ca3a3e86c333547a3fc34855219b4c, type: 3}
+  - {fileID: 8300000, guid: 007e365e66cdc974699d87b628894966, type: 3}
+  - {fileID: 8300000, guid: ddef95e773611de4ea8e2d3bf922487f, type: 3}
+  - {fileID: 8300000, guid: 06683202741baee47b6163985fe2f754, type: 3}
+  - {fileID: 8300000, guid: 04ad24ee194d9ea4c9db06762d2a4006, type: 3}
+  - {fileID: 8300000, guid: ca1a9a53156d9194c98b1d55474ffb3d, type: 3}
+  - {fileID: 8300000, guid: e584d479e81952747b677eeb408fee74, type: 3}
+  - {fileID: 8300000, guid: 7bd889c6a887bde4db756aa70986e9a8, type: 3}
+  - {fileID: 8300000, guid: ddda6a381e773f4468bde1b20f8c1ed7, type: 3}
+  - {fileID: 8300000, guid: 5098010cca35d0543956fa9b400b092b, type: 3}
+  - {fileID: 8300000, guid: 68a13644e6dba3a42b8c41ffbbcb8f5d, type: 3}
+  - {fileID: 8300000, guid: 39779ca839f551a4ab5d76dd5043c366, type: 3}
+  - {fileID: 8300000, guid: b11925f22db6a4c4b8bd971aa8c80bdf, type: 3}
+  - {fileID: 8300000, guid: 71f6f80883eeffe46bb55d6ffe458c3d, type: 3}
+  floorType: 3

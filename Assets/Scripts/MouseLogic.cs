@@ -7,9 +7,9 @@ public class MouseLogic : MonoBehaviour
     private readonly OnMouseHoverLogic _onMouseHoverLogic = new();
     private readonly OnMouseInteraction _onMouseInteraction = new();
 
-    [SerializeField] private Texture2D pickCursor;
-    [SerializeField] private Texture2D interactCursor;
-    [SerializeField] private Texture2D normalCursor;
+    //[SerializeField] private Texture2D pickCursor;
+    //[SerializeField] private Texture2D interactCursor;
+    //[SerializeField] private Texture2D normalCursor;
     
     [SerializeField] private float _maxDistance;
     

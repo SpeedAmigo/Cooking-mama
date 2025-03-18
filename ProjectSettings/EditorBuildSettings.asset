@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minesweeper.unity
     guid: baebb68362f519e4ea27f6942d218bbf
+  - enabled: 1
+    path: Assets/Scenes/Bedroom.unity
+    guid: 804b8b5974bba0640b8d403f6f865a0d
+  - enabled: 1
+    path: Assets/Scenes/BedroomCleaning.unity
+    guid: 39499a1593002894d969ce52061e532b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

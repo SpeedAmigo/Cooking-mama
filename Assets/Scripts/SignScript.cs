@@ -3,6 +3,7 @@ using UnityEngine;
 public class SignScript : Interaction
 {
     [SerializeField] private SignType _signType;
+    [SerializeField] private string description;
 
     private string SignType()
     {
@@ -20,6 +21,6 @@ public class SignScript : Interaction
     
     public override void Interact()
     {
-        Debug.Log($"{newName} is pointing to the {SignType()}");
+        Debug.Log($"sign is pointing to the {SignType()}");
     }
 }

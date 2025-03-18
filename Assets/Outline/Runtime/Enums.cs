@@ -52,5 +52,6 @@ public enum MinigameType
 {
     FlappyCake,
     Minesweeper,
-    Books
+    Books,
+    BedroomCleaning,
 }

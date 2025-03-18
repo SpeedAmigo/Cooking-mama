@@ -6,9 +6,6 @@ using TMPro;
 
 public abstract class Interaction : MonoBehaviour, IInteractable
 {
-    public string newName;
-    public string description;
-
     protected virtual void Awake()
     {
         SetOutline();

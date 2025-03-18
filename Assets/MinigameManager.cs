@@ -4,19 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class MinigameManager : Interaction
 {
-    [SerializeField] private GameObject image;
+    [SerializeField] private GameObject rawImage;
     [SerializeField] private MinigameType minigameType;
 
     private void Start()
     {
-        image.SetActive(false);
+        rawImage.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && image.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape) && rawImage.activeInHierarchy)
         {
-            image.SetActive(false);
+            rawImage.SetActive(false);
             SceneManager.UnloadSceneAsync(minigameType.ToString());
             GameStateManager.ChangeGameState(GameState.InGame);
         }
@@ -26,8 +26,16 @@ public class MinigameManager : Interaction
     {
         if (GameStateManager.CurrentGameState != GameState.InGame) return;
         
-        image.SetActive(true);
+        rawImage.SetActive(true);
         SceneManager.LoadScene(minigameType.ToString(), LoadSceneMode.Additive);
         GameStateManager.ChangeGameState(GameState.Minigame);
+    }
+}
+
+public static class MinigameScaler
+{
+    public static Vector2 GetScale()
+    {
+        return new Vector2(1.2f, 1.2f);
     }
 }

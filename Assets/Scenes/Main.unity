@@ -2071,7 +2071,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
-  _worldMapManager: {fileID: 680278936}
 --- !u!95 &1604374479
 Animator:
   serializedVersion: 7
@@ -2203,9 +2202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dee1eb65cfeecd4a93dfdc311cd2612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickCursor: {fileID: 2800000, guid: da272138e66a6c04fa6a7e026df51044, type: 3}
-  interactCursor: {fileID: 2800000, guid: ec2bb67079603af4fb0688080b7f0b64, type: 3}
-  normalCursor: {fileID: 2800000, guid: 48a2b4a892e3b7544923912c783cf9b5, type: 3}
   _maxDistance: 2
 --- !u!70 &1604374482
 CapsuleCollider2D:
@@ -6502,6 +6498,10 @@ PrefabInstance:
       propertyPath: panel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6674891124178948301, guid: 62ae702437330a54e9220c972a4cfada, type: 3}
+      propertyPath: rawImage
+      value: 
+      objectReference: {fileID: 34721698}
     - target: {fileID: 6674891124178948301, guid: 62ae702437330a54e9220c972a4cfada, type: 3}
       propertyPath: minigameType
       value: 1

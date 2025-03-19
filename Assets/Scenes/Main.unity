@@ -6504,7 +6504,7 @@ PrefabInstance:
       objectReference: {fileID: 34721698}
     - target: {fileID: 6674891124178948301, guid: 62ae702437330a54e9220c972a4cfada, type: 3}
       propertyPath: minigameType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7614924633823886285, guid: 62ae702437330a54e9220c972a4cfada, type: 3}
       propertyPath: m_Name

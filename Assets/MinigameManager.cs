@@ -32,10 +32,3 @@ public class MinigameManager : Interaction
     }
 }
 
-public static class MinigameScaler
-{
-    public static Vector2 GetScale()
-    {
-        return new Vector2(1.2f, 1.2f);
-    }
-}

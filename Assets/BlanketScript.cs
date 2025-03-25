@@ -7,7 +7,6 @@ public class BlanketScript : BedroomCleanAbstract
     
     void Start()
     {
-        base.Start();
         animator = GetComponent<Animator>();
     }
 

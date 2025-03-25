@@ -7,6 +7,7 @@ public static class EventsManager
     public static event Action<ItemInstance> RemoveItemEvent;
     public static event Action<bool> LightToggleEvent;
     public static event Action OnDrawerOpenEvent;
+    public static event Action<BedroomMinigameManager> OnGetBedroomManager;
 
     public static void InvokeAddItemEvent(ItemScript itemScript)
     {
@@ -26,5 +27,10 @@ public static class EventsManager
     public static void InvokeOnDrawerOpenEvent()
     {
         OnDrawerOpenEvent?.Invoke();
+    }
+
+    public static void InvokeOnGetBedroomManager(BedroomMinigameManager bedroomMinigameManager)
+    {
+        OnGetBedroomManager?.Invoke(bedroomMinigameManager);
     }
 }

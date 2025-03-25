@@ -34,11 +34,6 @@ public class BrushScript : BedroomCleanAbstract
         transform.position = startPos;
         animator.enabled = true;
     }
-
-    public bool GetBrushState()
-    {
-        return pickedUp;
-    }
     
     public void BrushAnimation()
     {
@@ -54,7 +49,7 @@ public class BrushScript : BedroomCleanAbstract
         animEndPos = transform.position;
     }
 
-    private void Awake()
+    private void Start()
     {
         animator = GetComponent<Animator>();
     }
@@ -68,6 +63,12 @@ public class BrushScript : BedroomCleanAbstract
             mousePos.z = Camera.main.nearClipPlane;
             worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             gameObject.transform.position = worldPos;
+            
+            manager.holdingBrush = true;
+        }
+        else
+        {
+            manager.holdingBrush = false;
         }
     }
 }

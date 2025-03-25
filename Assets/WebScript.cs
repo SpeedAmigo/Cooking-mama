@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
 
-public class WebScript : MonoBehaviour
+public class WebScript : BedroomCleanAbstract
 {
-    [HideInInspector] public BedroomMinigameManager bedroomManager;
-    
     [SerializeField] private float mouseMagnitude = 20f;
     [SerializeField][Range(0, 1)] private float webRemovingValue = 0.1f;
     
@@ -14,19 +12,21 @@ public class WebScript : MonoBehaviour
     
     private SpriteRenderer spriteRenderer;
 
-    private void Awake()
+    private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
-    private void OnMouseEnter()
+    protected override void OnMouseDown(){}
+
+    protected override void OnMouseEnter()
     {
         lastMousePos = Input.mousePosition;
     }
-
+    
     private void OnMouseOver()
     {
-        if (!bedroomManager.holdingBrush) return;
+        if (!manager.holdingBrush) return;
         
         currentMousePos = Input.mousePosition;
         deltaMousePos = currentMousePos - lastMousePos;

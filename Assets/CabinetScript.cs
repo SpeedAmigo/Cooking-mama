@@ -6,9 +6,8 @@ public class CabinetScript : BedroomCleanAbstract
     private Animator animator;
     private bool hasOpenedOnce;
     
-    protected void Start()
+    private void Start()
     {
-        base.Start();
         animator = GetComponent<Animator>();
     }
     
@@ -23,7 +22,7 @@ public class CabinetScript : BedroomCleanAbstract
     {
         if (!hasOpenedOnce)
         {
-            EventsManager.InvokeOnDrawerOpenEvent();
+            manager.ActiveBrush();
             hasOpenedOnce = true;
         }
     }

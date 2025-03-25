@@ -11,7 +11,7 @@ public class TrashScript : BedroomCleanAbstract
     {
         isMoving = true;
     }
-
+    
     private void Update()
     {
         if (isMoving)
@@ -21,7 +21,7 @@ public class TrashScript : BedroomCleanAbstract
                 binTransform.position, 
                 speed * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, binTransform.position) < 0.1f)
+            if (Vector3.Distance(transform.position, manager.binTransform.position) < 0.1f)
             {
                 gameObject.SetActive(false);
             }

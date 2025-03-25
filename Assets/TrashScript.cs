@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TrashScript : BedroomCleanAbstract
 {
-    [SerializeField] private Transform binTransform;
+    [HideInInspector] public Transform binTransform;
     [SerializeField] private float speed;
     
     private bool isMoving;

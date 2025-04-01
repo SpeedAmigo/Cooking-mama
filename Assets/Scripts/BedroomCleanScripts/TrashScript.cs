@@ -23,6 +23,7 @@ public class TrashScript : BedroomCleanAbstract
 
             if (Vector3.Distance(transform.position, manager.binTransform.position) < 0.1f)
             {
+                manager.TrashComplete();
                 gameObject.SetActive(false);
             }
         }

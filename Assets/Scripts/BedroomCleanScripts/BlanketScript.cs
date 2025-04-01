@@ -5,8 +5,6 @@ public class BlanketScript : BedroomCleanAbstract
     private Animator animator;
     private bool bedCleaned;
     
-    public MinigameMouseScrenToWorld mouseScrenToWorld;
-    
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -16,6 +14,7 @@ public class BlanketScript : BedroomCleanAbstract
     {
         animator.SetBool("cleanBed", true);
         bedCleaned = true;
+        manager.BedComplete();
     }
 
     public override void OnRaycastEnter()

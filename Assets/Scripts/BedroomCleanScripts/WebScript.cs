@@ -41,6 +41,7 @@ public class WebScript : BedroomCleanAbstract
 
         if (spriteRenderer.color.a == 0f)
         {
+            manager.WebComplete();
             gameObject.SetActive(false);
         }
     }

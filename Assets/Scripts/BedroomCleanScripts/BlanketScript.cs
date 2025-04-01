@@ -5,22 +5,24 @@ public class BlanketScript : BedroomCleanAbstract
     private Animator animator;
     private bool bedCleaned;
     
-    void Start()
+    public MinigameMouseScrenToWorld mouseScrenToWorld;
+    
+    private void Start()
     {
         animator = GetComponent<Animator>();
     }
-
-    protected override void OnMouseDown()
+    
+    protected override void OnRaycastClick()
     {
         animator.SetBool("cleanBed", true);
         bedCleaned = true;
     }
 
-    protected override void OnMouseEnter()
+    public override void OnRaycastEnter()
     {
         if (!bedCleaned)
         {
-            base.OnMouseEnter();
+            base.OnRaycastEnter();
         }
     }
 }

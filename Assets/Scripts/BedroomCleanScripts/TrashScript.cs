@@ -7,7 +7,7 @@ public class TrashScript : BedroomCleanAbstract
     
     private bool isMoving;
     
-    protected override void OnMouseDown()
+    protected override void OnRaycastClick()
     {
         isMoving = true;
     }

@@ -11,13 +11,13 @@ public class CabinetScript : BedroomCleanAbstract
         animator = GetComponent<Animator>();
     }
     
-    protected override void OnMouseDown()
+    protected override void OnRaycastClick()
     {
         bool drawerState = animator.GetBool("drawerOpen");
         
-        animator.SetBool("drawerOpen", !drawerState);
+        animator.SetBool("drawerOpen", !drawerState); 
     }
-
+    
     protected void OnDrawerOpen()
     {
         if (!hasOpenedOnce)

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BedroomCleanAbstract : MonoBehaviour
+public abstract class BedroomCleanAbstract : MonoBehaviour, IMinigameInteractable
 {
     private OutlineFx.OutlineFx outline;
     protected BedroomMinigameManager manager;
@@ -12,7 +12,7 @@ public abstract class BedroomCleanAbstract : MonoBehaviour
         
         EventsManager.OnGetBedroomManager += ManagerReference;
     }
-
+    
     protected virtual void OnDisable()
     {
         EventsManager.OnGetBedroomManager -= ManagerReference;
@@ -23,14 +23,22 @@ public abstract class BedroomCleanAbstract : MonoBehaviour
         this.manager = manager;
     }
     
-    protected abstract void OnMouseDown();
+    protected abstract void OnRaycastClick();
 
-    protected virtual void OnMouseEnter()
+    public virtual void OnRaycastOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnRaycastClick();
+        }
+    }
+
+    public virtual void OnRaycastEnter()
     {
         if (outline != null) outline.enabled = true;
     }
 
-    protected virtual void OnMouseExit()
+    public virtual void OnRaycastExit()
     {
         if (outline != null) outline.enabled = false;
     }

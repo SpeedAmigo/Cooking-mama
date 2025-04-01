@@ -6,14 +6,16 @@ public class BrushScript : BedroomCleanAbstract
     private bool pickedUp;
     private Vector2 animEndPos;
     private Vector2 worldPos;
+
+    public Camera minigameCamera;
     
-    protected override void OnMouseDown()
+    protected override void OnRaycastClick()
     {
         pickedUp = true;
         animator.enabled = false; // if animator is on the brush won't move
     }
 
-    private void OnMouseUp()
+    private void ReleaseBrush()
     {
         pickedUp = false;
         StartCoroutine(MoveBrushToStartPosition(worldPos, animEndPos, 0.5f));
@@ -60,8 +62,8 @@ public class BrushScript : BedroomCleanAbstract
         {
             Vector3 mousePos = Input.mousePosition;
             
-            mousePos.z = Camera.main.nearClipPlane;
-            worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+            mousePos.z = minigameCamera.nearClipPlane;
+            worldPos = minigameCamera.ScreenToWorldPoint(mousePos) * new Vector2(1.2f, 1.2f);
             gameObject.transform.position = worldPos;
             
             manager.holdingBrush = true;
@@ -69,6 +71,11 @@ public class BrushScript : BedroomCleanAbstract
         else
         {
             manager.holdingBrush = false;
+        }
+
+        if (pickedUp && Input.GetMouseButtonUp(0))
+        {
+            ReleaseBrush();
         }
     }
 }

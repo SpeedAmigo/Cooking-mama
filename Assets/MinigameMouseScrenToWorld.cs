@@ -4,8 +4,10 @@ public class MinigameMouseScrenToWorld : MonoBehaviour
 {
     public Camera minigameCamera;
     public Transform background;
-
+    
     private Vector2 scaleFactor = new Vector2(1.2f, 1.2f);
+    
+    private IMinigameInteractable lastHitObject;
 
     private void HandleMinigameMouse(Camera minigameCam, Transform bg)
     {
@@ -16,12 +18,31 @@ public class MinigameMouseScrenToWorld : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.gameObject.name);
+            IMinigameInteractable interactable = hit.collider.gameObject.GetComponent<IMinigameInteractable>();
+
+            if (interactable != null)
+            {
+                if (interactable != lastHitObject)
+                {
+                    lastHitObject?.OnRaycastExit();
+                    interactable.OnRaycastEnter();
+                }
+                
+                interactable.OnRaycastOver();
+                lastHitObject = interactable;
+            }
+            else if (lastHitObject != null)
+            {
+                lastHitObject.OnRaycastExit();
+                lastHitObject = null;
+            }
         }
     }
 
     private void Update()
     {
+        if (minigameCamera == null) return;
+        
         HandleMinigameMouse(minigameCamera, background);
     }
 }

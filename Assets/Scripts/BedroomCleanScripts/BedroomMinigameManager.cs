@@ -7,6 +7,7 @@ public class BedroomMinigameManager : MonoBehaviour
     private int trashInt;
     private int webInt;
     private bool bedComplete;
+    private bool minigameComplete = false;
     
     public Transform binTransform;
     public bool holdingBrush;
@@ -40,9 +41,10 @@ public class BedroomMinigameManager : MonoBehaviour
 
     private void Update()
     {
-        if (trashInt == 4 && webInt == 4 && bedComplete)
+        if (!minigameComplete && trashInt == 4 && webInt == 4 && bedComplete)
         {
-            Debug.Log("Bedroom Minigame Complete");
+            minigameComplete = true;
+            EventsManager.InvokeBedroomMinigameCompleteEvent();
         }
     }
 }

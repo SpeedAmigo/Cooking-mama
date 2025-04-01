@@ -10,12 +10,12 @@ public abstract class BedroomCleanAbstract : MonoBehaviour, IMinigameInteractabl
         outline = GetComponent<OutlineFx.OutlineFx>() ?? gameObject.AddComponent<OutlineFx.OutlineFx>();
         outline.enabled = false;
         
-        EventsManager.OnGetBedroomManager += ManagerReference;
+        EventsManager.OnGetBedroomMinigameManager += ManagerReference;
     }
     
     protected virtual void OnDisable()
     {
-        EventsManager.OnGetBedroomManager -= ManagerReference;
+        EventsManager.OnGetBedroomMinigameManager -= ManagerReference;
     }
 
     private void ManagerReference(BedroomMinigameManager manager)

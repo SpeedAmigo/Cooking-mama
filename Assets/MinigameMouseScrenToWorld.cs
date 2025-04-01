@@ -5,16 +5,13 @@ public class MinigameMouseScrenToWorld : MonoBehaviour
     public Camera minigameCamera;
     public Transform background;
     
-    private Vector2 scaleFactor = new Vector2(1.2f, 1.2f);
-    
     private IMinigameInteractable lastHitObject;
 
-    private void HandleMinigameMouse(Camera minigameCam, Transform bg)
+    private MinigameMouseHelper mouseHelper = new();
+    
+    private void HandleRaycast()
     {
-        Vector2 worldPos = minigameCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 localPos = bg.InverseTransformPoint(worldPos) * scaleFactor;
-        
-        RaycastHit2D hit = Physics2D.Raycast(localPos, Vector2.zero);
+        RaycastHit2D hit = Physics2D.Raycast(mouseHelper.localPos, Vector2.zero);
 
         if (hit.collider != null)
         {
@@ -43,6 +40,7 @@ public class MinigameMouseScrenToWorld : MonoBehaviour
     {
         if (minigameCamera == null) return;
         
-        HandleMinigameMouse(minigameCamera, background);
+        mouseHelper.HandleMinigameMouse(minigameCamera, background);
+        HandleRaycast();
     }
 }

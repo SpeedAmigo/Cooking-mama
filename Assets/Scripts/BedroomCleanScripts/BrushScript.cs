@@ -7,6 +7,8 @@ public class BrushScript : BedroomCleanAbstract
     private Vector2 animEndPos;
     private Vector2 worldPos;
 
+    private MinigameMouseHelper mouseHelper = new();
+
     public Camera minigameCamera;
     
     protected override void OnRaycastClick()
@@ -63,7 +65,7 @@ public class BrushScript : BedroomCleanAbstract
             Vector3 mousePos = Input.mousePosition;
             
             mousePos.z = minigameCamera.nearClipPlane;
-            worldPos = minigameCamera.ScreenToWorldPoint(mousePos) * new Vector2(1.2f, 1.2f);
+            worldPos = minigameCamera.ScreenToWorldPoint(mousePos) * mouseHelper.scaleFactor;
             gameObject.transform.position = worldPos;
             
             manager.holdingBrush = true;

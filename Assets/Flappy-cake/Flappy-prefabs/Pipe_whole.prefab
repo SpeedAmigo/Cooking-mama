@@ -314,6 +314,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6852925431966314360, guid: 05aadba99a3a9a44993ffab93a5b2f98, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078328760134219741, guid: 05aadba99a3a9a44993ffab93a5b2f98, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9163974321958652261, guid: 05aadba99a3a9a44993ffab93a5b2f98, type: 3}
       propertyPath: m_Layer
       value: 3

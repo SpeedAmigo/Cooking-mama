@@ -1,19 +1,30 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
     private int _currentScore;
     private AudioSource _audioSource;
+    private FcObjectPool objectPool;
     
     [SerializeField] private List<AudioClip> _scoreSound = new();
-
+    [SerializeField] private List<GameObject> activeObjects = new();
+    private HashSet<GameObject> spawnedReplacements = new();
+    
     public static event Action<int> OnScorePoint; // event to score points
     
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        objectPool = GetComponent<FcObjectPool>();
+    }
+
+    private void Update()
+    {
+        activeObjects.Union(objectPool.activeObjects);
+        CheckObjectPositions();
     }
     
     public void AddScorePoint(int scorePoint)
@@ -26,6 +37,24 @@ public class GameManagerScript : MonoBehaviour
         if (_currentScore % 10 == 0)
         {
             _audioSource.PlayOneShot(_scoreSound[1]);
+        }
+    }
+
+    private void CheckObjectPositions()
+    {
+        foreach (GameObject obj in activeObjects)
+        {
+            if (obj.transform.position.x < -6f && !spawnedReplacements.Contains(obj))
+            {
+                objectPool.GetObject(obj.tag);
+                spawnedReplacements.Add(obj);
+            }
+
+            if (obj.transform.position.x < -25f)
+            {
+                objectPool.ReturnObject(obj.tag, obj);
+                spawnedReplacements.Remove(obj);
+            }
         }
     }
 }

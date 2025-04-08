@@ -22,7 +22,7 @@ public class WorldMapManager : MonoBehaviour
         }
         
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         
         // Initialize tile data dictionary
         _tileDataDictionary = new Dictionary<TileBase, TileData>();

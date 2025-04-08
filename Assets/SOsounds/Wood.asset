@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ruleTiles:
   - {fileID: 11400000, guid: 763065dc6cd5fe1479c3b6394498fe2f, type: 2}
+  - {fileID: 11400000, guid: ed3bdfcdadd34ce4e846c29e95d2697a, type: 2}
   audioClips:
   - {fileID: 8300000, guid: bfd13ecd92eca8940ae9f12a555b7af0, type: 3}
   - {fileID: 8300000, guid: c7b15d0d63f5e614e844b55b3a1903af, type: 3}

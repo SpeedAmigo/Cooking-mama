@@ -570,7 +570,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 8
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: d53391c91e2666a488ebff37539de81d, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 0
   m_HDR: 1
@@ -847,17 +847,20 @@ MonoBehaviour:
   pools:
   - tag: sky
     prefab: {fileID: 2857849804995354430, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
-    scrollSpeed: 0.2
+    scrollSpeed: 0.4
     poolSize: 3
   - tag: back
     prefab: {fileID: 4257730503689742053, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
-    scrollSpeed: 0.6
+    scrollSpeed: 0.8
     poolSize: 3
   - tag: front
     prefab: {fileID: 6023961015020410506, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
-    scrollSpeed: 0.4
+    scrollSpeed: 0.6
     poolSize: 3
-  activeObjects: []
+  activeObjects:
+  - {fileID: 4075881683506483139}
+  - {fileID: 3353482662605995221}
+  - {fileID: 1970708521676289461}
 --- !u!1 &1670053712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1165,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -1178,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794bb89cc70df5a4a93d370604bf32d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godMode: 0
+  godMode: 1
   _flyForce: 4
   _maxSpeed: 1
   _rotationSpeed: 3
@@ -1333,7 +1336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257730503689742053, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
       propertyPath: m_Name
-      value: FieldsBackBackground
+      value: FieldsFrontBackground
       objectReference: {fileID: 0}
     - target: {fileID: 8983266581335054184, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1439,7 +1442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6023961015020410506, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
       propertyPath: m_Name
-      value: FieldsFrontBackground
+      value: FieldsBackBackground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

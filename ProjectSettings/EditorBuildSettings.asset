@@ -26,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BedroomCleaning.unity
     guid: 39499a1593002894d969ce52061e532b
+  - enabled: 1
+    path: Assets/Scenes/MainFloor.unity
+    guid: 577dbddd2733b834899bc5c012359b14
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -46,14 +46,14 @@ public class GameManagerScript : MonoBehaviour
         {
             if (obj.transform.position.x < -6f && !spawnedReplacements.Contains(obj))
             {
-                objectPool.GetObject(obj.tag);
                 spawnedReplacements.Add(obj);
+                objectPool.GetObject(obj.tag);
             }
 
             if (obj.transform.position.x < -25f)
             {
-                objectPool.ReturnObject(obj.tag, obj);
                 spawnedReplacements.Remove(obj);
+                objectPool.ReturnObject(obj.tag, obj);
             }
         }
     }

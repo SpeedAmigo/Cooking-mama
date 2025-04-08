@@ -101,5 +101,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.8
-  spawnPoint: {x: 5, y: -0.5, z: 0}
+  spawnPoint: {x: 25, y: -0.5, z: 0}
   isSpawned: 0

@@ -570,7 +570,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 8
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: d53391c91e2666a488ebff37539de81d, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 0
   m_HDR: 1
@@ -828,10 +828,6 @@ MonoBehaviour:
   _scoreSound:
   - {fileID: 8300000, guid: 57a71d663986cb648a47c90fb5d602b8, type: 3}
   - {fileID: 8300000, guid: 8e4d105c9d4dcac47b6116e922488559, type: 3}
-  activeObjects:
-  - {fileID: 4075881683506483139}
-  - {fileID: 1970708521676289461}
-  - {fileID: 3353482662605995221}
 --- !u!114 &1023286598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,14 +844,20 @@ MonoBehaviour:
   - tag: sky
     prefab: {fileID: 2857849804995354430, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
     scrollSpeed: 0.4
+    callingPoint: -6
+    deactivationPoint: -25
     poolSize: 3
   - tag: back
     prefab: {fileID: 4257730503689742053, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
     scrollSpeed: 0.8
+    callingPoint: -6
+    deactivationPoint: -25
     poolSize: 3
   - tag: front
     prefab: {fileID: 6023961015020410506, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
     scrollSpeed: 0.6
+    callingPoint: -6
+    deactivationPoint: -25
     poolSize: 3
   activeObjects:
   - {fileID: 4075881683506483139}
@@ -1331,8 +1333,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2035695380795083934, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
+      propertyPath: pool
+      value: 
+      objectReference: {fileID: 1023286598}
+    - target: {fileID: 2035695380795083934, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
       propertyPath: isSpawned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035695380795083934, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
+      propertyPath: callingPoint
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035695380795083934, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
+      propertyPath: deactivationPoint
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 4257730503689742053, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
       propertyPath: m_Name
@@ -1437,8 +1451,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2752395412187894601, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
+      propertyPath: pool
+      value: 
+      objectReference: {fileID: 1023286598}
+    - target: {fileID: 2752395412187894601, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
       propertyPath: isSpawned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752395412187894601, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
+      propertyPath: callingPoint
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752395412187894601, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
+      propertyPath: deactivationPoint
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 6023961015020410506, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
       propertyPath: m_Name
@@ -1463,8 +1489,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2559207939166587097, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
+      propertyPath: pool
+      value: 
+      objectReference: {fileID: 1023286598}
+    - target: {fileID: 2559207939166587097, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
       propertyPath: isSpawned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559207939166587097, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
+      propertyPath: callingPoint
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559207939166587097, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
+      propertyPath: deactivationPoint
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 2857849804995354430, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
       propertyPath: m_Name
@@ -1531,5 +1569,5 @@ SceneRoots:
   - {fileID: 1023286595}
   - {fileID: 1805558375}
   - {fileID: 4075881683506483138}
-  - {fileID: 1970708521676289460}
   - {fileID: 3353482662605995220}
+  - {fileID: 1970708521676289460}

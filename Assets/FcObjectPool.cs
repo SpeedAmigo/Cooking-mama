@@ -19,7 +19,11 @@ public class FcObjectPool : MonoBehaviour
             {
                 GameObject obj = Instantiate(pool.prefab);
                 obj.tag = pool.tag;
-                obj.GetComponent<FlappyCakeBackgroundController>().scrollSpeed = pool.scrollSpeed;
+                FlappyCakeBackgroundController objScript = obj.GetComponent<FlappyCakeBackgroundController>();
+                objScript.scrollSpeed = pool.scrollSpeed;
+                objScript.callingPoint = pool.callingPoint;
+                objScript.deactivationPoint = pool.deactivationPoint;
+                objScript.pool = this;
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
@@ -70,5 +74,8 @@ public class FlappyPool
     public string tag;
     public GameObject prefab;
     [Range(0f,1f)] public float scrollSpeed;
+    [Tooltip("Object passing this point will call another element to spawn at spawn point")]
+    public float callingPoint = -6f;
+    public float deactivationPoint = -25f;
     public int poolSize;
 }

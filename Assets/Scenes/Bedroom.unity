@@ -3392,7 +3392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rawImage: {fileID: 919890095}
-  minigameType: 3
+  minigameType: 0
 --- !u!60 &1924857376
 PolygonCollider2D:
   m_ObjectHideFlags: 0

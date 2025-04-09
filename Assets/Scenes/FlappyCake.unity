@@ -1183,7 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794bb89cc70df5a4a93d370604bf32d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godMode: 1
+  godMode: 0
   _flyForce: 4
   _maxSpeed: 1
   _rotationSpeed: 3
@@ -1340,14 +1340,6 @@ PrefabInstance:
       propertyPath: isSpawned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2035695380795083934, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
-      propertyPath: callingPoint
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035695380795083934, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
-      propertyPath: deactivationPoint
-      value: -25
-      objectReference: {fileID: 0}
     - target: {fileID: 4257730503689742053, guid: 2f7059cf620025b43b7703c86e5ee557, type: 3}
       propertyPath: m_Name
       value: FieldsFrontBackground
@@ -1458,14 +1450,6 @@ PrefabInstance:
       propertyPath: isSpawned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2752395412187894601, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
-      propertyPath: callingPoint
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752395412187894601, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
-      propertyPath: deactivationPoint
-      value: -25
-      objectReference: {fileID: 0}
     - target: {fileID: 6023961015020410506, guid: 57386e0016788174fa6b39a2791d8934, type: 3}
       propertyPath: m_Name
       value: FieldsBackBackground
@@ -1495,14 +1479,6 @@ PrefabInstance:
     - target: {fileID: 2559207939166587097, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
       propertyPath: isSpawned
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559207939166587097, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
-      propertyPath: callingPoint
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559207939166587097, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
-      propertyPath: deactivationPoint
-      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 2857849804995354430, guid: 1482d70cb8fd2e241bff17227de3dcf2, type: 3}
       propertyPath: m_Name

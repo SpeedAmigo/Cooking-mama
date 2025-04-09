@@ -3392,7 +3392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rawImage: {fileID: 919890095}
-  minigameType: 0
+  minigameType: 3
 --- !u!60 &1924857376
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4280,11 +4280,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6638420317643239122, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.568
+      value: -0.438
       objectReference: {fileID: 0}
     - target: {fileID: 6638420317643239122, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.277
+      value: 0.264
       objectReference: {fileID: 0}
     - target: {fileID: 6638420317643239122, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
       propertyPath: m_LocalPosition.z

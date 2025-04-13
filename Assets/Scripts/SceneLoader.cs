@@ -1,13 +1,16 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public static class SceneLoader
 {
+    private static bool canLoad = true;
+    
     public static void LoadScene(int sceneID)
     {
         LoadSceneAsync(sceneID);
     }
-
+    
     public static void LoadScene(string sceneName)
     {
         LoadSceneAsync(sceneName);

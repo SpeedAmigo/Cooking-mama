@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class StairsController : MonoBehaviour
 {
-    [SerializeField] private Collider2D collider;
     [SerializeField] private Image transitionImage;
     [SerializeField] private SO_TransitionProperties properties;
     [SceneDropdown] [SerializeField] private string sceneName;
@@ -21,6 +20,7 @@ public class StairsController : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlayerScript player))
         {
+            GameStateManager.ChangeGameState(GameState.SceneLoading);
             StartCoroutine(FadeIn(sceneName, properties.transitionDuration));
         }
     }

@@ -9,6 +9,7 @@ public class StartTransitionScript : MonoBehaviour
     
     private void Start()
     {
+        GameStateManager.ChangeGameState(GameState.InGame);
         transitionImage.gameObject.SetActive(true);
         transitionImage.material.SetFloat("_Progress", 1);
         StartCoroutine(FadeOut(properties.transitionDuration));

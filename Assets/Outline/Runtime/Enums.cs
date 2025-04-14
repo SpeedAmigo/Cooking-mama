@@ -22,6 +22,7 @@ public enum GameState
     InGame,
     Inventory,
     Minigame,
+    SceneLoading,
     None
 }
 

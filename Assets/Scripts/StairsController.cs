@@ -7,12 +7,13 @@ public class StairsController : MonoBehaviour
 {
     [SerializeField] private Collider2D collider;
     [SerializeField] private Image transitionImage;
+    [SerializeField] private SO_TransitionProperties properties;
     [SceneDropdown] [SerializeField] private string sceneName;
     
-    [SerializeField] private float fadeDuration = 0.5f;
 
     private void Start()
     {
+        transitionImage.material.SetFloat("_Progress", 0);
         transitionImage.gameObject.SetActive(false);
     }
     
@@ -20,7 +21,7 @@ public class StairsController : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlayerScript player))
         {
-            StartCoroutine(FadeIn(sceneName, fadeDuration));
+            StartCoroutine(FadeIn(sceneName, properties.transitionDuration));
         }
     }
 
@@ -28,25 +29,23 @@ public class StairsController : MonoBehaviour
     {
         float elapsedTime = 0;
         transitionImage.gameObject.SetActive(true);
+        transitionImage.material.SetFloat("_Progress", 0);
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-        asyncLoad.allowSceneActivation = false;
+       AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+       asyncLoad.allowSceneActivation = false;
 
         while (elapsedTime < duration)
         {
-            float progress = elapsedTime / duration;
-            transitionImage.material.SetFloat("_Progress", 0 + progress);
             elapsedTime += Time.deltaTime;
+            transitionImage.material.SetFloat("_Progress", Mathf.Clamp01(elapsedTime / duration));
             yield return null;
         }
 
-        if (asyncLoad.progress >= 0.9f)
-        {
-            yield return null;
-        }
+       if (asyncLoad.progress >= 0.9f)
+       { 
+           yield return null;
+       }
         
         asyncLoad.allowSceneActivation = true;
-        //transitionImage.material.SetFloat("_Progress", 0);
-        //transitionImage.gameObject.SetActive(false);
     }
 }

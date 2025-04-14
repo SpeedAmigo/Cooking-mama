@@ -7,13 +7,11 @@ public class StartTransitionScript : MonoBehaviour
     [SerializeField] private SO_TransitionProperties properties;
     [SerializeField] private Image transitionImage;
     
-    private void OnEnable()
+    private void Start()
     {
-        Debug.Log("StartTransitionScript");
         transitionImage.gameObject.SetActive(true);
         transitionImage.material.SetFloat("_Progress", 1);
         StartCoroutine(FadeOut(properties.transitionDuration));
-        Debug.Log(transitionImage.material.GetFloat("_Progress"));
     }
 
     private IEnumerator FadeOut(float duration)

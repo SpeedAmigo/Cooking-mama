@@ -1,14 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public abstract class Interaction : MonoBehaviour, IInteractable
 {
+    [SerializeField] protected string[] popUpText;
+
     protected virtual void Awake()
     {
         SetOutline();
+    }
+
+    protected void ShowText(string text)
+    {
+        if (!string.IsNullOrEmpty(text))
+        {
+            EventsManager.InvokeShowObjectText(text);
+        }
     }
 
     private void SetOutline()

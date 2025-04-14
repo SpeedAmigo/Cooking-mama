@@ -7,8 +7,8 @@ public static class EventsManager
     public static event Action<ItemInstance> RemoveItemEvent;
     public static event Action<bool> LightToggleEvent;
     public static event Action<BedroomMinigameManager> OnGetBedroomMinigameManager;
-
     public static event Action BedroomMinigameCompleteEvent;
+    public static event Action<string> ShowObjectText;
 
     public static void InvokeAddItemEvent(ItemScript itemScript)
     {
@@ -33,5 +33,10 @@ public static class EventsManager
     public static void InvokeBedroomMinigameCompleteEvent()
     {
         BedroomMinigameCompleteEvent?.Invoke();
+    }
+
+    public static void InvokeShowObjectText(string text)
+    {
+        ShowObjectText?.Invoke(text);
     }
 }

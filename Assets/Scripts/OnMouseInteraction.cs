@@ -11,6 +11,7 @@ public class OnMouseInteraction
             if (hit.collider.gameObject.TryGetComponent(out IInteractable interactable))
             {
                 interactable.Interact();
+                interactable.TextTrigger();
             }
 
             if (hit.collider.gameObject.TryGetComponent(out IPickable pickable))

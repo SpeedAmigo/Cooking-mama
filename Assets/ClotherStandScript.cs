@@ -4,6 +4,6 @@ public class ClotherStandScript : Interaction
 {
     public override void Interact()
     {
-        ShowText(popUpText[0]);
+        //throw new System.NotImplementedException();
     }
 }

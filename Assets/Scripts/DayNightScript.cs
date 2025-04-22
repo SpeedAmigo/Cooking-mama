@@ -1,18 +1,20 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using DG.Tweening;
 
 public class DayNightScript : MonoBehaviour
 {
+    [SerializeField] private Camera mainCamera;
     private Light2D _globalLight;
-    private Coroutine _coroutine;
+    
+    [ShowInInspector] private bool changeBackgroundColor = false;
 
     [SerializeField] private DayCycles _dayCycles;
-
+    
+    private Color currentTargetColor;
+    
     [SerializeField] private Color _sunrise;
     [SerializeField] private Color _day;
     [SerializeField] private Color _sunset;
@@ -20,68 +22,78 @@ public class DayNightScript : MonoBehaviour
     [SerializeField] private Color _night;
     
     [SerializeField] private float transitionTime;
-    
-    private Color _currentColor;
+
+    private void OnEnable()
+    {
+        EventsManager.ChangeTimeEvent += ChangeTime;
+    }
+
+    private void OnDisable()
+    {
+        EventsManager.ChangeTimeEvent -= ChangeTime;
+    }
     
     private void ChangeDayColor(Color newColor)
     {
-        if (_currentColor == newColor) return; // avoid restarting the same coroutine
+        if (currentTargetColor == newColor) return; // avoid switching to the same color
         
-        _currentColor = newColor;
+        currentTargetColor = newColor;
         
-        if (_coroutine != null)
+        DOTween.To(() => _globalLight.color, x => _globalLight.color = x, newColor, transitionTime).SetEase(Ease.OutCubic);
+
+        if (changeBackgroundColor)
         {
-            StopCoroutine(_coroutine);
+            DOTween.To(() => mainCamera.backgroundColor, x => mainCamera.backgroundColor = x, newColor, transitionTime).SetEase(Ease.OutCubic);
         }
-        _coroutine = StartCoroutine(TransitionColor(newColor));
+        
+        EventsManager.InvokeLightColorChange(newColor, transitionTime);
+    }
+    
+    private DayCycles GetNextCycle(DayCycles currentCycle)
+    {
+        int next = (int)currentCycle + 1 % System.Enum.GetNames(typeof(DayCycles)).Length;
+        
+        if (DayCycles.Night == currentCycle)
+        {
+            return DayCycles.Sunrise;
+        }
+        
+        return (DayCycles)next;
     }
 
-    private IEnumerator TransitionColor(Color targetColor)
+    [Button]
+    private void ChangeTime()
     {
-        Color currentColor = _globalLight.color;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < transitionTime)
-        {
-            elapsedTime += Time.deltaTime;
-            _globalLight.color = Color.Lerp(currentColor, targetColor, elapsedTime / transitionTime);
-            yield return null;
-        }
-        _globalLight.color = targetColor;
-
-        if (_dayCycles == DayCycles.Midnight || _dayCycles == DayCycles.Night)
-        {
-            EventsManager.InvokeLightToggleEvent(true);
-        }
-        else
-        {
-            EventsManager.InvokeLightToggleEvent(false);
-        }
+        _dayCycles = GetNextCycle(_dayCycles);
     }
     
     private void Update()
     {
+        Color targetColor = currentTargetColor;
+        
         switch (_dayCycles)
         {
             case DayCycles.Sunrise:
-                ChangeDayColor(_sunrise);
+                targetColor = _sunrise;
                 break;
             case DayCycles.Day:
-                ChangeDayColor(_day);
+                targetColor = _day;
                 break;
             case DayCycles.Sunset:
-                ChangeDayColor(_sunset);
+                targetColor = _sunset;
                 break;
             case DayCycles.Midnight:
-                ChangeDayColor(_midnight);
+                targetColor = _midnight;
                 break;
             case DayCycles.Night:
-                ChangeDayColor(_night);
+                targetColor = _night;
                 break;
             default:
                 print("DayCycles not implemented");
                 break;
         }
+        
+        ChangeDayColor(targetColor);
     }
 
     private void Start()

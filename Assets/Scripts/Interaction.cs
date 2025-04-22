@@ -1,7 +1,11 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public abstract class Interaction : MonoBehaviour, IInteractable
 {
+    [TabGroup("PopUpText")]
+    [HideLabel]
+    [MultiLineProperty(5)]
     [SerializeField] protected string popUpText;
 
     protected virtual void Awake()

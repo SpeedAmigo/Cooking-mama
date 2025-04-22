@@ -1,10 +1,13 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MinigameManager : Interaction
 {
+    [TabGroup("ImageReference")]
     [SerializeField] private GameObject rawImage;
+    [TabGroup("Minigame")]
     [SerializeField] private MinigameType minigameType;
 
     private void Start()
@@ -19,6 +22,7 @@ public class MinigameManager : Interaction
             rawImage.SetActive(false);
             SceneManager.UnloadSceneAsync(minigameType.ToString());
             GameStateManager.ChangeGameState(GameState.InGame);
+            EventsManager.InvokeChangeTimeEvent();
         }
     }
 

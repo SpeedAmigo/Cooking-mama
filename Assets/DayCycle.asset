@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08059eebebe993840b3eb7f3fbf98377, type: 3}
   m_Name: DayCycle
   m_EditorClassIdentifier: 
-  dayCycle: 2
+  dayCycle: 4

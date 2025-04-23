@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1469406441}
-  _dayCycles: 2
+  soDayCycle: {fileID: 11400000, guid: ae2c685150aaaaa489ea01bdb40edac9, type: 2}
   _sunrise: {r: 1, g: 0.9843137, b: 0.80784315, a: 1}
   _day: {r: 1, g: 1, b: 1, a: 1}
   _sunset: {r: 0.7176471, g: 0.40392157, b: 0.32156864, a: 1}

@@ -5,21 +5,33 @@ using DG.Tweening;
 
 public class DayNightScript : MonoBehaviour
 {
+    [TabGroup("References")]
     [SerializeField] private Camera mainCamera;
     private Light2D _globalLight;
     
+    [TabGroup("Properties")]
     [ShowInInspector] private bool changeBackgroundColor = false;
-
-    [SerializeField] private SO_DayCycle soDayCycle;
     
+    [SerializeField] private SO_DayCycle soDayCycle;
     private Color currentTargetColor;
     
+    [TabGroup("AmbientColors")]
+    [LabelWidth(100f)]
     [SerializeField] private Color _sunrise;
+    [TabGroup("AmbientColors")]
+    [LabelWidth(100f)]
     [SerializeField] private Color _day;
+    [TabGroup("AmbientColors")]
+    [LabelWidth(100f)]
     [SerializeField] private Color _sunset;
+    [TabGroup("AmbientColors")]
+    [LabelWidth(100f)]
     [SerializeField] private Color _midnight;
+    [TabGroup("AmbientColors")]
+    [LabelWidth(100f)]
     [SerializeField] private Color _night;
     
+    [Range(0f, 10f)]
     [SerializeField] private float transitionTime;
     
     private void ChangeDayColor(Color newColor, float duration)
@@ -49,8 +61,7 @@ public class DayNightScript : MonoBehaviour
         
         return (DayCycles)next;
     }
-
-    [Button]
+    
     private void ChangeTime()
     {
         soDayCycle.dayCycle = GetNextCycle(soDayCycle.dayCycle);

@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class FcObjectPool : MonoBehaviour
 {
     public List<FlappyPool> pools;
     public List<GameObject> activeObjects = new();
+    [ShowInInspector] [ReadOnly] private List<GameObject> allObjects = new();
     private Dictionary<string, Queue<GameObject>> poolDictionary;
 
     private void Start()
@@ -19,6 +21,7 @@ public class FcObjectPool : MonoBehaviour
             {
                 GameObject obj = Instantiate(pool.prefab);
                 obj.tag = pool.tag;
+                allObjects.Add(obj);
                 FlappyCakeBackgroundController objScript = obj.GetComponent<FlappyCakeBackgroundController>();
                 objScript.scrollSpeed = pool.scrollSpeed;
                 objScript.callingPoint = pool.callingPoint;
@@ -66,7 +69,16 @@ public class FcObjectPool : MonoBehaviour
         obj.SetActive(false);
         poolDictionary[tag].Enqueue(obj);
     }
+
+    private void OnDisable()
+    {
+        foreach (GameObject obj in allObjects)
+        {
+            Destroy(obj);
+        }
+    }
 }
+
 
 [System.Serializable]
 public class FlappyPool

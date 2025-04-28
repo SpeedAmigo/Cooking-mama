@@ -8,6 +8,8 @@ public class BedroomManager : MonoBehaviour
     [SerializeField] private GameObject bed;
     [SerializeField] private GameObject[] paperTrashes;
 
+    [SerializeField] private bool bedCleaned; 
+
     private void Awake()
     {
         EventsManager.BedroomMinigameCompleteEvent += MinigameComplete;
@@ -18,13 +20,29 @@ public class BedroomManager : MonoBehaviour
         EventsManager.BedroomMinigameCompleteEvent -= MinigameComplete;
     }
 
+    private void Start()
+    {
+        if (ES3.KeyExists("BedSave"))
+        {
+            bedCleaned = ES3.Load<bool>("BedSave");
+        }
+        
+        if (!bedCleaned) return;
+        
+        MinigameComplete();
+    }
+
     private void MinigameComplete()
     {
+        bedCleaned = true;
+        
         bed.GetComponent<SpriteRenderer>().sprite = cleanBedSprite;
         
         foreach (GameObject paperTrash in paperTrashes)
         {
             paperTrash.gameObject.SetActive(false);
         }
+        
+        ES3.Save("BedSave", bedCleaned);
     }
 }

@@ -9,7 +9,9 @@ public class MinigameManager : Interaction
     [SerializeField] private GameObject rawImage;
     [TabGroup("Minigame")]
     [SerializeField] private MinigameType minigameType;
-
+    [TabGroup("Minigame")] 
+    public bool canSkipTime; 
+    
     private void Start()
     {
         rawImage.SetActive(false);
@@ -22,7 +24,11 @@ public class MinigameManager : Interaction
             rawImage.SetActive(false);
             SceneManager.UnloadSceneAsync(minigameType.ToString());
             GameStateManager.ChangeGameState(GameState.InGame);
-            EventsManager.InvokeChangeTimeEvent();
+
+            if (canSkipTime)
+            {
+                EventsManager.InvokeChangeTimeEvent();
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public static class EventsManager
 {
@@ -11,6 +12,7 @@ public static class EventsManager
     public static event Action<string> ShowObjectText;
     public static event Action<Color, float> LightColorChangeEvent;
     public static event Action ChangeTimeEvent;
+    public static event Action<Light2D> LightReference;
 
     public static void InvokeAddItemEvent(ItemScript itemScript)
     {
@@ -50,5 +52,10 @@ public static class EventsManager
     public static void InvokeChangeTimeEvent()
     {
         ChangeTimeEvent?.Invoke();
+    }
+
+    public static void InvokeLightReference(Light2D light)
+    {
+        LightReference?.Invoke(light);
     }
 }

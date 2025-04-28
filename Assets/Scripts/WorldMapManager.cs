@@ -8,6 +8,8 @@ public class WorldMapManager : MonoBehaviour
     public static WorldMapManager Instance { get; set; } 
 
     [SerializeField] private Tilemap _tilemap;
+    public Tilemap Tilemap {set { _tilemap = value; } }
+    
     [SerializeField] private List<TileData> _tileDataList;
 
     private Dictionary<TileBase, TileData> _tileDataDictionary;

@@ -7,10 +7,13 @@ public class OnMouseHoverLogic
     private IInteractable _lastInteractable;
     private IPickable _lastPickable;
     
-    
     public void OnMouseHover(Vector2 position)
     {
-        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, 15);
+        int defaultLayerMask = LayerMask.GetMask("Default");
+        
+        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, 15, defaultLayerMask);
+        
+        Physics2D.queriesHitTriggers = true; // make sure that raycast is going to hit only the trigger collider
 
         // Check if the raycast hit an object with an outline
         if (hit.collider && hit.collider.isTrigger && hit.collider.gameObject.TryGetComponent(out OutlineFx.OutlineFx outlineFx))

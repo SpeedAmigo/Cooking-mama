@@ -7,7 +7,7 @@ public class DayNightScript : MonoBehaviour
 {
     [TabGroup("References")]
     [SerializeField] private Camera mainCamera;
-    private Light2D _globalLight;
+    [SerializeField] private Light2D _globalLight;
     
     [TabGroup("Properties")]
     [ShowInInspector] private bool changeBackgroundColor = false;
@@ -137,6 +137,7 @@ public class DayNightScript : MonoBehaviour
         
         ChangeDayColor(targetColor, transitionTime);
     }
+    
     
     private void Start()
     {

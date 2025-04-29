@@ -128,7 +128,7 @@ MonoBehaviour:
   textHolder: {fileID: 3178112481317907525}
   text: {fileID: 3160324085733786443}
   showupSpeed: 0.3
-  timeCounter: 5
+  timeCounter: 3.5
 --- !u!1 &8301403060514893675
 GameObject:
   m_ObjectHideFlags: 0

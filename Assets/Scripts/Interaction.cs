@@ -7,25 +7,10 @@ public abstract class Interaction : MonoBehaviour, IInteractable
     [TabGroup("PopUpText")]
     [HideLabel]
     [SerializeField] protected SoObjectText objectText;
-    //[SerializeField] protected string[] popUpText;
-
+    
     protected virtual void Awake()
     {
         SetOutline();
-    }
-
-    protected void ShowText(string text)
-    {
-        if (string.IsNullOrEmpty(text)) return;
-        EventsManager.InvokeShowObjectText(text);
-    }
-
-    private string GetRandomText(string[] texts)
-    {
-        if (texts.Length <= 0) return null;
-        
-        string text = texts[Random.Range(0, texts.Length)];
-        return text;
     }
     
     private void SetOutline()
@@ -37,7 +22,10 @@ public abstract class Interaction : MonoBehaviour, IInteractable
     // method called by clickin mouse on object
     public void TextTrigger()
     {
-        ShowText(GetRandomText(objectText.popUpText));
+        if (objectText != null)
+        {
+            objectText.ShowText(objectText.popUpText);
+        }
     }
     
     public abstract void Interact();

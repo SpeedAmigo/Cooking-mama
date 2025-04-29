@@ -3043,6 +3043,10 @@ PrefabInstance:
       propertyPath: rawImage
       value: 
       objectReference: {fileID: 66712477}
+    - target: {fileID: 5823979712614564360, guid: 923ac8017ed4644488cdae3089cd4fbf, type: 3}
+      propertyPath: canSkipTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

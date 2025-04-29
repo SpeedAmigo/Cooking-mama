@@ -9,6 +9,8 @@ public class StairsController : MonoBehaviour
     [SerializeField] private SO_TransitionProperties properties;
     [SceneDropdown] [SerializeField] private string sceneName;
     
+    private bool canTransition = true;
+    public bool CanTransition { set {canTransition = value; }}
 
     private void Start()
     {
@@ -20,6 +22,8 @@ public class StairsController : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlayerScript player))
         {
+            if (!canTransition) return;
+            
             GameStateManager.ChangeGameState(GameState.SceneLoading);
             StartCoroutine(FadeIn(sceneName, properties.transitionDuration));
         }

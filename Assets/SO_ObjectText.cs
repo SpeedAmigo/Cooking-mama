@@ -1,0 +1,9 @@
+using Sirenix.OdinInspector;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "SO_ObjectText", menuName = "Scriptable Objects/ObjectText")]
+public class SoObjectText : ScriptableObject
+{
+    [MultiLineProperty(5)]
+    public string[] popUpText;
+}

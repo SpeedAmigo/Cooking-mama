@@ -824,6 +824,103 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9001776705905218738, guid: 52d4c585cff72ff47bdb078d5e17d543, type: 3}
   m_PrefabInstance: {fileID: 2105197815421277403}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &938441853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 938441854}
+  - component: {fileID: 938441855}
+  - component: {fileID: 938441856}
+  m_Layer: 0
+  m_Name: StairsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &938441854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938441853}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.333, y: -0.689, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2049992488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &938441855
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938441853}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.044441313, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.74224025, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &938441856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938441853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e48a14cd1986b04a899a25e1c0eac49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bedroomManager: {fileID: 0}
+  stairsController: {fileID: 1732962082}
+  popUpText:
+  - Random 1
+  - Random 2
+  - Random 3
 --- !u!1 &966726710 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8047085696856851562, guid: 24f61e960bffc61438cf388c86b46a7a, type: 3}
@@ -1609,6 +1706,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4702939244976203249, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}
   m_PrefabInstance: {fileID: 132123617177474997}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1732962082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6218615234923438542, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}
+  m_PrefabInstance: {fileID: 132123617177474997}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1243b613e43c2409dd10dc0aa7ccc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1738342036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,7 +2512,8 @@ Transform:
   m_LocalPosition: {x: 0.81869036, y: 0.18798326, z: -0.19885582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 938441854}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2049992489
@@ -3908,6 +4017,7 @@ MonoBehaviour:
   textHolder: {fileID: 3346954650985003790}
   text: {fileID: 5801143702057399584}
   showupSpeed: 0.3
+  timeCounter: 5
 --- !u!224 &8421686003542336997
 RectTransform:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class BedroomManager : MonoBehaviour
     [SerializeField] private GameObject bed;
     [SerializeField] private GameObject[] paperTrashes;
 
-    [SerializeField] private bool bedCleaned; 
+    public bool bedCleaned; 
 
     private void Awake()
     {

@@ -1,12 +1,13 @@
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 public abstract class Interaction : MonoBehaviour, IInteractable
 {
     [TabGroup("PopUpText")]
     [HideLabel]
-    [MultiLineProperty(5)]
-    [SerializeField] protected string[] popUpText;
+    [SerializeField] protected SoObjectText objectText;
+    //[SerializeField] protected string[] popUpText;
 
     protected virtual void Awake()
     {
@@ -36,7 +37,7 @@ public abstract class Interaction : MonoBehaviour, IInteractable
     // method called by clickin mouse on object
     public void TextTrigger()
     {
-        ShowText(GetRandomText(popUpText));
+        ShowText(GetRandomText(objectText.popUpText));
     }
     
     public abstract void Interact();

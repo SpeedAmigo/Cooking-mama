@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
+  m_Name: CatToysMessages
+  m_EditorClassIdentifier: 
+  popUpText:
+  - "You\u2019ll have to play by yourself today, kitty\u2026"
+  - "Not today, Nev\u2026"
+  - "Such a mess\u2026"

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
-  m_Name: StairsMessages
+  m_Name: PlantsMessages
   m_EditorClassIdentifier: 
   popUpText:
-  - 
-  - 
-  - 
+  - "I\u2019ll need to water you, one day\u2026"
+  - "You look well enough\u2026"
+  - "You don\u2019t need water just yet\u2026"

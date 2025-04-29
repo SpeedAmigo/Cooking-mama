@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8c8fb6dc1578447974e7d98ef9e33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectText: {fileID: 0}
+  objectText: {fileID: 11400000, guid: a2de132d7054daa45992ff83499900ac, type: 2}
 --- !u!60 &1680137958
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2207,7 +2207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectText: {fileID: 0}
   rawImage: {fileID: 3014941974426553489}
-  minigameType: 3
+  minigameType: 0
   canSkipTime: 0
 --- !u!60 &1924857376
 PolygonCollider2D:

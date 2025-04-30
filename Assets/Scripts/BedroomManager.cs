@@ -7,6 +7,7 @@ public class BedroomManager : MonoBehaviour
     
     [SerializeField] private GameObject bed;
     [SerializeField] private GameObject[] paperTrashes;
+    [SerializeField] private SoObjectText firstText;
 
     public bool bedCleaned; 
 
@@ -26,10 +27,20 @@ public class BedroomManager : MonoBehaviour
         {
             bedCleaned = ES3.Load<bool>("BedSave");
         }
+
+        if (!bedCleaned)
+        {
+            SayFirstText();
+        }
         
         if (!bedCleaned) return;
         
         MinigameComplete();
+    }
+
+    private void SayFirstText()
+    {
+        firstText.ShowText(firstText.popUpText);
     }
 
     private void MinigameComplete()

@@ -10,7 +10,7 @@ public class MinigameManager : Interaction
     [TabGroup("Minigame")]
     [SerializeField] private MinigameType minigameType;
     [TabGroup("Minigame")] 
-    public bool canSkipTime; 
+    public bool canSkipTime;
     
     private void Start()
     {
@@ -19,6 +19,8 @@ public class MinigameManager : Interaction
 
     private void Update()
     {
+        if (!enabled) return;
+        
         if (Input.GetKeyDown(KeyCode.Escape) && rawImage.activeInHierarchy)
         {
             rawImage.SetActive(false);
@@ -34,6 +36,8 @@ public class MinigameManager : Interaction
 
     public override void Interact()
     {
+        if (!enabled) return;
+        
         if (GameStateManager.CurrentGameState != GameState.InGame) return;
         
         rawImage.SetActive(true);

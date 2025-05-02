@@ -391,6 +391,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84abdeb818817cd4ca5b8db0ab444ce2, type: 2}
   - {fileID: 11400000, guid: d4790f83210e7744dafd0afbc2e3b8e4, type: 2}
   - {fileID: 11400000, guid: 71adfd869cf7157438e2aacd3e83e8ee, type: 2}
+  currentFloorType: 0
 --- !u!1 &5245324156971502289
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +801,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6924659388580524185}
         m_TargetAssemblyTypeName: PauseMenuScript, Assembly-CSharp
         m_MethodName: ExitGameMethod
         m_Mode: 1

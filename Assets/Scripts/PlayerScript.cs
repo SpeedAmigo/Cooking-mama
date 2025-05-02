@@ -36,6 +36,13 @@ public class PlayerScript : MonoBehaviour, IInputHandler
         }
     }
 
+    private void StopMovement()
+    {
+        _movement = Vector2.zero;
+        _rb.linearVelocity = Vector2.zero;
+        _animator.SetFloat(Speed, 0);
+    }
+
     private void OnDisable()
     {
         InputManager.Instance.UnregisterHandler(this);
@@ -54,12 +61,19 @@ public class PlayerScript : MonoBehaviour, IInputHandler
         }
     }
     
-    void Start()
+    private void Start()
     {
         InputManager.Instance.RegisterHandler(this);
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _playerAudio = GetComponent<StudioEventEmitter>();
+    }
+
+    private void Update()
+    {
+        if (GameStateManager.CurrentGameState == GameState.InGame) return;
+        
+        StopMovement();
     }
 
     private void FixedUpdate()

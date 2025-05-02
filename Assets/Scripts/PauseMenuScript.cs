@@ -18,7 +18,7 @@ public class PauseMenuScript : MonoBehaviour
         GameStateManager.ChangeGameState(GameState.MainMenu);
         Time.timeScale = 1f;
     }
-
+    
     public void ExitGameMethod()
     {
         Application.Quit();

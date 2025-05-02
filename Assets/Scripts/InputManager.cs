@@ -1,19 +1,19 @@
-using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
-    public bool isEmpty;
-    
-    private IInputHandler _currentHandler;
 
+    [ShowInInspector] private Stack<IInputHandler> _inputHandlers;
+    
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            _inputHandlers = new Stack<IInputHandler>();
         }
         else
         {
@@ -23,21 +23,34 @@ public class InputManager : MonoBehaviour
 
     public void RegisterHandler(IInputHandler handler)
     {
-        _currentHandler = handler;
-        isEmpty = false;
+        if (_inputHandlers.Contains(handler)) return;
+        
+        _inputHandlers.Push(handler);
     }
 
     public void UnregisterHandler(IInputHandler handler)
     {
-        if (_currentHandler == handler)
+        if (_inputHandlers.Count > 0 && _inputHandlers.Peek() == handler)
         {
-            _currentHandler = null;
-            isEmpty = true;
+            _inputHandlers.Pop();
         }
     }
 
+    private void ClearHandlers()
+    {
+        if (_inputHandlers.Count > 10)
+        {
+            _inputHandlers.Clear();
+        }
+    }
+    
     private void Update()
     {
-        _currentHandler?.HandleInput();
+        if (_inputHandlers.Count == 0) return;
+        
+        _inputHandlers?.Peek().HandleInput();
+        ClearHandlers();
+        
+        Debug.Log("InputManager: " + _inputHandlers.Peek().GetType().Name);
     }
 }

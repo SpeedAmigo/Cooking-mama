@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MinigameManager : Interaction
+public class MinigameManager : Interaction, IInputHandler
 {
     [TabGroup("ImageReference")]
     [SerializeField] private GameObject rawImage;
@@ -19,6 +19,23 @@ public class MinigameManager : Interaction
 
     private void Update()
     {
+
+    }
+
+    public override void Interact()
+    {
+        if (!enabled) return;
+        
+        if (GameStateManager.CurrentGameState != GameState.InGame) return;
+        
+        rawImage.SetActive(true);
+        SceneManager.LoadScene(minigameType.ToString(), LoadSceneMode.Additive);
+        GameStateManager.ChangeGameState(GameState.Minigame);
+        InputManager.Instance.RegisterHandler(this);
+    }
+
+    public void HandleInput()
+    {
         if (!enabled) return;
         
         if (Input.GetKeyDown(KeyCode.Escape) && rawImage.activeInHierarchy)
@@ -31,18 +48,9 @@ public class MinigameManager : Interaction
             {
                 EventsManager.InvokeChangeTimeEvent();
             }
+            
+            InputManager.Instance.UnregisterHandler(this);
         }
-    }
-
-    public override void Interact()
-    {
-        if (!enabled) return;
-        
-        if (GameStateManager.CurrentGameState != GameState.InGame) return;
-        
-        rawImage.SetActive(true);
-        SceneManager.LoadScene(minigameType.ToString(), LoadSceneMode.Additive);
-        GameStateManager.ChangeGameState(GameState.Minigame);
     }
 }
 

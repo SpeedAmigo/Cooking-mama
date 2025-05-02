@@ -38,7 +38,6 @@ public class WorldMapManager : MonoBehaviour
             }
         }
     }
-
     
     public FloorType GetFloorType(Vector3 worldPosition)
     {
@@ -51,16 +50,4 @@ public class WorldMapManager : MonoBehaviour
         
         return floorType;
     }
-    /*
-    public AudioClip GetCurretnAudioClip(Vector3 worldPosition)
-    {
-        Vector3Int cellPosition = _tilemap.WorldToCell(worldPosition); // store player position and put it into tile map
-        TileBase tile = _tilemap.GetTile(cellPosition); // gets current tile player is standing
-        
-        int index = Random.Range(0, _tileDataDictionary[tile].audioClips.Count);
-        AudioClip clip = _tileDataDictionary[tile].audioClips[index]; // access current tiles  audio clip and returns it
-        
-        return clip; // returns the clip
-    }
-    */
 }

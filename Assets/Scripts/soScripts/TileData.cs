@@ -6,7 +6,7 @@ public class TileData : ScriptableObject
 {
    //public List<TileBase> tiles = new(); 
    public List<RuleTile> ruleTiles = new();
-   public List<AudioClip> audioClips = new();
+   //public List<AudioClip> audioClips = new();
    public FloorType floorType;
 }
 

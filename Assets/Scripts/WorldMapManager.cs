@@ -14,6 +14,8 @@ public class WorldMapManager : MonoBehaviour
 
     private Dictionary<TileBase, TileData> _tileDataDictionary;
     
+    [SerializeField] [ReadOnly] private FloorType currentFloorType;
+    
     private void Awake()
     {
         //singleton setup
@@ -36,6 +38,20 @@ public class WorldMapManager : MonoBehaviour
             }
         }
     }
+
+    
+    public FloorType GetFloorType(Vector3 worldPosition)
+    {
+        Vector3Int cellPosition = _tilemap.WorldToCell(worldPosition);
+        TileBase tile = _tilemap.GetTile(cellPosition);
+        
+        FloorType floorType = _tileDataDictionary[tile].floorType;
+        
+        currentFloorType = floorType;
+        
+        return floorType;
+    }
+    /*
     public AudioClip GetCurretnAudioClip(Vector3 worldPosition)
     {
         Vector3Int cellPosition = _tilemap.WorldToCell(worldPosition); // store player position and put it into tile map
@@ -46,4 +62,5 @@ public class WorldMapManager : MonoBehaviour
         
         return clip; // returns the clip
     }
+    */
 }

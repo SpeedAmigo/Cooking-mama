@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour, IInputHandler
@@ -8,22 +9,31 @@ public class PlayerScript : MonoBehaviour, IInputHandler
     
     private Vector2 _movement;
     private Rigidbody2D _rb;
-    private SpriteRenderer _sr;
     private Animator _animator;
-    private AudioSource _audio;
+    private StudioEventEmitter _playerAudio;
     
     [SerializeField] private float _speed;
     
     public void Step()
     {
-        float randomPitch = Random.Range(0.8f, 1.2f);
+        _playerAudio.Play();
         
-        if (WorldMapManager.Instance != null && _audio != null)
+        if (WorldMapManager.Instance != null)
         {
-            AudioClip currentFloorClip = WorldMapManager.Instance.GetCurretnAudioClip(transform.position);
-            _audio.pitch = randomPitch;
-            _audio.PlayOneShot(currentFloorClip);
-        }   
+            FloorType type = WorldMapManager.Instance.GetFloorType(transform.position);
+            switch (type)
+            {
+                case FloorType.Wood:
+                    _playerAudio.SetParameter("FloorType", 0);
+                    break;
+                case FloorType.Rock:
+                    _playerAudio.SetParameter("FloorType", 1);
+                    break;
+                case FloorType.Grass:
+                    _playerAudio.SetParameter("FloorType", 2);
+                    break;
+            }
+        }
     }
 
     private void OnDisable()
@@ -49,8 +59,7 @@ public class PlayerScript : MonoBehaviour, IInputHandler
         InputManager.Instance.RegisterHandler(this);
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _audio = GetComponent<AudioSource>();
-        _sr = GetComponent<SpriteRenderer>();
+        _playerAudio = GetComponent<StudioEventEmitter>();
     }
 
     private void FixedUpdate()

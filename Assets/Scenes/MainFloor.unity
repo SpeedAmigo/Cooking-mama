@@ -3812,6 +3812,14 @@ PrefabInstance:
       propertyPath: m_BlockingMask.m_Bits
       value: 63
       objectReference: {fileID: 0}
+    - target: {fileID: 5113663497267317857, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
+      propertyPath: Params.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113663497267317857, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
+      propertyPath: Params.Array.data[0].Name
+      value: FloorType
+      objectReference: {fileID: 0}
     - target: {fileID: 6638420317643239122, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.442

@@ -3913,14 +3913,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2136647783494960274, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385260423122976472, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 63
-      objectReference: {fileID: 0}
     - target: {fileID: 6638420317643239122, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.438

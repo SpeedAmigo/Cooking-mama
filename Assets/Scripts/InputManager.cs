@@ -50,7 +50,5 @@ public class InputManager : MonoBehaviour
         
         _inputHandlers?.Peek().HandleInput();
         ClearHandlers();
-        
-        Debug.Log("InputManager: " + _inputHandlers.Peek().GetType().Name);
     }
 }

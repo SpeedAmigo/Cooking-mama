@@ -11,21 +11,43 @@ public class ChickenScript : MonoBehaviour
     
     private Vector2 _minBoundPosition;
     private Vector2 _maxBoundPosition;
-
+    
     private bool _isMoving;
+    private float _horizontal;
     
     private Rigidbody2D _rb;
     private Animator _animator;
 
-    [Button]
+    
     private void MoveToPosition(Rigidbody2D body)
     {
+        _isMoving = true;
         Vector2 targetPosition = GetRandomPosition(chickenField);
         
         float distance = Vector2.Distance(body.position, targetPosition);
         float duration = distance / speed;
+        
+        SetHorizontal(body.position.x, targetPosition.x);
 
-        body.DOMove(targetPosition, duration).SetEase(Ease.Linear);
+        body.DOMove(targetPosition, duration).SetEase(Ease.Linear).OnComplete(() => OnComplete());
+    }
+
+    private void SetHorizontal(float positionX, float targetX)
+    {
+        if (positionX < targetX)
+        {
+            _horizontal = 1;
+        }
+        else
+        {
+            _horizontal = -1;
+        }
+    }
+
+    private void OnComplete()
+    {
+        _isMoving = false;
+        StartCoroutine(MoveEveryXSeconds(timeBetweenMoves));
     }
     
     private Vector2 GetRandomPosition(BoxCollider2D field)
@@ -38,28 +60,22 @@ public class ChickenScript : MonoBehaviour
     }
 
     private void WalkAnimation()
-    {
-        /*
-        Debug.Log(horizontal);
-        _animator.SetFloat("Horizontal", horizontal);
-        _animator.SetFloat("Speed", horizontal);
-        */
+    { 
+        _animator.SetBool("IsMoving", _isMoving);
+        _animator.SetFloat("Horizontal", _horizontal);
     }
 
     private IEnumerator MoveEveryXSeconds(float interval)
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(interval);
-            MoveToPosition(_rb);
-        }
+        yield return new WaitForSeconds(interval);
+        MoveToPosition(_rb);
     }
     
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        StartCoroutine(MoveEveryXSeconds(timeBetweenMoves));
+        StartCoroutine(MoveEveryXSeconds(1));
     }
     
     private void Update()

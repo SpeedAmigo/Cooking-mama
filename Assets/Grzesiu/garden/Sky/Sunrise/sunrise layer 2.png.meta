@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 960479a88f2a9b84589e16cf12b8e383
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6052589005796370433
+    second: sunrise layer 2_0
+  - first:
+      213: -2425858337515289570
+    second: sunrise layer 2_1
+  - first:
+      213: 3071358840056127225
+    second: sunrise layer 2_2
+  - first:
+      213: 3796958721956401622
+    second: sunrise layer 2_3
+  - first:
+      213: 1940666724599552418
+    second: sunrise layer 2_4
+  - first:
+      213: 5230967038679675661
+    second: sunrise layer 2_5
+  - first:
+      213: -8439738231543292002
+    second: sunrise layer 2_6
+  - first:
+      213: -3699387704603860862
+    second: sunrise layer 2_7
+  - first:
+      213: 5409821550224937354
+    second: sunrise layer 2_8
+  - first:
+      213: 4638863397492457249
+    second: sunrise layer 2_9
+  - first:
+      213: -849955431766855593
+    second: sunrise layer 2_10
+  - first:
+      213: 5467331253788369205
+    second: sunrise layer 2_11
+  - first:
+      213: -7788885474265716086
+    second: sunrise layer 2_12
+  - first:
+      213: -418274829797110019
+    second: sunrise layer 2_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sunrise layer 2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 166
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff792120e52e00ca0800000000000000
+      internalID: -6052589005796370433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 174
+        width: 54
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e144bfcd1be955ed0800000000000000
+      internalID: -2425858337515289570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 157
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fe1d4f9798af9a20800000000000000
+      internalID: 3071358840056127225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 157
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d1580927d181b430800000000000000
+      internalID: 3796958721956401622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 138
+        width: 27
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a95d2b9a12aeea10800000000000000
+      internalID: 1940666724599552418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_5
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 136
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d03774c8ec0289840800000000000000
+      internalID: 5230967038679675661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_6
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 134
+        width: 45
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9f14974bc600ea80800000000000000
+      internalID: -8439738231543292002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_7
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 139
+        width: 20
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 280a3ac9b7229acc0800000000000000
+      internalID: -3699387704603860862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_8
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 128
+        width: 49
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a811967990c831b40800000000000000
+      internalID: 5409821550224937354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_9
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 100
+        width: 29
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12f7919aead806040800000000000000
+      internalID: 4638863397492457249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_10
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 93
+        width: 36
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7507f9eb90a5434f0800000000000000
+      internalID: -849955431766855593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_11
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 68
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5316273eeccdfdb40800000000000000
+      internalID: 5467331253788369205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_12
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 74
+        width: 45
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a213eade158e390800000000000000
+      internalID: -7788885474265716086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sunrise layer 2_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 66
+        width: 28
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfec477224df13af0800000000000000
+      internalID: -418274829797110019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sunrise layer 2_0: -6052589005796370433
+      sunrise layer 2_1: -2425858337515289570
+      sunrise layer 2_10: -849955431766855593
+      sunrise layer 2_11: 5467331253788369205
+      sunrise layer 2_12: -7788885474265716086
+      sunrise layer 2_13: -418274829797110019
+      sunrise layer 2_2: 3071358840056127225
+      sunrise layer 2_3: 3796958721956401622
+      sunrise layer 2_4: 1940666724599552418
+      sunrise layer 2_5: 5230967038679675661
+      sunrise layer 2_6: -8439738231543292002
+      sunrise layer 2_7: -3699387704603860862
+      sunrise layer 2_8: 5409821550224937354
+      sunrise layer 2_9: 4638863397492457249
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

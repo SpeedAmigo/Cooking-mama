@@ -51,7 +51,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 3761879970504260450}
   cacheVersion: 131847
-  cacheTime: 638817926487952934
+  cacheTime: 638821369060713066
   SerializableEventsDict:
   - key: event:/SteppingSounds
     index: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638817926487952934
+  lastModified: 638821369060713066
   FileSizes: []
   Exists: 1
 --- !u!114 &2136476068722442468
@@ -88,7 +88,7 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638817926487649923
+  lastModified: 638821369060703070
   FileSizes: []
   Exists: 1
 --- !u!114 &2316690671866940378
@@ -134,7 +134,7 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638817926487654960
+  lastModified: 638821369060703070
   FileSizes:
   - Name: 
     Value: 872

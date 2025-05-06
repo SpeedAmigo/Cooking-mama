@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class ChickenScript : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class ChickenScript : MonoBehaviour
     
     private Rigidbody2D _rb;
     private Animator _animator;
-
     
     private void MoveToPosition(Rigidbody2D body)
     {

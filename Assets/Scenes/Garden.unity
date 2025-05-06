@@ -384,6 +384,8 @@ GameObject:
   - component: {fileID: 1476129305}
   - component: {fileID: 1476129306}
   - component: {fileID: 1476129307}
+  - component: {fileID: 1476129309}
+  - component: {fileID: 1476129308}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -581,6 +583,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1476129308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476129301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library: []
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: abbb5ec95912cc141b0143e81bd97ea1, type: 3}
+--- !u!114 &1476129309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476129301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 9.136757e-37
+  m_labelHash: 0.009161512
+  m_SpriteKey: 0
+  m_SpriteHash: 883642962
 --- !u!1 &1842111171
 GameObject:
   m_ObjectHideFlags: 0

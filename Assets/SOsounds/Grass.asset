@@ -13,27 +13,5 @@ MonoBehaviour:
   m_Name: Grass
   m_EditorClassIdentifier: 
   ruleTiles:
-  - {fileID: 11400000, guid: 8eacfb8cc53a59543887da6de7f8328f, type: 2}
-  audioClips:
-  - {fileID: 8300000, guid: ddc8111265eac5449ab704ae05bbbe05, type: 3}
-  - {fileID: 8300000, guid: 5bf82d2f41ab92f438584a2e5d732e50, type: 3}
-  - {fileID: 8300000, guid: 11040096b28c2d94ab7c24ae4a0f0b0e, type: 3}
-  - {fileID: 8300000, guid: aef0616cf7934094ab32284d98e0efbc, type: 3}
-  - {fileID: 8300000, guid: ed7b5f75832dac04a94680fe5b865133, type: 3}
-  - {fileID: 8300000, guid: 575c05ae7104db342b52119bcd653339, type: 3}
-  - {fileID: 8300000, guid: 2cbac193bdf40324cb49421cfc859933, type: 3}
-  - {fileID: 8300000, guid: 8a2e90f72b0601c42b6d5ebe6da73b19, type: 3}
-  - {fileID: 8300000, guid: 7bc30385fba6ccb4490133970669b677, type: 3}
-  - {fileID: 8300000, guid: 1ba571cdfbfe2144d87710848d0ec904, type: 3}
-  - {fileID: 8300000, guid: 6b42ae1790f2f484bb71600d8accdeb9, type: 3}
-  - {fileID: 8300000, guid: dda9699fa2cef7a42bc442cf73b1e92e, type: 3}
-  - {fileID: 8300000, guid: 3ebca6923d469b045a8aac6b2d233300, type: 3}
-  - {fileID: 8300000, guid: eb755ec5c1943cf4eb367a69f7d55d30, type: 3}
-  - {fileID: 8300000, guid: 22ff76da868ad864b8433e3d02dd8b24, type: 3}
-  - {fileID: 8300000, guid: ff528633ccb8d054aaf304414f46fc76, type: 3}
-  - {fileID: 8300000, guid: 13bf23524b5bd6f4abd8abb0b0669a22, type: 3}
-  - {fileID: 8300000, guid: 76106f0083107d94d8e0daead3a75064, type: 3}
-  - {fileID: 8300000, guid: b0be9a8bfbc2cb844995f92560fbbc88, type: 3}
-  - {fileID: 8300000, guid: aeda1ea3a05ee104a9ef5117880c4b9f, type: 3}
-  - {fileID: 8300000, guid: fdfb5affd2f374a4fa77f8717f0a64bd, type: 3}
+  - {fileID: 11400000, guid: acbd1b2cf0b26ba409aa5742028b4f48, type: 2}
   floorType: 0

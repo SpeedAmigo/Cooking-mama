@@ -122,7 +122,7 @@ MonoBehaviour:
   m_CategoryHash: 3.6608928e-19
   m_labelHash: 1.2985474e-36
   m_SpriteKey: 0
-  m_SpriteHash: 94861796
+  m_SpriteHash: 866593510
 --- !u!50 &4893146364536439929
 Rigidbody2D:
   serializedVersion: 5

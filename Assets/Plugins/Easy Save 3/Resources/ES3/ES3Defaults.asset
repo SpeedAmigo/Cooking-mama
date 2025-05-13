@@ -39,6 +39,7 @@ MonoBehaviour:
     - Assembly-CSharp-firstpass
     - FMODUnity
     - FMODUnityResonance
+    - NavMeshPlus
     - OutlineFx
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0

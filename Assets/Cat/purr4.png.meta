@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6d866811832b16148831c855921b22ae
+guid: 9c94814b3d1bc2647bf9f55dbe817b5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6660573835324607807
-    second: F2_0
+      213: 2622488976754822150
+    second: purr4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F2_0
+      name: purr4_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 252
-        height: 144
+        width: 19
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c23731d263e093a0800000000000000
-      internalID: -6660573835324607807
+      spriteID: 60c49de64d3f46420800000000000000
+      internalID: 2622488976754822150
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      F2_0: -6660573835324607807
+      purr4_0: 2622488976754822150
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

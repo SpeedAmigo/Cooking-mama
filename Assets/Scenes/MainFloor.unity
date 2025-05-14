@@ -6604,12 +6604,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec36bd886797c634aa6df3d57778f6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  range: 1
-  timeBetweenMoves: 1
+  speed: 0.5
+  range: 5
+  timeBetweenMoves: 5
   surface: {fileID: 827626463}
   debugPoint: {fileID: 1991596186}
-  _isMoving: 0
 --- !u!195 &1865641272
 NavMeshAgent:
   m_ObjectHideFlags: 0

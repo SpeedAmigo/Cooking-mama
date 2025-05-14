@@ -15,7 +15,7 @@ public class CatScript : MonoBehaviour
     private float _horizontal;
     private float _vertical;
     
-    [SerializeField] private bool _isMoving;
+    private bool _isMoving;
     private bool _isClicked;
     
     private Animator _animator;
@@ -25,23 +25,29 @@ public class CatScript : MonoBehaviour
     {
         if (_isMoving) return;
         
-        Debug.Log("Moving");
-        _isMoving = true;
         Vector2 targetPosition = GetRandomPosition(surface);
-        
         _agent.SetDestination(targetPosition);
         debugPoint.position = targetPosition;
+        
+        SetValues(transform.position, targetPosition);
         
         StartCoroutine(WaitForArrival());
     }
 
     private IEnumerator WaitForArrival()
     {
-        while (!_agent.pathPending && _agent.remainingDistance > _agent.stoppingDistance)
+        _isMoving = true;
+
+        while (_agent.pathPending)
         {
             yield return null;
         }
-        Debug.Log("Reached");
+        
+        while (_agent.remainingDistance > _agent.stoppingDistance)
+        {
+            yield return null;
+        }
+        
         _isMoving = false;
         yield return new WaitForSeconds(timeBetweenMoves);
         MoveToPosition();
@@ -62,9 +68,36 @@ public class CatScript : MonoBehaviour
         return Vector2.zero;
     }
 
+    private void SetValues(Vector2 position, Vector2 target)
+    {
+        if (position.x <= target.x)
+        {
+            _horizontal = 1;
+        }
+        else
+        {
+            _horizontal = -1;
+        }
+
+        if (position.y <= target.y)
+        {
+            _vertical = 1;
+        }
+        else
+        {
+            _vertical = -1;
+        }
+    }
+
+    private void WalkAnimation()
+    {
+        _animator.SetBool("IsMoving", _isMoving);
+        _animator.SetFloat("Horizontal", _horizontal);
+        _animator.SetFloat("Vertical", _vertical);
+    }
+
     private IEnumerator MoveEveryXSeconds(float interval)
     {
-        Debug.Log("Waiting");
         yield return new WaitForSeconds(interval);
         MoveToPosition();
     }
@@ -76,7 +109,14 @@ public class CatScript : MonoBehaviour
         
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+        _agent.speed = speed;
 
-        StartCoroutine(MoveEveryXSeconds(1f));
+        //StartCoroutine(MoveEveryXSeconds(1f));
+        MoveToPosition();
+    }
+
+    private void Update()
+    {
+        WalkAnimation();
     }
 }

@@ -7,6 +7,8 @@ public class StairsController : MonoBehaviour
 {
     [SerializeField] private Image transitionImage;
     [SerializeField] private SO_TransitionProperties properties;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private PlayerScript player;
     [SceneDropdown] [SerializeField] private string sceneName;
     
     private bool canTransition = true;
@@ -16,6 +18,16 @@ public class StairsController : MonoBehaviour
     {
         transitionImage.material.SetFloat("_Progress", 0);
         transitionImage.gameObject.SetActive(false);
+        MoveToSpawnPoint();
+    }
+
+    private void MoveToSpawnPoint()
+    {
+        if (TransitionManager.IsTransitioning)
+        {
+            player.transform.position = spawnPoint.position;
+            TransitionManager.IsTransitioning = false;
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +36,7 @@ public class StairsController : MonoBehaviour
         {
             if (!canTransition) return;
             
+            TransitionManager.IsTransitioning = true;
             GameStateManager.ChangeGameState(GameState.SceneLoading);
             StartCoroutine(FadeIn(sceneName, properties.transitionDuration));
         }

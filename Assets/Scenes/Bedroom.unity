@@ -4524,6 +4524,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3160324085733786443, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160324085733786443, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160324085733786443, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+    - target: {fileID: 3160324085733786443, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160324085733786443, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160324085733786443, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160324085733786443, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+    - target: {fileID: 3160324085733786443, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160324085733786443, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4790020013416443189, guid: 54ea20ed5d79e594b84938406db87aef, type: 3}
       propertyPath: m_Name
       value: TextController

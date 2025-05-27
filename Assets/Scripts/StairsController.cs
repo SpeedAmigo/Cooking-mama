@@ -1,4 +1,5 @@
 using System.Collections;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,9 +8,8 @@ public class StairsController : MonoBehaviour
 {
     [SerializeField] private Image transitionImage;
     [SerializeField] private SO_TransitionProperties properties;
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private PlayerScript player;
     [SceneDropdown] [SerializeField] private string sceneName;
+    [SerializeField] [MinValue(1)] private int spawnPointIndex;
     
     private bool canTransition = true;
     public bool CanTransition { set {canTransition = value; }}
@@ -18,16 +18,6 @@ public class StairsController : MonoBehaviour
     {
         transitionImage.material.SetFloat("_Progress", 0);
         transitionImage.gameObject.SetActive(false);
-        MoveToSpawnPoint();
-    }
-
-    private void MoveToSpawnPoint()
-    {
-        if (TransitionManager.IsTransitioning)
-        {
-            player.transform.position = spawnPoint.position;
-            TransitionManager.IsTransitioning = false;
-        }
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,15 +28,17 @@ public class StairsController : MonoBehaviour
             
             TransitionManager.IsTransitioning = true;
             GameStateManager.ChangeGameState(GameState.SceneLoading);
-            StartCoroutine(FadeIn(sceneName, properties.transitionDuration));
+            StartCoroutine(FadeIn(sceneName, properties.transitionDuration, spawnPointIndex));
         }
     }
 
-    private IEnumerator FadeIn(string sceneName, float duration) 
+    private IEnumerator FadeIn(string sceneName, float duration, int spawnPointIndex) 
     {
         float elapsedTime = 0;
         transitionImage.gameObject.SetActive(true);
         transitionImage.material.SetFloat("_Progress", 0);
+        
+        TransitionManager.SpawnPointIndex = spawnPointIndex;
 
        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
        asyncLoad.allowSceneActivation = false;

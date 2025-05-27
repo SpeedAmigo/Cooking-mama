@@ -188,9 +188,39 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9209573643791566797, guid: c59403e3617f68645aa3cb194df370ca, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 30603600}
+    - target: {fileID: 9209573643791566797, guid: c59403e3617f68645aa3cb194df370ca, type: 3}
       propertyPath: transitionImage
       value: 
       objectReference: {fileID: 1925777790585106612}
+    - target: {fileID: 9209573643791566797, guid: c59403e3617f68645aa3cb194df370ca, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 9209573643791566797, guid: c59403e3617f68645aa3cb194df370ca, type: 3}
+    - target: {fileID: 9209573643791566797, guid: c59403e3617f68645aa3cb194df370ca, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209573643791566797, guid: c59403e3617f68645aa3cb194df370ca, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[0]'
+      value: '"path":"spawnPoints","value":{"$id":0,"$type":"System.Collections.Generic.Dictionary`2[[System.Int32,
+        mscorlib],[UnityEngine.Transform, UnityEngine.CoreModule]], mscorlib","comparer":{"$id":1,"$type":"System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib"},"$rlength":1,"$rcontent":[{"$k":1,"$v":$eref:0}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209573643791566797, guid: c59403e3617f68645aa3cb194df370ca, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[1]'
+      value: '"path":"spawnPoints.{1si}","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209573643791566797, guid: c59403e3617f68645aa3cb194df370ca, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209573643791566797, guid: c59403e3617f68645aa3cb194df370ca, type: 3}
+      propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1911401226}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2453,6 +2483,10 @@ PrefabInstance:
       objectReference: {fileID: 1911401226}
     - target: {fileID: 6218615234923438542, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}
       propertyPath: fadeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6218615234923438542, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}
+      propertyPath: spawnPointIndex
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6218615234923438542, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}

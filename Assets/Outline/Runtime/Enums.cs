@@ -56,4 +56,12 @@ public enum MinigameType
     Books,
     BedroomCleaning,
 }
+
+public enum SpawnPoint
+{
+    StairsTop,
+    StairsBottom,
+    MainFloorDoors,
+    Garden
+}
  

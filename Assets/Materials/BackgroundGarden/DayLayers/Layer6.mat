@@ -63,11 +63,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Distance: 0.01
+    - _Distance: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rotation: 3.62
-    - _Speed: 0.5
+    - _Speed: 0
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

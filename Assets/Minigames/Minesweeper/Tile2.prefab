@@ -101,21 +101,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ccd36bc38e81de46ade44dbfe6c0d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unclickedTile: {fileID: 2528945350537408158, guid: 82768e69121000b48a84f9f4e35714e0, type: 3}
-  flaggedTile: {fileID: 1805158079502305607, guid: df8c2f1a52d408e4eba93fa08f910aad, type: 3}
-  mineTile: {fileID: 8135663367076951168, guid: 103d9d05d41662243991946937b85281, type: 3}
-  mineWrongTile: {fileID: -851801900025170881, guid: ceb75dbe5da00694ba57edb87b699f8b, type: 3}
-  mineHitTile: {fileID: 8250157587147991992, guid: 17d13d9e78044fe46985206f62b5bd61, type: 3}
+  unclickedTile: {fileID: 21300000, guid: 568a1d72e46039043b8cb8df92522bb8, type: 3}
+  flaggedTile: {fileID: 21300000, guid: 1ee3f8fea2179054595cee41ff8e038d, type: 3}
+  mineTile: {fileID: 21300000, guid: 9c4513b9bba50984aaf3df67286c7862, type: 3}
+  mineWrongTile: {fileID: 21300000, guid: 2122c6e2eb83a7e4bb2f6e4e24da16ed, type: 3}
+  mineHitTile: {fileID: 21300000, guid: 9c4513b9bba50984aaf3df67286c7862, type: 3}
   clickedTiles:
-  - {fileID: 8995154407686431259, guid: e588f853e3e0ced42a41ff0b26f3b74a, type: 3}
-  - {fileID: -855298285791758126, guid: 8cec594c1bde99a43b51651f51e14e34, type: 3}
-  - {fileID: 6937817954938267909, guid: 775ff19d4fa8cc04f856882dae5fb3df, type: 3}
-  - {fileID: -6470460504253458178, guid: c4052826ed7cb9840a6e91fc2f93dedc, type: 3}
-  - {fileID: -4178046375966092550, guid: db03e89150c7dfe47b0d65c907a96d6d, type: 3}
-  - {fileID: 4130640169021434097, guid: ace58b3e8de30aa44bb8a3dd3112dc0a, type: 3}
-  - {fileID: 3465286685962602723, guid: 5387e423b4c41b44dac5d81bf78a8e63, type: 3}
-  - {fileID: 7028616704906629411, guid: ce258998dc97d9540abc2ac2efd55ef7, type: 3}
-  - {fileID: 8288426215254106694, guid: 46b038e1c769a634ca9778e2940861b2, type: 3}
+  - {fileID: 21300000, guid: 2122c6e2eb83a7e4bb2f6e4e24da16ed, type: 3}
+  - {fileID: 21300000, guid: 7964e77b19cb95a4d86914ea4c77626e, type: 3}
+  - {fileID: 21300000, guid: 6b4f650f8510505458ef98446a35fe08, type: 3}
+  - {fileID: 21300000, guid: 3932bf41affca8b45a3155de03b954c3, type: 3}
+  - {fileID: 21300000, guid: 7dbacd6700dcea14bb5395a4e9aaac02, type: 3}
+  - {fileID: 21300000, guid: 6d9d9440f641d644799d44ae1d56caa1, type: 3}
+  - {fileID: 21300000, guid: c2d22f1da9acadb4683515e874e6c374, type: 3}
+  - {fileID: 21300000, guid: 77cf6e9f633f944439f0186cb741c012, type: 3}
+  - {fileID: 21300000, guid: d7a66c765085f7f4791509f6840287e7, type: 3}
   _spriteRenderer: {fileID: 0}
   manager: {fileID: 0}
   flagged: 0

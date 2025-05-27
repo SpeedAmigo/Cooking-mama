@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3482984479006109248}
-  - component: {fileID: 8857866910039115560}
+  - component: {fileID: 1094676867430534546}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -32,8 +32,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1465847956603306378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &8857866910039115560
-BoxCollider2D:
+--- !u!70 &1094676867430534546
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -66,18 +66,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0015094578, y: 0.09450257}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.8732087, y: 0.18911302}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0026620517, y: 0.09518977}
+  m_Size: {x: 0.87491584, y: 0.18888049}
+  m_Direction: 1
 --- !u!1 &7184962540732969058
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +81,7 @@ GameObject:
   - component: {fileID: 8006599321761950024}
   - component: {fileID: 1387158316994333511}
   - component: {fileID: 3527279608811615023}
+  - component: {fileID: 834743925241139214}
   m_Layer: 0
   m_Name: sofa
   m_TagString: Untagged
@@ -234,3 +226,19 @@ PolygonCollider2D:
       - {x: 0.4384566, y: 0.3273363}
       - {x: 0.33514273, y: 0.45928994}
   m_UseDelaunayMesh: 0
+--- !u!114 &834743925241139214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184962540732969058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

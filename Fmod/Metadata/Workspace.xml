@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="Workspace" id="{d362db83-c56c-4353-9fb3-28b546958ff1}">
+		<property name="builtBanksOutputDirectory">
+			<value>F:/GitHub/Cooking-mama/Assets/FmodBuild</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{073fbcde-3571-4c31-be79-43f8a953e080}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{91373646-a99f-475a-8d0c-0a2053c13e93}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{9beeb56e-2552-46c3-8b65-be4809bfd38a}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{907cf03f-216e-4f22-ae3d-caac84901b44}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{e49ef998-de47-4f6d-b4d3-6198f3689191}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{70437c44-c811-4c92-9001-e7663ec900ce}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{e2f0e0ed-8250-4281-99bb-1c8a7e882810}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{68a1e977-8e90-4bbd-b1ab-d31d50536ca7}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{3f7a4ef8-d6c4-499e-8688-e7ce5429aa0e}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{e69e609e-8faa-47c4-996b-238f156d1c71}</destination>
+		</relationship>
+	</object>
+</objects>

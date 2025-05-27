@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{b8565f15-205a-4a31-9493-cd1655d5de53}">
+		<property name="assetPath">
+			<value>Steppingsounds/Stone/Steps_floor-014.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.049954648526077096</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e2f0e0ed-8250-4281-99bb-1c8a7e882810}</destination>
+		</relationship>
+	</object>
+</objects>

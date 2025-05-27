@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5709700048851904264}
   - component: {fileID: 5823979712614564360}
   - component: {fileID: 3819676128518060028}
+  - component: {fileID: 1543592835328359489}
   m_Layer: 0
   m_Name: TV
   m_TagString: Untagged
@@ -105,7 +106,7 @@ MonoBehaviour:
   objectText: {fileID: 0}
   rawImage: {fileID: 0}
   minigameType: 0
-  canSkipTime: 0
+  canSkipTime: 1
 --- !u!60 &3819676128518060028
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -162,6 +163,22 @@ PolygonCollider2D:
       - {x: 0.13891953, y: 0.20871332}
       - {x: 0.14065996, y: 0.3579649}
   m_UseDelaunayMesh: 0
+--- !u!114 &1543592835328359489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319865355595626646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7751015035494996240
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5313120541330642713}
-  - component: {fileID: 1167395074616613933}
+  - component: {fileID: 7486544337353614166}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -194,8 +211,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3279066309104703651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1167395074616613933
-BoxCollider2D:
+--- !u!70 &7486544337353614166
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -228,15 +245,6 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00072044134, y: -0.032417785}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.64698493, y: 0.22766015}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0005650559, y: -0.03154288}
+  m_Size: {x: 0.64741415, y: 0.22723554}
+  m_Direction: 1

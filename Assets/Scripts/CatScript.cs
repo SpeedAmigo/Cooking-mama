@@ -9,8 +9,6 @@ public class CatScript : MonoBehaviour
     [SerializeField] private float range = 5f;
     [SerializeField] private float timeBetweenMoves = 5f;
     [SerializeField] private NavMeshSurface surface;
-
-    public Transform debugPoint;
     
     private float _horizontal;
     private float _vertical;
@@ -27,7 +25,6 @@ public class CatScript : MonoBehaviour
         
         Vector2 targetPosition = GetRandomPosition(surface);
         _agent.SetDestination(targetPosition);
-        debugPoint.position = targetPosition;
         
         SetValues(transform.position, targetPosition);
         

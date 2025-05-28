@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7403224224622921864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambient.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FmodBuild/Desktop/Ambient.bank
+  Name: Ambient
+  StudioPath: bank:/Ambient
+  lastModified: 638840371567509749
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-5442336162912833170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,18 +61,22 @@ MonoBehaviour:
   - {fileID: 3761879970504260450}
   - {fileID: 2136476068722442468}
   - {fileID: 790174201561398578}
+  - {fileID: -7403224224622921864}
   EditorEvents:
   - {fileID: 2316690671866940378}
+  - {fileID: 3370245258975296749}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2136476068722442468}
   StringsBanks:
   - {fileID: 3761879970504260450}
   cacheVersion: 131847
-  cacheTime: 638839465967546318
+  cacheTime: 638840371567509749
   SerializableEventsDict:
   - key: event:/SteppingSounds
     index: 0
+  - key: event:/Ambient
+    index: 1
 --- !u!114 &790174201561398578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +92,7 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638839465967546318
+  lastModified: 638840370540207564
   FileSizes: []
   Exists: 1
 --- !u!114 &2136476068722442468
@@ -88,7 +110,7 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638839465967465442
+  lastModified: 638840370538692559
   FileSizes: []
   Exists: 1
 --- !u!114 &2316690671866940378
@@ -119,6 +141,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 428
+--- !u!114 &3370245258975296749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambient
+  m_EditorClassIdentifier: 
+  Path: event:/Ambient
+  Guid:
+    Data1: -391555151
+    Data2: 1091806454
+    Data3: 1673624730
+    Data4: -204408323
+  Banks:
+  - {fileID: -7403224224622921864}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 39500
 --- !u!114 &3761879970504260450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +183,8 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638839465967505442
+  lastModified: 638840370538692559
   FileSizes:
   - Name: 
-    Value: 872
+    Value: 960
   Exists: 1

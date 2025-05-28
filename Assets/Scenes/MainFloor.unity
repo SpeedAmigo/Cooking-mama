@@ -4418,6 +4418,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 8dd9d5364a2a3dd4aa5d55ed27aa1daf, type: 2}
+    - target: {fileID: 5771866399233958952, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
+      propertyPath: registerAtStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6638420317643239122, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.442

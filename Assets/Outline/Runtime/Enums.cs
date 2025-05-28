@@ -57,11 +57,4 @@ public enum MinigameType
     BedroomCleaning,
 }
 
-public enum SpawnPoint
-{
-    StairsTop,
-    StairsBottom,
-    MainFloorDoors,
-    Garden
-}
  

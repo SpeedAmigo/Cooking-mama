@@ -16,12 +16,7 @@ public class MinigameManager : Interaction, IInputHandler
     {
         rawImage.SetActive(false);
     }
-
-    private void Update()
-    {
-
-    }
-
+    
     public override void Interact()
     {
         if (!enabled) return;

@@ -22,6 +22,8 @@ public abstract class Interaction : MonoBehaviour, IInteractable
     // method called by clickin mouse on object
     public void TextTrigger()
     {
+        if (GameStateManager.CurrentGameState != GameState.InGame) return;
+        
         if (objectText != null)
         {
             objectText.ShowText(objectText.popUpText);

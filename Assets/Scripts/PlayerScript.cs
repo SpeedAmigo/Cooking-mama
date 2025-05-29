@@ -1,5 +1,6 @@
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerScript : MonoBehaviour, IInputHandler
 {
@@ -13,6 +14,7 @@ public class PlayerScript : MonoBehaviour, IInputHandler
     private StudioEventEmitter _playerAudio;
     
     [SerializeField] private float _speed;
+    [SerializeField] private UnityEvent onEscape;
     
     public void Step()
     {
@@ -58,6 +60,11 @@ public class PlayerScript : MonoBehaviour, IInputHandler
             _animator.SetFloat(Horizontal, _movement.x);
             _animator.SetFloat(Vertical, _movement.y);
             _animator.SetFloat(Speed, _movement.sqrMagnitude);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            onEscape?.Invoke();
         }
     }
     

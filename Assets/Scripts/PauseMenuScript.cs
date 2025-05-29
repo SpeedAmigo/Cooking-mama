@@ -29,11 +29,18 @@ public class PauseMenuScript : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    private void Update()
+    public void TogglePauseMenu()
     {
+        _windowHandler.WindowToggle(pauseMenu, GameState.InGame, GameState.PauseMenu);
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _windowHandler.WindowToggle(pauseMenu, GameState.InGame, GameState.PauseMenu);
+            
         }
+    }
+
+    private void Update()
+    {
+        
     }
 }

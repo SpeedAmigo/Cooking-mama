@@ -55,6 +55,7 @@ public enum MinigameType
     Minesweeper,
     Books,
     BedroomCleaning,
+    KitchenMinigame
 }
 
  

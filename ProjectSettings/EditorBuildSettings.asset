@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FlappyCake.unity
     guid: cfae69961715fd143a146edf9e39b952
   - enabled: 1
-    path: Assets/Scenes/Books.unity
+    path: Assets/Scenes/books.unity
     guid: 6b7f3b29b82d49645aa6677c3bb53fee
   - enabled: 1
     path: Assets/Scenes/MInesweeper.unity
@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Garden.unity
     guid: e29f77a6bd5a0e84c95f83918c13166c
+  - enabled: 1
+    path: Assets/Scenes/KitchenMinigame.unity
+    guid: 8e13432851e47e345a49e95b0660605a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

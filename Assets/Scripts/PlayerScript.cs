@@ -13,7 +13,6 @@ public class PlayerScript : MonoBehaviour, IInputHandler
     private StudioEventEmitter _playerAudio;
     
     [SerializeField] private float _speed;
-    [SerializeField] private bool registerAtStart = false;
     
     public void Step()
     {
@@ -61,23 +60,10 @@ public class PlayerScript : MonoBehaviour, IInputHandler
             _animator.SetFloat(Speed, _movement.sqrMagnitude);
         }
     }
-
-    public void RegisterHandler()
-    {
-        InputManager.Instance.RegisterHandler(this);
-        registerAtStart = true;
-        ES3.Save("StartPopUp", registerAtStart);
-    }
     
     private void Start()
     {
-        registerAtStart = ES3.Load<bool>("StartPopUp", defaultValue: false);
-        
-        if (registerAtStart)
-        {
-            InputManager.Instance.RegisterHandler(this);
-        }
-        
+        InputManager.Instance.RegisterHandler(this);
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _playerAudio = GetComponent<StudioEventEmitter>();

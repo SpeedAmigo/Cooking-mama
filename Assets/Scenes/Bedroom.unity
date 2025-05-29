@@ -125,7 +125,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6241535087995452294}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 404eec6e5381aee45b0c2d17bb8c31f7, type: 3}
   m_Name: 
@@ -858,23 +858,35 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 30603600}
-        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
-        m_MethodName: RegisterHandler
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2049992487}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   texts:
   - {fileID: 1570690901}
   - {fileID: 849880008}
   - {fileID: 2013316968}
   - {fileID: 313491015}
-  - {fileID: 1969819625}
+  skipText: {fileID: 1969819625}
   finished: 0
   popUpShowed: 0
 --- !u!4 &842224376 stripped
@@ -1756,7 +1768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1544272556
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2842,7 +2854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press   <color=#ff0000><b>F</b></color>  to continue
+  m_text: Press   <color=#ff0000><b>SPACE</b></color>  to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
@@ -2852,7 +2864,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3086,7 +3098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2049992488
 Transform:
   m_ObjectHideFlags: 0
@@ -4849,6 +4861,14 @@ PrefabInstance:
     - target: {fileID: 997843874108095207, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 997843874108095207, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771866399233958952, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6638420317643239122, guid: bc7143dfbccb22547b8918e852516d11, type: 3}
       propertyPath: m_LocalPosition.x

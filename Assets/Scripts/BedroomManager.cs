@@ -30,7 +30,7 @@ public class BedroomManager : MonoBehaviour
 
         if (!bedCleaned)
         {
-            //SayFirstText();
+            SayFirstText();
         }
         
         if (!bedCleaned) return;

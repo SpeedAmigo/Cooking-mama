@@ -9,6 +9,7 @@ public class StartPopUpScript : MonoBehaviour, IInputHandler
     
     [SerializeField] private UnityEvent onDisable;
     [SerializeField] private List<TMPro.TMP_Text> texts;
+    [SerializeField] private TMPro.TMP_Text skipText;
 
     [SerializeField] private bool finished;
     [SerializeField] private bool popUpShowed;
@@ -19,8 +20,12 @@ public class StartPopUpScript : MonoBehaviour, IInputHandler
         {
             popUpShowed = ES3.Load<bool>("PopUpShowed");
         }
-        
-        if (popUpShowed) return;
+
+        if (popUpShowed)
+        {
+            onDisable?.Invoke();
+            return;
+        }
         
         NarratorPopUp.gameObject.SetActive(true);
         InputManager.Instance.RegisterHandler(this);
@@ -46,7 +51,19 @@ public class StartPopUpScript : MonoBehaviour, IInputHandler
             sequence.AppendInterval(2f);
         }
         
-        sequence.OnComplete(() => finished = true);
+        sequence.OnComplete(() => FinishedTextSequence());
+    }
+
+    private void FinishedTextSequence()
+    {
+        finished = true;
+        
+        skipText.gameObject.SetActive(true);
+            
+        Color targetColor = skipText.color;
+        targetColor.a = 1;
+        
+        skipText.DOColor(targetColor, 1.5f).SetDelay(2f);
     }
 
     private void SetTextsAlpha(float alpha)
@@ -61,7 +78,7 @@ public class StartPopUpScript : MonoBehaviour, IInputHandler
 
     public void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.F) && finished)
+        if (Input.GetKeyDown(KeyCode.Space) && finished)
         { 
             InputManager.Instance.UnregisterHandler(this);
             GameStateManager.ChangeGameState(GameState.InGame);

@@ -31,6 +31,11 @@ public class PipeSpawnerScript : MonoBehaviour
         return Random.Range(-yRange, yRange);
     }
 
+    public void StartSpawning()
+    {
+        _spawnCoroutine = StartCoroutine(PipeSpawner());
+    }
+
     private void StopSpawning()
     {
         _active = false;
@@ -84,9 +89,5 @@ public class PipeSpawnerScript : MonoBehaviour
     void Awake()
     {
         _pipePool = new ObjectPool<PipeLogic>(CreatePipe, GetPipe, ReleasePipe, DestroyPipe, false, 2, 5);
-    }
-    void Start()
-    {
-       _spawnCoroutine = StartCoroutine(PipeSpawner());
     }
 }

@@ -487,7 +487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e093630e3e8acf44bb3b0254e08f70e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseScrenToWorld: {fileID: 0}
 --- !u!60 &615315346
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1418,7 +1417,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 8
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: d53391c91e2666a488ebff37539de81d, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1

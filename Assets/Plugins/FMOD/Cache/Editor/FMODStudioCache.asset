@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/Ambient.bank
   Name: Ambient
   StudioPath: bank:/Ambient
-  lastModified: 638840371567509749
+  lastModified: 638840375797480016
   FileSizes: []
   Exists: 1
 --- !u!114 &-5442336162912833170
@@ -71,7 +71,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 3761879970504260450}
   cacheVersion: 131847
-  cacheTime: 638840371567509749
+  cacheTime: 638840375797480016
   SerializableEventsDict:
   - key: event:/SteppingSounds
     index: 0

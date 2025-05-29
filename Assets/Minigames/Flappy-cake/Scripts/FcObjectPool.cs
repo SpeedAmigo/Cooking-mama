@@ -8,7 +8,7 @@ public class FcObjectPool : MonoBehaviour
     public List<GameObject> activeObjects = new();
     [ShowInInspector] [ReadOnly] private List<GameObject> allObjects = new();
     private Dictionary<string, Queue<GameObject>> poolDictionary;
-
+    
     private void Start()
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
@@ -34,7 +34,7 @@ public class FcObjectPool : MonoBehaviour
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
-
+    
     public GameObject GetObject(string tag)
     {
         if (!poolDictionary.ContainsKey(tag))

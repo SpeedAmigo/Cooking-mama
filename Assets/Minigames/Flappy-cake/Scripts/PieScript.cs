@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Playables;
 
 public class PieScript : MonoBehaviour
@@ -6,11 +7,20 @@ public class PieScript : MonoBehaviour
     private Rigidbody2D _body;
     private PolygonCollider2D _collider;
     private bool _isAlive = true;
+    private bool _isStarted = false;
     [SerializeField] private bool godMode;
     [SerializeField] private int _flyForce;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] PlayableDirector _director;
+
+    [SerializeField] private UnityEvent startGameEvent;
+
+    private void StartGame()
+    {
+        _body.isKinematic = false;
+        startGameEvent?.Invoke();
+    }
     
     private void Fly()
     {
@@ -53,6 +63,12 @@ public class PieScript : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && _isAlive && !_isStarted)
+        {
+            _isStarted = true;
+            StartGame();
+        }
+        
         if (Input.GetKeyDown(KeyCode.Space) && _isAlive)
         {
             Fly();

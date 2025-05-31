@@ -14,6 +14,7 @@ public class DayNightScript : MonoBehaviour
     
     [SerializeField] private SO_DayCycle soDayCycle;
     private Color currentTargetColor;
+    public DayCycles CurrentDayCycle {get => soDayCycle.dayCycle;}
     
     [TabGroup("AmbientColors")]
     [LabelWidth(100f)]
@@ -49,6 +50,16 @@ public class DayNightScript : MonoBehaviour
         
         EventsManager.InvokeLightColorChange(newColor, duration);
     }
+
+    public void IncreaseDayCount()
+    {
+        soDayCycle.dayCount++;
+    }
+    
+    public void SetDayCycle(DayCycles dayCycle)
+    {
+        soDayCycle.dayCycle = dayCycle;
+    }
     
     private DayCycles GetNextCycle(DayCycles currentCycle)
     {
@@ -56,6 +67,11 @@ public class DayNightScript : MonoBehaviour
         
         if (DayCycles.Night == currentCycle)
         {
+            if (soDayCycle.dayCount >= 7)
+            {
+                soDayCycle.dayCount++;
+            } 
+            
             return DayCycles.Sunrise;
         }
         
@@ -96,6 +112,11 @@ public class DayNightScript : MonoBehaviour
         return targetColor;
     }
 
+    public int GetDayCount()
+    {
+        return soDayCycle.dayCount;
+    }
+    
     #region On Enable/Disable
     private void OnEnable()
     {
@@ -137,7 +158,6 @@ public class DayNightScript : MonoBehaviour
         
         ChangeDayColor(targetColor, transitionTime);
     }
-    
     
     private void Start()
     {

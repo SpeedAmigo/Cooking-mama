@@ -7,4 +7,6 @@ public class SO_DayCycle : ScriptableObject
 {
     [EnumToggleButtons]
     public DayCycles dayCycle;
+
+    public int dayCount;
 }

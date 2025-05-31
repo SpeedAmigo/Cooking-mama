@@ -15,7 +15,14 @@ public abstract class Interaction : MonoBehaviour, IInteractable
     
     private void SetOutline()
     {
-        var outline = gameObject.AddComponent<OutlineFx.OutlineFx>();
+        //var outline = gameObject.AddComponent<OutlineFx.OutlineFx>();
+        var outline = gameObject.GetComponent<OutlineFx.OutlineFx>();
+
+        if (outline == null)
+        {
+            outline = gameObject.AddComponent<OutlineFx.OutlineFx>();
+        }
+        
         outline.enabled = false;
     }
     

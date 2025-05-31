@@ -7406,6 +7406,7 @@ MonoBehaviour:
   range: 5
   timeBetweenMoves: 5
   surface: {fileID: 827626463}
+  spriteLibrary: {fileID: 1865641270}
 --- !u!195 &1865641272
 NavMeshAgent:
   m_ObjectHideFlags: 0

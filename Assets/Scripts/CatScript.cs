@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using NavMeshPlus.Components;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.U2D.Animation;
+using Random = UnityEngine.Random;
 
 public class CatScript : MonoBehaviour
 {
@@ -9,6 +12,7 @@ public class CatScript : MonoBehaviour
     [SerializeField] private float range = 5f;
     [SerializeField] private float timeBetweenMoves = 5f;
     [SerializeField] private NavMeshSurface surface;
+    [SerializeField] private SpriteLibrary spriteLibrary;
     
     private float _horizontal;
     private float _vertical;
@@ -97,6 +101,29 @@ public class CatScript : MonoBehaviour
     {
         yield return new WaitForSeconds(interval);
         MoveToPosition();
+    }
+
+    private void Awake()
+    {
+        if (ES3.KeyExists("CatSkin"))
+        {
+            string savedSkinName = ES3.Load<string>("CatSkin");
+            
+            SpriteLibraryAsset skin = Resources.Load<SpriteLibraryAsset>($"CatSkinLibraries/{savedSkinName}");
+
+            if (skin != null)
+            {
+                spriteLibrary.spriteLibraryAsset = skin;
+            }
+            else
+            {
+                Debug.LogWarning($"Could not find skin '{savedSkinName}' in Resources/SkinLibraries/");
+            }
+        }
+        else
+        {
+            Debug.Log("No saved skin found, assigning default.");
+        }
     }
 
     private void Start()

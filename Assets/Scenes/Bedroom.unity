@@ -5382,6 +5382,46 @@ PrefabInstance:
       propertyPath: globalTimer
       value: 
       objectReference: {fileID: 849513985}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginText.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginTexts.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginText.textList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginTexts.Array.data[0].textForDay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginTexts.Array.data[1].textForDay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginTexts.Array.data[2].textForDay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginTexts.Array.data[3].textForDay
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginTexts.Array.data[4].textForDay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginTexts.Array.data[5].textForDay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayBeginTexts.Array.data[6].textForDay
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 852371824287613936, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.91777223

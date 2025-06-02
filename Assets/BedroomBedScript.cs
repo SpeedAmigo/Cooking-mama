@@ -8,7 +8,7 @@ public class BedroomBedScript : MinigameManager
     
     public override void Interact()
     {
-        Debug.Log("Interacting with Bedroom Bed");
+        if (GameStateManager.CurrentGameState != GameState.InGame) return;
         
         if (globalTimer.CurrentDayCycle == DayCycles.Night)
         {

@@ -3,6 +3,7 @@ using UnityEngine;
 public class PauseMenuScript : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject optionsMenu;
     
     private WindowHandler _windowHandler = new();
 
@@ -31,16 +32,13 @@ public class PauseMenuScript : MonoBehaviour
 
     public void TogglePauseMenu()
     {
-        _windowHandler.WindowToggle(pauseMenu, GameState.InGame, GameState.PauseMenu);
-        
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (optionsMenu.activeInHierarchy)
         {
-            
+            optionsMenu.SetActive(false);
+            pauseMenu.SetActive(true);
+            return;
         }
-    }
-
-    private void Update()
-    {
         
+        _windowHandler.WindowToggle(pauseMenu, GameState.InGame, GameState.PauseMenu);
     }
 }

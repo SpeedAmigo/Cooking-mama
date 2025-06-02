@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{a2de5167-b025-4928-98b6-323fa5a4991e}">
+		<property name="assetPath">
+			<value>Minesweeper/GAME OVER (2).mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3919999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e2f0e0ed-8250-4281-99bb-1c8a7e882810}</destination>
+		</relationship>
+	</object>
+</objects>

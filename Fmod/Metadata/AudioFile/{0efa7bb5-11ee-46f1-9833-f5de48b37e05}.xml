@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{0efa7bb5-11ee-46f1-9833-f5de48b37e05}">
+		<property name="assetPath">
+			<value>Minesweeper/GAME WON.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.9591836734693877</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e2f0e0ed-8250-4281-99bb-1c8a7e882810}</destination>
+		</relationship>
+	</object>
+</objects>

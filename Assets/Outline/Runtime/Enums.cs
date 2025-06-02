@@ -58,4 +58,11 @@ public enum MinigameType
     KitchenMinigame
 }
 
+public enum VCAType
+{
+    Master,
+    Ambient,
+    SFX
+}
+
  

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{30727dc3-226c-4984-8de5-2adb76634fd4}">
+		<property name="name">
+			<value>MinesweeperGameState</value>
+		</property>
+		<relationship name="folder">
+			<destination>{907cf03f-216e-4f22-ae3d-caac84901b44}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{6fbec3c2-6105-4874-8063-b05628cd10e4}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{6fbec3c2-6105-4874-8063-b05628cd10e4}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>GameWon</value>
+			<value>GameOver</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 852371824287613936}
   - component: {fileID: 5830149424161430749}
   - component: {fileID: 6201537363481772649}
-  - component: {fileID: 4023340258996090038}
+  - component: {fileID: 15900168448986981}
   m_Layer: 0
   m_Name: bed
   m_TagString: Untagged
@@ -100,7 +100,7 @@ PolygonCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8dd9d5364a2a3dd4aa5d55ed27aa1daf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -141,7 +141,7 @@ PolygonCollider2D:
       - {x: 0.5, y: -0.65625}
       - {x: 0.5, y: 0.65625}
   m_UseDelaunayMesh: 0
---- !u!114 &4023340258996090038
+--- !u!114 &15900168448986981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,13 +150,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2819704953830954278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3560f086a7e1a384b903a69bf2be681e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e57d6b784fc90a4b9932cf832b1d7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectText: {fileID: 0}
   rawImage: {fileID: 0}
   minigameType: 3
   canSkipTime: 0
+  image: {fileID: 0}
+  globalTimer: {fileID: 0}
 --- !u!1 &8607393905347508266
 GameObject:
   m_ObjectHideFlags: 0

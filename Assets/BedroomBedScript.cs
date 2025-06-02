@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ public class BedroomBedScript : MinigameManager
         
         if (globalTimer.CurrentDayCycle == DayCycles.Night)
         {
-            //image.gameObject.SetActive(true);
+            ImageAnimation();
             
             globalTimer.SetDayCycle(DayCycles.Sunrise);
             
@@ -27,5 +28,18 @@ public class BedroomBedScript : MinigameManager
         {
             base.Interact();
         }
+    }
+
+    private void ImageAnimation()
+    {
+        image.gameObject.SetActive(true);
+        
+        Color color = image.color;
+        color.a = 1;
+
+        image.DOColor(color, 1f)
+            .SetEase(Ease.InOutSine)
+            .SetLoops(2, LoopType.Yoyo)
+            .OnComplete(() => image.gameObject.SetActive(false));
     }
 }

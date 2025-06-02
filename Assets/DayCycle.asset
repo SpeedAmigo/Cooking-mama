@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DayCycle
   m_EditorClassIdentifier: 
   dayCycle: 0
-  dayCount: 1
+  dayCount: 3

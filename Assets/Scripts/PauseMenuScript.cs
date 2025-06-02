@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class PauseMenuScript : MonoBehaviour

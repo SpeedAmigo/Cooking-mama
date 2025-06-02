@@ -13,7 +13,6 @@ public class ResolutionManager : MonoBehaviour
     private void Awake()
     {
         resolutions = Screen.resolutions;
-        LoadResolution();
     }
     
     private void Start()
@@ -27,6 +26,9 @@ public class ResolutionManager : MonoBehaviour
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
+            
+            //int screenWidth = Screen.currentResolution.width;
+            //int screenHeight = Screen.currentResolution.height;
             
             int savedWidth = PlayerPrefs.GetInt("screenWidth", Screen.currentResolution.width);
             int savedHeight = PlayerPrefs.GetInt("screenHeight", Screen.currentResolution.height);
@@ -81,16 +83,7 @@ public class ResolutionManager : MonoBehaviour
         PlayerPrefs.SetInt("fullScreen", fullScreen ? 1 : 0);
         PlayerPrefs.Save();
     } 
-
-    private void LoadResolution()
-    {
-        int width = PlayerPrefs.GetInt("screenWidth", Screen.currentResolution.width);
-        int height = PlayerPrefs.GetInt("screenHeight", Screen.currentResolution.height);
-        bool fullScreen = PlayerPrefs.GetInt("fullScreen", 1) == 1 ? true : false;
-        
-        Screen.SetResolution(width, height, fullScreen);
-    }
-
+    
     private void OnEnable()
     {
         resolutionDropdown.onValueChanged.AddListener(_ => DropdownValueChanged());

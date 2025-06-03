@@ -23,6 +23,7 @@ public enum GameState
     Inventory,
     Minigame,
     SceneLoading,
+    DayTransition,
     None
 }
 

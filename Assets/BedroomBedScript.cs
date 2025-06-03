@@ -7,14 +7,19 @@ using UnityEngine.UI;
 
 public class BedroomBedScript : MinigameManager
 {
+    public List<DayBeginText> dayBeginTexts = new();
+    
     [SerializeField] private Image image;
     [SerializeField] private DayNightScript globalTimer;
-
-    private bool waitingForInput;
-    private Sequence sequence;
-    private Sequence textSequence;
+    [SerializeField] private GameObject popUpTextParent;
     
-    public List<DayBeginText> dayBeginTexts = new();
+    [SerializeField] private List<TMP_Text> dayTexts = new();
+    [SerializeField] private TMP_Text skipText;
+
+    private bool     waitingForInput;
+    private bool            finished;
+    private Sequence        sequence;
+    private Sequence    textSequence;
     
     public override void Interact()
     {
@@ -30,9 +35,13 @@ public class BedroomBedScript : MinigameManager
         }
     }
 
+    // fade in animation for black overlay image
     private void ImageAnimation()
     {
+        GameStateManager.ChangeGameState(GameState.DayTransition);
         image.gameObject.SetActive(true);
+        
+        ResetTextsAlpha();
         
         sequence = DOTween.Sequence();
         
@@ -40,34 +49,90 @@ public class BedroomBedScript : MinigameManager
             .SetEase(Ease.InOutSine)
             .OnStepComplete(() =>
             { 
+                StartTextSequence();
                 ChangeDayCycle();
                 waitingForInput = true;
                 sequence.Pause();
             }))
-            .Append(image.DOFade(0f, 1f));
+            .Append(image.DOFade(0f, 1f)
+                .OnStart(() => SequenceFinished()));
     }
 
+    private void SequenceFinished()
+    {
+        GameStateManager.ChangeGameState(GameState.InGame);
+        popUpTextParent.SetActive(false);
+    }
+    
+    // general method for triggering texts 
     private void StartTextSequence()
     {
+        finished = false;
+        
         textSequence = DOTween.Sequence();
 
-        DayBeginText targetText = new();
+        var targetText = GetCurrentDayText(dayBeginTexts);
+        
+        popUpTextParent.SetActive(true);
+        
+        FadeInDayTexts(targetText);
+        
+        textSequence.OnComplete(() => TextSequenceComplete());
+    }
+    
+    // after textSequence completed the skip button appears and finished flag is triggered
+    private void TextSequenceComplete()
+    {
+        finished = true;
+        skipText.gameObject.SetActive(true);
+        skipText.DOFade(1f, 1f);
+    }
 
+    // this animates the list of texts from 0 to 1 except from skipText
+    private void FadeInDayTexts(DayBeginText targetText)
+    {
+        for (int i = 0; i < dayTexts.Count; i++)
+        {
+            var textElement  = dayTexts[i];
+            textElement.gameObject.SetActive(true);
+            textElement.text = targetText.textList[i];
+            
+            textSequence.Append(dayTexts[i].DOFade(1f, 1f));
+            textSequence.AppendInterval(1f);
+        }
+    }
+
+    // to display correct messages for each day,
+    // you need this method to find witch text list to choose
+    private DayBeginText GetCurrentDayText(List<DayBeginText> dayBeginTexts)
+    {
+        DayBeginText targetDayText = new();
+        
         foreach (var dayBeginText in dayBeginTexts)
         {
             if (dayBeginText.textForDay == globalTimer.GetDayCount())
-            {
-                targetText = dayBeginText;
+            { 
+                targetDayText = dayBeginText;
             }
         }
 
-        foreach (var text in targetText.textList)
-        {
-            text.gameObject.SetActive(true);
+        return targetDayText;
+    }
 
-            textSequence.Append(text.DOFade(1f, 1f));
-            textSequence.AppendInterval(1f);
+    private void ResetTextsAlpha()
+    {
+        foreach (var text in dayTexts)
+        {
+            var color = text.color;
+            color.a = 0f;
+            text.color = color;
+            text.gameObject.SetActive(false);
         }
+        
+        var skipColor = skipText.color;
+        skipColor.a = 0f;
+        skipText.color = skipColor;
+        skipText.gameObject.SetActive(false);
     }
     
     private void ChangeDayCycle()
@@ -78,13 +143,11 @@ public class BedroomBedScript : MinigameManager
         {
             globalTimer.IncreaseDayCount();
         }
-
-        Debug.Log("Day Count: " + globalTimer.GetDayCount());
     }
 
     private void Update()
     {
-        if (waitingForInput && Input.GetKeyDown(KeyCode.Space))
+        if (waitingForInput && finished && Input.GetKeyDown(KeyCode.Space))
         {
             waitingForInput = false;
             sequence.Play();
@@ -95,7 +158,6 @@ public class BedroomBedScript : MinigameManager
 [Serializable]
 public class DayBeginText
 {
-    public List<TMP_Text> textList;
-    public TMP_Text skipText;
+    public List<string> textList;
     public int textForDay;
 }

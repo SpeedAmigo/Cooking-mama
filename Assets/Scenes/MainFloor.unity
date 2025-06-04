@@ -7359,7 +7359,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5b7febd6f8c4cff41a7c6a896bd830be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c94814b3d1bc2647bf9f55dbe817b5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7407,7 +7407,7 @@ MonoBehaviour:
   m_CategoryHash: 0.009161512
   m_labelHash: 1.0058427e-10
   m_SpriteKey: 0
-  m_SpriteHash: 189210836
+  m_SpriteHash: 101410551
 --- !u!114 &1865641270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7441,10 +7441,6 @@ MonoBehaviour:
   surface: {fileID: 827626463}
   spriteLibrary: {fileID: 1865641270}
   xDebug: {fileID: 1201023292}
-  _horizontal: 0
-  _vertical: 0
-  _isMoving: 0
-  _isClicked: 0
 --- !u!195 &1865641272
 NavMeshAgent:
   m_ObjectHideFlags: 0

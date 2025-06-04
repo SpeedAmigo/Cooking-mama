@@ -18,7 +18,8 @@ public class PieScript : MonoBehaviour
 
     private void StartGame()
     {
-        _body.isKinematic = false;
+        _body.bodyType = RigidbodyType2D.Kinematic;
+        //_body.isKinematic = false;
         startGameEvent?.Invoke();
     }
     

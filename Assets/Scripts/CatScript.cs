@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using NavMeshPlus.Components;
 using UnityEngine;
@@ -6,13 +5,15 @@ using UnityEngine.AI;
 using UnityEngine.U2D.Animation;
 using Random = UnityEngine.Random;
 
-public class CatScript : MonoBehaviour
+public class CatScript : Interaction
 {
     [SerializeField] private float speed = 2f;
     [SerializeField] private float range = 5f;
     [SerializeField] private float timeBetweenMoves = 5f;
     [SerializeField] private NavMeshSurface surface;
     [SerializeField] private SpriteLibrary spriteLibrary;
+
+    [SerializeField] private GameObject xDebug;
     
     private float _horizontal;
     private float _vertical;
@@ -28,8 +29,9 @@ public class CatScript : MonoBehaviour
         if (_isMoving) return;
         
         Vector2 targetPosition = GetRandomPosition(surface);
-        _agent.SetDestination(targetPosition);
+        xDebug.transform.position = targetPosition;
         
+        _agent.SetDestination(targetPosition);
         SetValues(transform.position, targetPosition);
         
         StartCoroutine(WaitForArrival());
@@ -96,15 +98,39 @@ public class CatScript : MonoBehaviour
         _animator.SetFloat("Horizontal", _horizontal);
         _animator.SetFloat("Vertical", _vertical);
     }
-
-    private IEnumerator MoveEveryXSeconds(float interval)
+    
+    public override void Interact()
     {
-        yield return new WaitForSeconds(interval);
-        MoveToPosition();
+        _agent.isStopped = true;
+        _isClicked = true;
+        _isMoving = false;
+        
+        _animator.SetBool("IsClicked", _isClicked);
+        _animator.SetBool("IsMoving", _isMoving);
     }
 
-    private void Awake()
+    public void ResumeCatAfterPurr()
     {
+        _agent.isStopped = false;
+        _isClicked = false;
+
+        if (_agent.remainingDistance > _agent.stoppingDistance)
+        {
+            _isMoving = true;
+        }
+        else
+        {
+            _isMoving = false;
+        }
+        
+        _animator.SetBool("IsClicked", _isClicked);
+        _animator.SetBool("IsMoving", _isMoving);
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+                
         if (ES3.KeyExists("CatSkin"))
         {
             string savedSkinName = ES3.Load<string>("CatSkin");
@@ -125,7 +151,7 @@ public class CatScript : MonoBehaviour
             Debug.Log("No saved skin found, assigning default.");
         }
     }
-
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -134,8 +160,7 @@ public class CatScript : MonoBehaviour
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _agent.speed = speed;
-
-        //StartCoroutine(MoveEveryXSeconds(1f));
+        
         MoveToPosition();
     }
 

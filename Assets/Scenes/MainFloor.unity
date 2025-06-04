@@ -5370,6 +5370,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1813131793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1201023292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1201023293}
+  m_Layer: 0
+  m_Name: Xdebug
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1201023293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201023292}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5036405, y: 0.5359909, z: -0.0041850167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1202337525
 GameObject:
   m_ObjectHideFlags: 0
@@ -7261,6 +7292,7 @@ GameObject:
   - component: {fileID: 1865641271}
   - component: {fileID: 1865641272}
   - component: {fileID: 1865641273}
+  - component: {fileID: 1865641274}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -7327,7 +7359,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d4032fa23195c8c4199deb423495eaae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b7febd6f8c4cff41a7c6a896bd830be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7389,7 +7421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: e0a9401bb4833284894f4603c1443476, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 5d0937dc24419e049815430c64dc3df0, type: 3}
 --- !u!114 &1865641271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7402,11 +7434,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec36bd886797c634aa6df3d57778f6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectText: {fileID: 0}
   speed: 0.5
   range: 5
-  timeBetweenMoves: 5
+  timeBetweenMoves: 10
   surface: {fileID: 827626463}
   spriteLibrary: {fileID: 1865641270}
+  xDebug: {fileID: 1201023292}
+  _horizontal: 0
+  _vertical: 0
+  _isMoving: 0
+  _isClicked: 0
 --- !u!195 &1865641272
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7421,7 +7459,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.01
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -7456,6 +7494,60 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!60 &1865641274
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865641265}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.39583334, y: 0.3125}
+    newSize: {x: 0.21, y: 0.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.0023288354, y: 0.32874763}
+      - {x: -0.08973825, y: 0.16660279}
+      - {x: -0.23324816, y: 0.10850726}
+      - {x: -0.15903191, y: -0.009231329}
+      - {x: 0.15927236, y: -0.010719776}
+      - {x: 0.21320844, y: 0.11963171}
+      - {x: 0.2070698, y: 0.32209045}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1881412411
 GameObject:
   m_ObjectHideFlags: 0
@@ -9170,3 +9262,4 @@ SceneRoots:
   - {fileID: 352270817}
   - {fileID: 1202337528}
   - {fileID: 1865641266}
+  - {fileID: 1201023293}

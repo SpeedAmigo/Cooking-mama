@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShelfManager : MonoBehaviour
 {
     [SerializeField] private List<BookScript> books = new();
     [SerializeField] private List<Transform> targets = new();
-    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] private UnityEvent checkForComplete;
     
-    [SerializeField] private List<BookScript> targetOrder = new();
+    private readonly List<BookScript> _targetOrder = new();
+    [HideInInspector] public  bool completed;
 
     private void Start()
     {
@@ -16,7 +19,7 @@ public class ShelfManager : MonoBehaviour
         {
             var bookScript = books[i];
             bookScript.shelfManager = this;
-            targetOrder.Add(bookScript);
+            _targetOrder.Add(bookScript);
         }
         
         Shuffle(books);
@@ -43,14 +46,18 @@ public class ShelfManager : MonoBehaviour
         }
     }
 
-    public bool IsCorrectOrder()
+    public void IsCorrectOrder()
     {
         for (int i = 0; i < books.Count; i++)
         {
-            if (books[i] != targetOrder[i]) return false;
+            if (books[i] != _targetOrder[i])
+            {
+                completed = false;
+                return;
+            }
         }
-        Debug.Log("CorrectOrder!");
-        return true;
+        completed = true;
+        checkForComplete?.Invoke();
     }
     
     private void Update()

@@ -1,44 +1,54 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BookScript : MonoBehaviour, IPointerClickHandler
+public class BookScript : BooksAbstractMinigame
 {
-    private ShelfManager _shelfManager;
-    public Transform SnapTarget { get; private set; }
+    public bool isDragging;
+    public ShelfManager shelfManager;
 
-    [SerializeField] private Transform _oldParent;
-    [SerializeField] private Transform _currentParent;
-    
-    
-    public void OnPointerClick(PointerEventData eventData)
+    private float startZAxis;
+
+    private void Start()
     {
-        _shelfManager.GrabBook(gameObject);
+        startZAxis = transform.position.z;
     }
 
-    public void SetNewParent(Transform newParent)
+    public override void OnPointerDown(PointerEventData eventData)
     {
-        _oldParent = _currentParent;
-        _currentParent = newParent;
+        isDragging = true;
         
-        transform.SetParent(newParent);
+        var position = transform.position;
+        position.z = 11f;
+        transform.position = position;
+    }
+    
+    public override void OnDrag(PointerEventData eventData)
+    {
+        if (isDragging)
+        {
+            transform.position = new Vector3(GetWorldPosition().x, transform.position.y, transform.position.z);
+            
+            shelfManager.UpdateBookOrder();
+        }
     }
 
-    public Transform GetPreviousParent()
+    public override void OnPointerUp(PointerEventData eventData)
     {
-        if (_oldParent == null) return null;
+        isDragging = false;
+        shelfManager.UpdateBookOrder();
         
-        return _oldParent;
+        var position = transform.position;
+        position.z = startZAxis;
+        transform.position = position;
     }
+
+    public override void OnPointerClick(PointerEventData eventData) { }
     
-    // essential for keeping _shelfManager private
-    public void ManagerReference(ShelfManager manager)
+    private Vector3 GetWorldPosition()
     {
-        _shelfManager = manager;
-    }
-    
-    // needed for picking target
-    public void SetSnapTarget(Transform target)
-    {
-        SnapTarget = target;
+        Vector3 mouseScreenPos = Input.mousePosition;
+        mouseScreenPos.z = 10f;
+        return Camera.main.ScreenToWorldPoint(mouseScreenPos);
     }
 }

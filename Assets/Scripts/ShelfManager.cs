@@ -11,7 +11,8 @@ public class ShelfManager : MonoBehaviour
     [SerializeField] private UnityEvent checkForComplete;
     
     private readonly List<BookScript> _targetOrder = new();
-    [HideInInspector] public  bool completed;
+    [HideInInspector] public bool completed;
+    [HideInInspector] public Camera minigameCamera;
 
     private void Start()
     {

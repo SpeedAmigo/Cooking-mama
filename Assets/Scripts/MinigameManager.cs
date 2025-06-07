@@ -5,17 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MinigameManager : Interaction, IInputHandler
 {
-    [TabGroup("ImageReference")]
-    [SerializeField] private GameObject rawImage;
     [TabGroup("Minigame")]
     [SerializeField] private MinigameType minigameType;
     [TabGroup("Minigame")] 
     public bool canSkipTime;
-    
-    private void Start()
-    {
-        rawImage.SetActive(false);
-    }
     
     public override void Interact()
     {
@@ -23,7 +16,6 @@ public class MinigameManager : Interaction, IInputHandler
         
         if (GameStateManager.CurrentGameState != GameState.InGame) return;
         
-        rawImage.SetActive(true);
         SceneManager.LoadScene(minigameType.ToString(), LoadSceneMode.Additive);
         GameStateManager.ChangeGameState(GameState.Minigame);
         InputManager.Instance.RegisterHandler(this);
@@ -33,9 +25,8 @@ public class MinigameManager : Interaction, IInputHandler
     {
         if (!enabled) return;
         
-        if (Input.GetKeyDown(KeyCode.Escape) && rawImage.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            rawImage.SetActive(false);
             SceneManager.UnloadSceneAsync(minigameType.ToString());
             GameStateManager.ChangeGameState(GameState.InGame);
 

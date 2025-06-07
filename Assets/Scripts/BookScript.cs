@@ -6,20 +6,18 @@ public class BookScript : BooksAbstractMinigame
 {
     public bool isDragging;
     public ShelfManager shelfManager;
-
-    private float startZAxis;
-    private Renderer renderer;
+    
+    private Renderer _renderer;
 
     private void Start()
     {
-        startZAxis = transform.position.z;
-        renderer = GetComponent<SpriteRenderer>();
+        _renderer = GetComponent<SpriteRenderer>();
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;
-        renderer.sortingOrder = 1;
+        _renderer.sortingOrder = 1;
     }
     
     public override void OnDrag(PointerEventData eventData)
@@ -35,7 +33,7 @@ public class BookScript : BooksAbstractMinigame
     public override void OnPointerUp(PointerEventData eventData)
     {
         isDragging = false;
-        renderer.sortingOrder = 0;
+        _renderer.sortingOrder = 0;
         shelfManager.UpdateBookOrder();
         shelfManager.IsCorrectOrder();
     }
@@ -46,6 +44,6 @@ public class BookScript : BooksAbstractMinigame
     {
         Vector3 mouseScreenPos = Input.mousePosition;
         mouseScreenPos.z = 10f;
-        return Camera.main.ScreenToWorldPoint(mouseScreenPos);
+        return shelfManager.minigameCamera.ScreenToWorldPoint(mouseScreenPos);
     }
 }

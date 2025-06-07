@@ -3084,19 +3084,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   books:
-  - {fileID: 907342287}
-  - {fileID: 676090957}
-  - {fileID: 824945512}
-  - {fileID: 1332139630}
-  - {fileID: 1672862485}
-  - {fileID: 788979482}
-  - {fileID: 147775410}
-  - {fileID: 1271723634}
-  - {fileID: 399210116}
-  - {fileID: 1809422048}
-  - {fileID: 508277065}
-  - {fileID: 1922423235}
-  - {fileID: 1173824293}
+  - {fileID: 907342289}
+  - {fileID: 676090959}
+  - {fileID: 824945514}
+  - {fileID: 1332139632}
+  - {fileID: 1672862487}
+  - {fileID: 788979484}
+  - {fileID: 147775412}
+  - {fileID: 1271723636}
+  - {fileID: 399210118}
+  - {fileID: 1809422050}
+  - {fileID: 508277067}
+  - {fileID: 1922423237}
+  - {fileID: 1173824295}
   targets:
   - {fileID: 1785612626}
   - {fileID: 316728800}
@@ -3112,6 +3112,7 @@ MonoBehaviour:
   - {fileID: 2119928332}
   - {fileID: 1282303736}
   moveSpeed: 7
+  targetOrder: []
 --- !u!1 &2119928331
 GameObject:
   m_ObjectHideFlags: 0

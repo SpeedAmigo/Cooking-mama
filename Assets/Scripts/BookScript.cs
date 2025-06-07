@@ -8,19 +8,18 @@ public class BookScript : BooksAbstractMinigame
     public ShelfManager shelfManager;
 
     private float startZAxis;
+    private Renderer renderer;
 
     private void Start()
     {
         startZAxis = transform.position.z;
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;
-        
-        var position = transform.position;
-        position.z = 11f;
-        transform.position = position;
+        renderer.sortingOrder = 1;
     }
     
     public override void OnDrag(PointerEventData eventData)
@@ -36,11 +35,9 @@ public class BookScript : BooksAbstractMinigame
     public override void OnPointerUp(PointerEventData eventData)
     {
         isDragging = false;
+        renderer.sortingOrder = 0;
         shelfManager.UpdateBookOrder();
-        
-        var position = transform.position;
-        position.z = startZAxis;
-        transform.position = position;
+        shelfManager.IsCorrectOrder();
     }
 
     public override void OnPointerClick(PointerEventData eventData) { }

@@ -10,6 +10,7 @@ public static class EventsManager
     public static event Action<BedroomMinigameManager> OnGetBedroomMinigameManager;
     public static event Action BedroomMinigameCompleteEvent;
     public static event Action<string> ShowObjectText;
+    public static event Action HideObjectText;
     public static event Action<Color, float> LightColorChangeEvent;
     public static event Action ChangeTimeEvent;
     public static event Action<Light2D> LightReference;
@@ -57,5 +58,10 @@ public static class EventsManager
     public static void InvokeLightReference(Light2D light)
     {
         LightReference?.Invoke(light);
+    }
+
+    public static void InvokeHideObjectText()
+    {
+        HideObjectText?.Invoke();
     }
 }

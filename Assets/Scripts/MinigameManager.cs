@@ -16,6 +16,7 @@ public class MinigameManager : Interaction, IInputHandler
         
         if (GameStateManager.CurrentGameState != GameState.InGame) return;
         
+        EventsManager.InvokeHideObjectText();
         SceneManager.LoadScene(minigameType.ToString(), LoadSceneMode.Additive);
         GameStateManager.ChangeGameState(GameState.Minigame);
         InputManager.Instance.RegisterHandler(this);

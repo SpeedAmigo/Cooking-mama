@@ -15,11 +15,13 @@ public class UITextManager : MonoBehaviour
     private void OnEnable()
     {
         EventsManager.ShowObjectText += ShowText;
+        EventsManager.HideObjectText += HideObjectText;
     }
 
     private void OnDisable()
     {
         EventsManager.ShowObjectText -= ShowText;
+        EventsManager.HideObjectText -= HideObjectText;
     }
 
     private void Start()
@@ -52,8 +54,12 @@ public class UITextManager : MonoBehaviour
         timeCounter = 5f;
         StartCoroutine(ShowTextCorutine(passedText));
     }
-    
 
+    private void HideObjectText()
+    {
+        StartCoroutine(HideText());
+    }
+    
     private IEnumerator ShowTextCorutine(string passedText)
     {
         textHolder.gameObject.SetActive(true);

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BookScript : BooksAbstractMinigame
+public class BookScript : MinigameAbstract
 {
     public bool isDragging;
     public ShelfManager shelfManager;
@@ -24,7 +24,7 @@ public class BookScript : BooksAbstractMinigame
     {
         if (isDragging)
         {
-            transform.position = new Vector3(GetWorldPosition().x, transform.position.y, transform.position.z);
+            transform.position = new Vector3(GetWorldPosition(shelfManager.minigameCamera).x, transform.position.y, transform.position.z);
             
             shelfManager.UpdateBookOrder();
         }
@@ -39,11 +39,4 @@ public class BookScript : BooksAbstractMinigame
     }
 
     public override void OnPointerClick(PointerEventData eventData) { }
-    
-    private Vector3 GetWorldPosition()
-    {
-        Vector3 mouseScreenPos = Input.mousePosition;
-        mouseScreenPos.z = 10f;
-        return shelfManager.minigameCamera.ScreenToWorldPoint(mouseScreenPos);
-    }
 }

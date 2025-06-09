@@ -4394,6 +4394,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6218615234923438542, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}
+      propertyPath: dayNightScript
+      value: 
+      objectReference: {fileID: 849513985}
+    - target: {fileID: 6218615234923438542, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}
       propertyPath: spawnPointIndex
       value: 1
       objectReference: {fileID: 0}

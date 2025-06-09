@@ -5237,9 +5237,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionImage: {fileID: 1397099926894707909}
+  dayNightScript: {fileID: 1619149971}
   properties: {fileID: 11400000, guid: 310dc58700d331247aac2a2e4b64547c, type: 2}
   sceneName: Garden
   spawnPointIndex: 1
+  unlockOnDay: 5
 --- !u!61 &1164957726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8969,6 +8971,10 @@ PrefabInstance:
       propertyPath: fadeDuration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5052978679650578314, guid: c8757bd0a88993543b6d204818580d40, type: 3}
+      propertyPath: dayNightScript
+      value: 
+      objectReference: {fileID: 1619149971}
     - target: {fileID: 5052978679650578314, guid: c8757bd0a88993543b6d204818580d40, type: 3}
       propertyPath: spawnPointIndex
       value: 1

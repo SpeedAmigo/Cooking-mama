@@ -46,8 +46,8 @@ public enum DayCycles
     Sunrise = 0,
     Day = 1,
     Sunset = 2,
-    Midnight = 3,
-    Night = 4,
+    //Midnight = 3,
+    Night = 3,
 }
 
 public enum MinigameType

@@ -14,11 +14,13 @@ public class RoomTextTrigger : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (RoomTextHandler.Triggers.Contains(objectText)) return;
         if (!other.TryGetComponent<PlayerScript>(out var playerScript)) return;
         
         if (objectText != null)
         {
             objectText.ShowText(objectText.popUpText);
+            RoomTextHandler.Triggers.Add(objectText);
         }
     }
 

@@ -4058,7 +4058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gardenCam: {fileID: 2136647782936446913}
   player: {fileID: 6638420317117492609}
-  offset: 0.35
+  currentOffset: 0
 --- !u!4 &966264799
 Transform:
   m_ObjectHideFlags: 0
@@ -4977,8 +4977,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e91d2c43da17f41b1bc3fad2d31930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 10
-  currentTime: 1
+  delayTime: 2
+  currentTime: 0
+  gardenCamera: {fileID: 966264798}
 --- !u!1 &1354805846
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ public class BackgroundViewScript : MonoBehaviour
 {
     [SerializeField] private float delayTime;
     [SerializeField] private float currentTime;
+
+    [SerializeField] private GardenCameraScript gardenCamera;
     
     private bool isInCollider = false;
     private bool moved = false;
@@ -20,16 +22,26 @@ public class BackgroundViewScript : MonoBehaviour
             moved = PlayerMoved(); 
         }
         
+        Counter();
+    }
+
+    private void Counter()
+    {
         if (currentTime > 0 && isInCollider && !moved)
         {
             currentTime -= Time.deltaTime;
+        }
+
+        if (currentTime <= 0)
+        {
+            gardenCamera.ChangeCameraOffset(1.75f, 2f);
         }
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.TryGetComponent<PlayerScript>(out var player)) return;
-
+        
         isInCollider = true;
     }
 
@@ -39,6 +51,7 @@ public class BackgroundViewScript : MonoBehaviour
         
         isInCollider = false;
         currentTime = delayTime;
+        gardenCamera.ChangeCameraOffset(gardenCamera.startOffset, 2f);
     }
 
     private bool PlayerMoved()

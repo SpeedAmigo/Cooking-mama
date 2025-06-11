@@ -51,7 +51,7 @@ public class BackgroundViewScript : MonoBehaviour
         
         isInCollider = false;
         currentTime = delayTime;
-        gardenCamera.ChangeCameraOffset(gardenCamera.startOffset, 2f);
+        gardenCamera.ChangeCameraOffset(gardenCamera.startOffset, 1f);
     }
 
     private bool PlayerMoved()

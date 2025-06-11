@@ -6,9 +6,11 @@ public class GardenCameraScript : MonoBehaviour
 {
     [SerializeField] private Camera gardenCam;
     [SerializeField] private Transform player;
-
+    
     public readonly float startOffset = 0.35f;
-     public float currentOffset = 0;
+    public float currentOffset = 0;
+    
+    private Tween offsetTween;
 
     private Vector3 MoveCamera(Camera cam, Transform targetTransform)
     {
@@ -18,7 +20,8 @@ public class GardenCameraScript : MonoBehaviour
     
     public void ChangeCameraOffset(float offset, float duration)
     {
-        DOTween.To(() => currentOffset, x => currentOffset = x, offset, duration);
+        offsetTween?.Kill();
+        offsetTween = DOTween.To(() => currentOffset, x => currentOffset = x, offset, duration);
     }
     
     private void Start()

@@ -4058,6 +4058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gardenCam: {fileID: 2136647782936446913}
   player: {fileID: 6638420317117492609}
+  ease: 4
   currentOffset: 0
 --- !u!4 &966264799
 Transform:

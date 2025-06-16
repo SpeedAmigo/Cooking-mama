@@ -1,24 +1,33 @@
-using System;
-using Unity.VisualScripting.ReorderableList;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class CounterFood : MinigameAbstract
-{
-    public bool continousUpdate = false;
-    public bool useCuttingBoard = true;
+{ 
+    public KitchenGameManager manager;
     
-    private bool isHeld = false;
+    [TabGroup("CounterFood")]
+    [SerializeField] protected bool continousUpdate = false;
+    [TabGroup("CounterFood")]
+    [SerializeField] protected bool useBoard = true;
+    [TabGroup("CounterFood")]
+    [SerializeField] [ReadOnly] protected bool onBoard;
+    [TabGroup("CounterFood")]
+    [SerializeField] [ReadOnly] protected Vector2 lastSafePosition;
     
-    private Renderer renderer;
-
+    protected bool isHeld = false;
+    protected SpriteRenderer renderer;
+    
     private void Start()
     {
-        renderer = GetComponent<Renderer>();
+        renderer = GetComponent<SpriteRenderer>();
+        lastSafePosition = transform.position;
     }
-
+    
     public override void OnPointerDown(PointerEventData eventData)
     {
+        lastSafePosition = transform.position;
         isHeld = true;
         renderer.sortingOrder++;
     }
@@ -29,33 +38,38 @@ public class CounterFood : MinigameAbstract
         if (continousUpdate) return;
         
         gameObject.transform.position = GetWorldPosition(Camera.main);
-        Debug.Log("OnDrag");
     }
     
     public override void OnPointerUp(PointerEventData eventData)
     {
-        if (useCuttingBoard)
-        {
-            CheckForCuttingBoard();
-        }
-        
         isHeld = false;
         renderer.sortingOrder--;
+
+        bool isSafe = manager.CheckIfSafe(transform.position);
+        
+        if (!isSafe)
+        {
+            transform.DOMove(lastSafePosition, 0.5f);
+            return;
+        } 
+        lastSafePosition = transform.position;
     }
 
-    private void CheckForCuttingBoard()
+    private void OnTriggerStay2D(Collider2D other)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.localPosition, Vector2.zero, 0.1f);
+        if (!other.TryGetComponent<ChoppingBoardScript>(out var board)) return;
 
-        Debug.DrawRay(transform.position, Vector2.zero, Color.red);
-        
-        if (hit.collider.TryGetComponent<ChoppingBoardScript>(out var board))
+        if (!isHeld && useBoard)
         {
-            transform.localPosition = board.transform.position;
-            Debug.Log("Board");
+            gameObject.transform.position = board.transform.position;
+            onBoard = true;
+        }
+        else
+        {
+            onBoard = false;
         }
     }
-    
+
     private void LateUpdate()
     {
         if (continousUpdate && isHeld)
@@ -65,5 +79,5 @@ public class CounterFood : MinigameAbstract
         }
     }
     
-    public override void OnPointerClick(PointerEventData eventData) { }
+    public override void OnPointerClick(PointerEventData eventData) {}
 }

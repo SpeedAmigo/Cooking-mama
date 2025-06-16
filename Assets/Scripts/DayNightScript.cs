@@ -99,8 +99,8 @@ public class DayNightScript : MonoBehaviour
                 targetColor = _sunset;
                 break;
             //case DayCycles.Midnight:
-                targetColor = _midnight;
-                break;
+                //targetColor = _midnight;
+                //break;
             case DayCycles.Night:
                 targetColor = _night;
                 break;
@@ -146,8 +146,8 @@ public class DayNightScript : MonoBehaviour
                 targetColor = _sunset;
                 break;
             //case DayCycles.Midnight:
-                targetColor = _midnight;
-                break;
+                //targetColor = _midnight;
+                //break;
             case DayCycles.Night:
                 targetColor = _night;
                 break;

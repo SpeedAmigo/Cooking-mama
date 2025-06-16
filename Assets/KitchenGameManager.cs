@@ -1,9 +1,12 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class KitchenGameManager : MonoBehaviour
 {
     [SerializeField] private Camera minigameCamera;
+    public Camera MinigameCamera { get => minigameCamera;}
+    
     [SerializeField] private BoxCollider2D[] safeColliders;
     
     public bool CheckIfSafe(Vector3 position)

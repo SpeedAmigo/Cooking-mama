@@ -12,13 +12,31 @@ public class CounterFood : MinigameAbstract
     [TabGroup("CounterFood")]
     [SerializeField] protected bool useBoard = true;
     [TabGroup("CounterFood")]
+    [ShowIf("useBoard")]
+    [SerializeField] [ReadOnly] protected int requiredCuts;
+    [TabGroup("CounterFood")]
+    [ShowIf("useBoard")]
+    [SerializeField] protected int currentCuts;
+    [TabGroup("CounterFood")]
+    [ShowIf("useBoard")]
     [SerializeField] [ReadOnly] protected bool onBoard;
     [TabGroup("CounterFood")]
+    [ShowIf("useBoard")]
+    [Required]
+    [SerializeField] protected Sprite secondarySprite;
+    [TabGroup("CounterFood")]
     [SerializeField] [ReadOnly] protected Vector2 lastSafePosition;
+
     
     protected bool isHeld = false;
     protected SpriteRenderer renderer;
     
+    public bool IsHeld => isHeld;
+    public bool UseBoard => useBoard;
+    public bool OnBoard { get => onBoard; set => onBoard = value; }
+    public int RequiredCuts => requiredCuts;
+    public int CurrentCuts {get => currentCuts; set => currentCuts = value; }
+
     private void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -37,7 +55,7 @@ public class CounterFood : MinigameAbstract
         if (!isHeld) return;
         if (continousUpdate) return;
         
-        gameObject.transform.position = GetWorldPosition(Camera.main);
+        gameObject.transform.position = GetWorldPosition(manager.MinigameCamera);
     }
     
     public override void OnPointerUp(PointerEventData eventData)
@@ -55,29 +73,19 @@ public class CounterFood : MinigameAbstract
         lastSafePosition = transform.position;
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    public void ChangeSprite()
     {
-        if (!other.TryGetComponent<ChoppingBoardScript>(out var board)) return;
-
-        if (!isHeld && useBoard)
-        {
-            gameObject.transform.position = board.transform.position;
-            onBoard = true;
-        }
-        else
-        {
-            onBoard = false;
-        }
+        renderer.sprite = secondarySprite;
     }
-
+    
     private void LateUpdate()
     {
         if (continousUpdate && isHeld)
         {
-            gameObject.transform.position = GetWorldPosition(Camera.main);
+            gameObject.transform.position = GetWorldPosition(manager.MinigameCamera);
             Debug.Log("OnLateUpdate");
         }
     }
     
-    public override void OnPointerClick(PointerEventData eventData) {}
+    public override void OnPointerClick(PointerEventData eventData) { }
 }

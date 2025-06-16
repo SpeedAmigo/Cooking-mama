@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 
 public class KnifeMinigameScript : MinigameAbstract
 {
+    public KitchenGameManager manager;
+    
     private bool isHeld = false;
     private Renderer rend;
     private Vector2 startPos;
@@ -35,7 +37,7 @@ public class KnifeMinigameScript : MinigameAbstract
     public override void OnDrag(PointerEventData eventData)
     {
         if (!isHeld) return;
-        gameObject.transform.position = GetWorldPosition(Camera.main);
+        gameObject.transform.position = GetWorldPosition(manager.MinigameCamera);
     }
 
     public override void OnPointerUp(PointerEventData eventData)
@@ -67,6 +69,8 @@ public class KnifeMinigameScript : MinigameAbstract
         if (deltaPos.magnitude < moveMagnitude) return;
         
         lastPos = currentPos;
+        
+        if (board.currentFood == null) return;        
 
         if (board.currentFood.CurrentCuts < board.currentFood.RequiredCuts)
         {

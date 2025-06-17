@@ -8,9 +8,19 @@ public class CounterFood : MinigameAbstract
     public KitchenGameManager manager;
     
     [TabGroup("CounterFood")]
+    public FoodType foodType;
+    
+    [TabGroup("CounterFood")]
     [SerializeField] protected bool continousUpdate = false;
     [TabGroup("CounterFood")]
+    [HideIf("useBowl")]
     [SerializeField] protected bool useBoard = true;
+    [TabGroup("CounterFood")]
+    [HideIf("useBoard")]
+    [SerializeField] protected bool useBowl = false;
+    [TabGroup("CounterFood")]
+    [HideIf("useBoard")]
+    [SerializeField] protected bool destroyOnUse = false;
     [TabGroup("CounterFood")]
     [ShowIf("useBoard")]
     [SerializeField] [ReadOnly] protected int requiredCuts;
@@ -26,6 +36,8 @@ public class CounterFood : MinigameAbstract
     [SerializeField] protected Sprite secondarySprite;
     [TabGroup("CounterFood")]
     [SerializeField] [ReadOnly] protected Vector2 lastSafePosition;
+    [TabGroup("CounterFood")]
+    [SerializeField] [ReadOnly] protected Vector2 startPosition;
 
     
     protected bool isHeld = false;
@@ -33,6 +45,9 @@ public class CounterFood : MinigameAbstract
     
     public bool IsHeld => isHeld;
     public bool UseBoard => useBoard;
+    public bool UseBowl => useBowl;
+    public bool DestroyOnUse => destroyOnUse;
+    public Vector2 StartPosition => startPosition;
     public bool OnBoard { get => onBoard; set => onBoard = value; }
     public int RequiredCuts => requiredCuts;
     public int CurrentCuts {get => currentCuts; set => currentCuts = value; }
@@ -41,6 +56,12 @@ public class CounterFood : MinigameAbstract
     {
         renderer = GetComponent<SpriteRenderer>();
         lastSafePosition = transform.position;
+        startPosition = transform.position;
+    }
+
+    private void OnEnable()
+    {
+        manager = KitchenGameManager.Instance;
     }
     
     public override void OnPointerDown(PointerEventData eventData)

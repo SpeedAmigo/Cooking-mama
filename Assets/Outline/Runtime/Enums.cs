@@ -66,4 +66,18 @@ public enum VCAType
     SFX
 }
 
+public enum FoodType
+{
+    Bread,
+    CutBread,
+    Egg,
+    Apple,
+    CutApple,
+    Milk,
+    Meat,
+    CutMeat,
+    Pasta,
+    Passata
+}
+
  

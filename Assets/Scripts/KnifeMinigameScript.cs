@@ -15,8 +15,6 @@ public class KnifeMinigameScript : MinigameAbstract
     [SerializeField] private ChoppingBoardScript board;
     
     [SerializeField] private float moveMagnitude = 1f;
-    [SerializeField] private int requiredCuts = 3;
-    [SerializeField] private int currentCuts;
     [SerializeField] private Vector2 lastPos;
     [SerializeField] private Vector2 currentPos;
     [SerializeField] private Vector2 deltaPos;
@@ -78,7 +76,7 @@ public class KnifeMinigameScript : MinigameAbstract
         }
         else if (board.currentFood.CurrentCuts >= board.currentFood.RequiredCuts)
         {
-            board.currentFood.ChangeSprite();
+            board.SpawnCuttedFood();
         }
     }
 

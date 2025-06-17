@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class KitchenGameManager : MonoBehaviour
 {
+    public static KitchenGameManager Instance;
+    
     [SerializeField] private Camera minigameCamera;
     public Camera MinigameCamera { get => minigameCamera;}
     
     [SerializeField] private BoxCollider2D[] safeColliders;
-    
+
+    public void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
+        Instance = this;
+    }
+
     public bool CheckIfSafe(Vector3 position)
     {
         Vector2 pos2D = new Vector2(position.x, position.y);

@@ -80,4 +80,13 @@ public enum FoodType
     Passata
 }
 
+public enum DishType
+{
+    FrenchToast,
+    Fritters,
+    Spaghetti,
+    EggPasta,
+    EggToast
+}
+
  

@@ -32,7 +32,8 @@ public class BowlScript : MonoBehaviour
 
         if (!currentFood.IsHeld && currentFood.UseBowl && !isPlacedDown)
         {
-            AddFoodToBowl(currentFood.foodType);
+            var listToAdd = KitchenGameManager.Instance.currentBowlItems;
+            KitchenGameManager.Instance.AddFoodToList(currentFood.foodType, listToAdd);
             
             if (currentFood.DestroyOnUse)
             {
@@ -43,12 +44,5 @@ public class BowlScript : MonoBehaviour
                 currentFood.transform.position = currentFood.StartPosition;
             }
         }
-    }
-
-    private void AddFoodToBowl(FoodType foodType)
-    {
-        if (foodInBowl.Contains(foodType)) return;
-        foodInBowl.Add(foodType);
-        Debug.Log(foodInBowl.Count.ToString());
     }
 }

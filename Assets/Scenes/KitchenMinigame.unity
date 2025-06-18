@@ -281,6 +281,7 @@ MonoBehaviour:
   continousUpdate: 0
   useBoard: 1
   useBowl: 0
+  destroyOnUse: 0
   requiredCuts: 10
   currentCuts: 0
   onBoard: 0
@@ -632,11 +633,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigameCamera: {fileID: 1501175818}
+  dayNightScript: {fileID: 561865839}
   safeColliders:
   - {fileID: 2068799774}
   - {fileID: 950660279}
   - {fileID: 1276794823}
   - {fileID: 2118678393}
+  todayDish:
+    dishName: 0
+    bowlItems: 
+    panItems: 
+    potItems: 
+  dishRecipes:
+  - dishName: 0
+    bowlItems: 0200000001000000
+    panItems: 
+    potItems: 
+  - dishName: 1
+    bowlItems: 050000000200000004000000
+    panItems: 
+    potItems: 
+  - dishName: 2
+    bowlItems: 
+    panItems: 0700000009000000
+    potItems: 08000000
+  - dishName: 3
+    bowlItems: 
+    panItems: 01000000
+    potItems: 08000000
+  - dishName: 4
+    bowlItems: 
+    panItems: 0100000002000000
+    potItems: 
 --- !u!1 &202096695
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +817,7 @@ MonoBehaviour:
   continousUpdate: 0
   useBoard: 0
   useBowl: 1
+  destroyOnUse: 0
   requiredCuts: 0
   currentCuts: 0
   onBoard: 0
@@ -1521,6 +1550,7 @@ MonoBehaviour:
   continousUpdate: 0
   useBoard: 1
   useBowl: 0
+  destroyOnUse: 0
   requiredCuts: 10
   currentCuts: 0
   onBoard: 0
@@ -2486,6 +2516,7 @@ MonoBehaviour:
   continousUpdate: 0
   useBoard: 0
   useBowl: 1
+  destroyOnUse: 0
   requiredCuts: 0
   currentCuts: 0
   onBoard: 0
@@ -3766,6 +3797,7 @@ MonoBehaviour:
   continousUpdate: 0
   useBoard: 0
   useBowl: 1
+  destroyOnUse: 0
   requiredCuts: 0
   currentCuts: 0
   onBoard: 0
@@ -4171,6 +4203,7 @@ MonoBehaviour:
   continousUpdate: 0
   useBoard: 1
   useBowl: 0
+  destroyOnUse: 0
   requiredCuts: 5
   currentCuts: 0
   onBoard: 0
@@ -6356,6 +6389,7 @@ MonoBehaviour:
   continousUpdate: 0
   useBoard: 0
   useBowl: 1
+  destroyOnUse: 0
   requiredCuts: 0
   currentCuts: 0
   onBoard: 0

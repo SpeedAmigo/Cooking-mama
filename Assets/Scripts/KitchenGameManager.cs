@@ -115,6 +115,9 @@ public class KitchenGameManager : MonoBehaviour
 [Serializable]
 public class Dish
 {
+    public float cookingTime;
+    public float fryingTime;
+    
     public DishType dishName;
     public List<FoodType> bowlItems;
     public List<FoodType> panItems;

@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 2e99e5ff5e4c0f7408cf0cb08e1c69dc
+guid: 7c600f476fef73a48ba00e76e2709f98
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7894752535584112371
-    second: F2 (6)_0
-  - first:
-      213: -6110493292077600067
-    second: F2 (6)_1
-  - first:
-      213: -8443585562038700510
-    second: F2 (6)_2
-  - first:
-      213: 3037387861801253095
-    second: F2 (6)_3
-  - first:
-      213: -9023720567381405721
-    second: F2 (6)_4
+      213: 7792937357327925653
+    second: PastaInPot_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -112,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F2 (6)_0
+      name: PastaInPot_0
       rect:
         serializedVersion: 2
         x: 130
-        y: 55
-        width: 12
-        height: 35
+        y: 51
+        width: 38
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,96 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fefa195a9bcf8d60800000000000000
-      internalID: 7894752535584112371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F2 (6)_1
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 89
-        width: 11
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: db2be43c9ba233ba0800000000000000
-      internalID: -6110493292077600067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F2 (6)_2
-      rect:
-        serializedVersion: 2
-        x: 154
-        y: 75
-        width: 11
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 226f018daab52da80800000000000000
-      internalID: -8443585562038700510
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F2 (6)_3
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 63
-        width: 13
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7e83fb3ea28f62a20800000000000000
-      internalID: 3037387861801253095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F2 (6)_4
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 56
-        width: 12
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ef48d424fd45c280800000000000000
-      internalID: -9023720567381405721
+      spriteID: 591076cdc33162c60800000000000000
+      internalID: 7792937357327925653
       vertices: []
       indices: 
       edges: []
@@ -235,11 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      F2 (6)_0: 7894752535584112371
-      F2 (6)_1: -6110493292077600067
-      F2 (6)_2: -8443585562038700510
-      F2 (6)_3: 3037387861801253095
-      F2 (6)_4: -9023720567381405721
+      PastaInPot_0: 7792937357327925653
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

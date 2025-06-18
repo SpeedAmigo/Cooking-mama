@@ -20,6 +20,9 @@ public class CounterFood : MinigameAbstract
     [SerializeField] protected bool useBowl = false;
     [TabGroup("CounterFood")]
     [HideIf("useBoard")]
+    [SerializeField] protected bool usePot = false;
+    [TabGroup("CounterFood")]
+    [HideIf("useBoard")]
     [SerializeField] protected bool destroyOnUse = false;
     [TabGroup("CounterFood")]
     [ShowIf("useBoard")]
@@ -46,6 +49,7 @@ public class CounterFood : MinigameAbstract
     public bool IsHeld => isHeld;
     public bool UseBoard => useBoard;
     public bool UseBowl => useBowl;
+    public bool UsePot => usePot;
     public bool DestroyOnUse => destroyOnUse;
     public Vector2 StartPosition => startPosition;
     public bool OnBoard { get => onBoard; set => onBoard = value; }

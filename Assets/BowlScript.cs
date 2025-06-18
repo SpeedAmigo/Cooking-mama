@@ -6,9 +6,10 @@ using UnityEngine;
 public class BowlScript : MonoBehaviour
 {
     public CounterFood currentFood;
-    public HashSet<FoodType> foodInBowl = new();
     
     [SerializeField] private bool isAbove;
+    [SerializeField] private GameObject halfFull;
+    [SerializeField] private GameObject full;
 
     private bool isPlacedDown;
     
@@ -35,6 +36,8 @@ public class BowlScript : MonoBehaviour
             var listToAdd = KitchenGameManager.Instance.currentBowlItems;
             KitchenGameManager.Instance.AddFoodToList(currentFood.foodType, listToAdd);
             
+            ChangeBowl();
+            
             if (currentFood.DestroyOnUse)
             {
                 Destroy(currentFood.gameObject);
@@ -43,6 +46,27 @@ public class BowlScript : MonoBehaviour
             {
                 currentFood.transform.position = currentFood.StartPosition;
             }
+        }
+    }
+
+    private void ChangeBowl()
+    {
+        int count = KitchenGameManager.Instance.currentBowlItems.Count;
+
+        if (count == 0)
+        {
+            halfFull.SetActive(false);
+            full.SetActive(false);
+        }
+        else if (count == 1)
+        {
+            halfFull.SetActive(true);
+            full.SetActive(false);
+        }
+        else if (count >= 2)
+        {
+            halfFull.SetActive(false);
+            full.SetActive(true);
         }
     }
 }

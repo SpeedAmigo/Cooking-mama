@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 7779042628f3b8c47b5b07de82c76efa
+guid: 23772632988135742991e984f436fcd6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8889273447044209914
-    second: F1 (14)_0
-  - first:
-      213: 7308757216910161734
-    second: F1 (14)_1
-  - first:
-      213: 5079898574746795328
-    second: F1 (14)_2
-  - first:
-      213: 8862018461546694883
-    second: F1 (14)_3
+      213: -5405164439530168626
+    second: F0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F1 (14)_0
+      name: F0_0
       rect:
         serializedVersion: 2
-        x: 132
-        y: 73
-        width: 9
-        height: 16
+        x: 2
+        y: 64
+        width: 31
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6032e95b5e4f2a480800000000000000
-      internalID: -8889273447044209914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F1 (14)_1
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 55
-        width: 10
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 647b08f17fbed6560800000000000000
-      internalID: 7308757216910161734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F1 (14)_2
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 63
-        width: 11
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 04dbbcad6dc6f7640800000000000000
-      internalID: 5079898574746795328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: F1 (14)_3
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 58
-        width: 12
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3e8c17976d63cfa70800000000000000
-      internalID: 8862018461546694883
+      spriteID: ece1b3d749ffcf4b0800000000000000
+      internalID: -5405164439530168626
       vertices: []
       indices: 
       edges: []
@@ -200,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -209,11 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      F1 (14)_0: -8889273447044209914
-      F1 (14)_1: 7308757216910161734
-      F1 (14)_2: 5079898574746795328
-      F1 (14)_3: 8862018461546694883
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

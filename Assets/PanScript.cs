@@ -1,30 +1,29 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
-public class PotScript : MinigameAbstract
+public class PanScript : MinigameAbstract
 {
     public CounterFood currentFood;
     public float timer;
-    public bool firedUp;
     
+    [SerializeField] private bool firedUp;
     [SerializeField] private bool isAbove;
-    [SerializeField] private GameObject potPasta;
-    [SerializeField] private GameObject potParticles;
+    [SerializeField] private GameObject panThing;
+    [SerializeField] private GameObject panParticles;
     
-    [SerializeField] private bool pastaInside; 
-
+    private bool foodInside; 
     private bool isPlacedDown;
 
     private void Start()
     {
-        potPasta.SetActive(false);
-        potParticles.SetActive(false);
+        panThing.SetActive(false);
+        panParticles.SetActive(false);
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.TryGetComponent(out CounterFood counterFood)) return;
-        if (counterFood.foodType != FoodType.Pasta) return;
         
         currentFood = counterFood;
         isAbove = true;
@@ -39,22 +38,24 @@ public class PotScript : MinigameAbstract
     
     private void Update()
     {
-        if (pastaInside && firedUp)
+        if (foodInside && firedUp)
         {
             StartTimer();
         }
-
-        potParticles.SetActive(firedUp);
-
+        
+        ChangeBowl();
+        
+        panParticles.SetActive(firedUp);
+        
         if (!isAbove || currentFood == null) return;
         
         if (!currentFood.IsHeld && currentFood.UseBowl && !isPlacedDown)
         {
-            var listToAdd = KitchenGameManager.Instance.currentPotItems;
+            var listToAdd = KitchenGameManager.Instance.currentPanItems;
             KitchenGameManager.Instance.AddFoodToList(currentFood.foodType, listToAdd);
             
-            pastaInside = true;
-            potPasta.SetActive(true);
+            foodInside = true;
+            panThing.SetActive(true);
             
             if (currentFood.DestroyOnUse)
             {
@@ -64,6 +65,20 @@ public class PotScript : MinigameAbstract
             {
                 currentFood.transform.position = currentFood.StartPosition;
             }
+        }
+    }
+    
+    private void ChangeBowl()
+    {
+        int count = KitchenGameManager.Instance.currentPanItems.Count;
+
+        if (count == 0)
+        {
+            panThing.SetActive(false);
+        }
+        else if (count >= 1)
+        {
+            panThing.SetActive(true);
         }
     }
 
@@ -76,13 +91,13 @@ public class PotScript : MinigameAbstract
     {
         firedUp = !firedUp;
     }
-    
+
     public override void OnPointerClick(PointerEventData eventData)
     {
-        pastaInside = false;
+        foodInside = false;
         timer = 0;
-        potPasta.SetActive(false);
-        potParticles.SetActive(false);
+        panThing.SetActive(false);
+        panParticles.SetActive(false);
     }
 
     public override void OnPointerDown(PointerEventData eventData)
@@ -92,9 +107,9 @@ public class PotScript : MinigameAbstract
 
     public override void OnDrag(PointerEventData eventData)
     {
-        //throw new NotImplementedException();
+        //throw new System.NotImplementedException();
     }
-
+    
     public override void OnPointerUp(PointerEventData eventData)
     {
         //throw new NotImplementedException();

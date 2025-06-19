@@ -59,6 +59,11 @@ public class KitchenGameManager : MonoBehaviour
         Debug.Log(vessel.Count.ToString());
     }
 
+    public void CheckForComplete()
+    {
+        
+    }
+
     private void ClearFoodLists()
     {
         currentBowlItems.Clear();

@@ -77,7 +77,8 @@ public enum FoodType
     Meat,
     CutMeat,
     Pasta,
-    Passata
+    Passata,
+    MixedBowl
 }
 
 public enum DishType

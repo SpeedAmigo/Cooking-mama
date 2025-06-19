@@ -1,17 +1,33 @@
-using System;
-using System.Collections.Generic;
-using Sirenix.OdinInspector;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class BowlScript : MonoBehaviour
+public class BowlScript : MinigameAbstract
 {
     public CounterFood currentFood;
+
+    public bool mixing;
+    public int currentMixCount;
+    public int requiredMixCount;
     
     [SerializeField] private bool isAbove;
     [SerializeField] private GameObject halfFull;
     [SerializeField] private GameObject full;
 
     private bool isPlacedDown;
+    private Animator animator;
+    private KitchenGameManager manager;
+    private SpriteRenderer renderer;
+    private bool isHeld;
+    private Vector2 startPos;
+
+    private void Start()
+    {
+        manager = KitchenGameManager.Instance;
+        startPos = transform.position;
+        animator = GetComponent<Animator>();
+        renderer = GetComponent<SpriteRenderer>();
+    }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -29,14 +45,15 @@ public class BowlScript : MonoBehaviour
 
     private void Update()
     {
+        animator.SetBool("Mixing", mixing);
+        ChangeBowl();
+        
         if (!isAbove || currentFood == null) return;
 
         if (!currentFood.IsHeld && currentFood.UseBowl && !isPlacedDown)
         {
             var listToAdd = KitchenGameManager.Instance.currentBowlItems;
             KitchenGameManager.Instance.AddFoodToList(currentFood.foodType, listToAdd);
-            
-            ChangeBowl();
             
             if (currentFood.DestroyOnUse)
             {
@@ -68,5 +85,35 @@ public class BowlScript : MonoBehaviour
             halfFull.SetActive(false);
             full.SetActive(true);
         }
+    }
+
+    public override void OnPointerDown(PointerEventData eventData)
+    {
+        if (KitchenGameManager.Instance.currentBowlItems.Count != KitchenGameManager.Instance.todayDish.bowlItems.Count)
+        {
+            Debug.Log("I'm missing Something");
+            return;
+        }
+        
+        isHeld = true;
+        renderer.sortingOrder += 2;
+    }
+
+    public override void OnDrag(PointerEventData eventData)
+    {
+        if (!isHeld) return;
+        transform.position = GetWorldPosition(manager.MinigameCamera);
+    }
+
+    public override void OnPointerUp(PointerEventData eventData)
+    {
+        isHeld = false;
+        renderer.sortingOrder -= 2;
+        gameObject.transform.DOMove(startPos, 0.5f);
+    }
+
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+        //throw new System.NotImplementedException();
     }
 }

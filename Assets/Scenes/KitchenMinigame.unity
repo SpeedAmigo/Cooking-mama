@@ -278,15 +278,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 185060358}
   foodType: 6
-  continousUpdate: 0
+  continousUpdate: 1
   useBoard: 1
   useBowl: 0
-  usePot: 0
   destroyOnUse: 0
   requiredCuts: 10
   currentCuts: 0
   onBoard: 0
-  secondarySprite: {fileID: -2439509939980914748, guid: b8e9147f9e73888468cfdf69117ab1d8, type: 3}
   lastSafePosition: {x: 0, y: 0}
   startPosition: {x: 0, y: 0}
 --- !u!1 &10234037
@@ -567,7 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 102392316}
   - component: {fileID: 102392315}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fritters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,40 +870,54 @@ MonoBehaviour:
   currentBowlItems: 
   currentPanItems: 
   currentPotItems: 
+  potReady: 0
+  panReady: 0
   todayDish:
+    timeOffset: 0
     cookingTime: 0
     fryingTime: 0
+    dishToDisplay: {fileID: 0}
     dishName: 0
     bowlItems: 
     panItems: 
     potItems: 
   dishRecipes:
-  - cookingTime: 0
+  - timeOffset: 1
+    cookingTime: 0
     fryingTime: 5
+    dishToDisplay: {fileID: 2105631371}
     dishName: 0
     bowlItems: 0200000001000000
     panItems: 0a000000
     potItems: 
-  - cookingTime: 0
+  - timeOffset: 1
+    cookingTime: 0
     fryingTime: 6
+    dishToDisplay: {fileID: 102392314}
     dishName: 1
     bowlItems: 050000000200000004000000
     panItems: 0a000000
     potItems: 
-  - cookingTime: 6
+  - timeOffset: 1
+    cookingTime: 6
     fryingTime: 6
+    dishToDisplay: {fileID: 1289165527}
     dishName: 2
     bowlItems: 
     panItems: 0700000009000000
     potItems: 08000000
-  - cookingTime: 6
+  - timeOffset: 1
+    cookingTime: 6
     fryingTime: 4
+    dishToDisplay: {fileID: 597925415}
     dishName: 3
     bowlItems: 
     panItems: 02000000
     potItems: 08000000
-  - cookingTime: 0
+  - timeOffset: 1
+    cookingTime: 0
     fryingTime: 4
+    dishToDisplay: {fileID: 964887534}
     dishName: 4
     bowlItems: 
     panItems: 0100000002000000
@@ -1059,15 +1071,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 185060358}
   foodType: 5
-  continousUpdate: 0
+  continousUpdate: 1
   useBoard: 0
   useBowl: 1
-  usePot: 0
   destroyOnUse: 0
   requiredCuts: 0
   currentCuts: 0
   onBoard: 0
-  secondarySprite: {fileID: 0}
   lastSafePosition: {x: 0, y: 0}
   startPosition: {x: 0, y: 0}
 --- !u!1 &236864761
@@ -1793,15 +1803,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 185060358}
   foodType: 0
-  continousUpdate: 0
+  continousUpdate: 1
   useBoard: 1
   useBowl: 0
-  usePot: 0
   destroyOnUse: 0
   requiredCuts: 10
   currentCuts: 0
   onBoard: 0
-  secondarySprite: {fileID: 3514619867265554536, guid: 1780b73c249193a4f9630e9db3090c62, type: 3}
   lastSafePosition: {x: 0, y: 0}
   startPosition: {x: 0, y: 0}
 --- !u!1 &428000802
@@ -2177,6 +2185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentFood: {fileID: 0}
+  panScript: {fileID: 1282370875}
   mixing: 0
   currentMixCount: 0
   requiredMixCount: 50
@@ -2614,7 +2623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 597925417}
   - component: {fileID: 597925416}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EggPasta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2840,15 +2849,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 185060358}
   foodType: 8
-  continousUpdate: 0
+  continousUpdate: 1
   useBoard: 0
   useBowl: 1
-  usePot: 0
   destroyOnUse: 0
   requiredCuts: 0
   currentCuts: 0
   onBoard: 0
-  secondarySprite: {fileID: 0}
   lastSafePosition: {x: 0, y: 0}
   startPosition: {x: 0, y: 0}
 --- !u!1 &686063425
@@ -3864,7 +3871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 964887536}
   - component: {fileID: 964887535}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EggToast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4361,15 +4368,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 185060358}
   foodType: 2
-  continousUpdate: 0
+  continousUpdate: 1
   useBoard: 0
   useBowl: 1
-  usePot: 0
   destroyOnUse: 0
   requiredCuts: 0
   currentCuts: 0
   onBoard: 0
-  secondarySprite: {fileID: 0}
   lastSafePosition: {x: 0, y: 0}
   startPosition: {x: 0, y: 0}
 --- !u!1 &1139470687
@@ -4858,15 +4863,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 185060358}
   foodType: 3
-  continousUpdate: 0
+  continousUpdate: 1
   useBoard: 1
   useBowl: 0
-  usePot: 0
   destroyOnUse: 0
   requiredCuts: 5
   currentCuts: 0
   onBoard: 0
-  secondarySprite: {fileID: -3252737944437810881, guid: 83f8750cd84d39f439bd0cac86546d49, type: 3}
   lastSafePosition: {x: 0, y: 0}
   startPosition: {x: 0, y: 0}
 --- !u!1 &1276794822
@@ -5113,6 +5116,7 @@ MonoBehaviour:
   isAbove: 0
   panThing: {fileID: 1728698501}
   panParticles: {fileID: 1377657981}
+  foodInside: 0
 --- !u!50 &1282370876
 Rigidbody2D:
   serializedVersion: 5
@@ -5242,7 +5246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1289165529}
   - component: {fileID: 1289165528}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spaghetti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7720,15 +7724,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 185060358}
   foodType: 9
-  continousUpdate: 0
+  continousUpdate: 1
   useBoard: 0
   useBowl: 1
-  usePot: 0
   destroyOnUse: 0
   requiredCuts: 0
   currentCuts: 0
   onBoard: 0
-  secondarySprite: {fileID: 0}
   lastSafePosition: {x: 0, y: 0}
   startPosition: {x: 0, y: 0}
 --- !u!1 &2014440269
@@ -8326,7 +8328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2105631373}
   - component: {fileID: 2105631372}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrenchToast
   m_TagString: Untagged
   m_Icon: {fileID: 0}

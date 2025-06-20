@@ -12,7 +12,7 @@ public class PanScript : MinigameAbstract
     [SerializeField] private GameObject panThing;
     [SerializeField] private GameObject panParticles;
     
-    private bool foodInside; 
+    public bool foodInside; 
     private bool isPlacedDown;
 
     private void Start()
@@ -94,9 +94,27 @@ public class PanScript : MinigameAbstract
 
     public override void OnPointerClick(PointerEventData eventData)
     {
-        foodInside = false;
-        timer = 0;
-        panThing.SetActive(false);
+        int value = KitchenGameManager.Instance.IsWithinRange(
+            timer, 
+            KitchenGameManager.Instance.todayDish.fryingTime, 
+            KitchenGameManager.Instance.todayDish.timeOffset);
+
+        if (value == -1)
+        {
+            Debug.Log("Too Early");
+        }
+        else if (value == 1)
+        {
+            Debug.Log("Damn! i over cooked it");
+            foodInside = false;
+            timer = 0;
+            panThing.SetActive(false);
+        }
+        else if (value == 0)
+        {
+            KitchenGameManager.Instance.CheckForComplete(1);
+        }
+        
         panParticles.SetActive(false);
     }
 

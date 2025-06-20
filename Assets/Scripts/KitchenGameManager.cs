@@ -14,6 +14,9 @@ public class KitchenGameManager : MonoBehaviour
     public List<FoodType> currentBowlItems = new();
     public List<FoodType> currentPanItems  = new();
     public List<FoodType> currentPotItems  = new();
+
+    public bool potReady;
+    public bool panReady;
     
     public Camera MinigameCamera { get => minigameCamera;}
 
@@ -38,7 +41,7 @@ public class KitchenGameManager : MonoBehaviour
     {
         todayDish = GetTodayDish(dayNightScript.GetDayCount());
     }
-
+    
     private Dish GetTodayDish(int currentDay)
     {
         int day = currentDay - 1;
@@ -56,12 +59,45 @@ public class KitchenGameManager : MonoBehaviour
         if (vessel.Contains(foodType)) return;
         vessel.Add(foodType);
         CheckIfCorrect();
-        Debug.Log(vessel.Count.ToString());
     }
 
-    public void CheckForComplete()
+    public void CheckForComplete(int type)
     {
+        if (type == 0)
+        {
+            potReady = true;
+            DisplayDish();
+        }
         
+        if (type == 1)
+        {
+            panReady = true;
+            DisplayDish();
+        }
+    }
+
+    private void DisplayDish()
+    {
+        if (panReady && potReady)
+        {
+            todayDish.dishToDisplay.SetActive(true);
+        }
+    }
+
+    public int IsWithinRange(float time, float requiredTime, float offset)
+    {
+        if (time < requiredTime - offset)
+        {
+            return -1;
+        }
+        else if (time > requiredTime + offset)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     private void ClearFoodLists()
@@ -120,9 +156,11 @@ public class KitchenGameManager : MonoBehaviour
 [Serializable]
 public class Dish
 {
+    public float timeOffset;
     public float cookingTime;
     public float fryingTime;
     
+    public GameObject dishToDisplay;
     public DishType dishName;
     public List<FoodType> bowlItems;
     public List<FoodType> panItems;

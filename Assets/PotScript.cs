@@ -79,9 +79,29 @@ public class PotScript : MinigameAbstract
     
     public override void OnPointerClick(PointerEventData eventData)
     {
-        pastaInside = false;
-        timer = 0;
-        potPasta.SetActive(false);
+        int value = KitchenGameManager.Instance.IsWithinRange(
+            timer, 
+            KitchenGameManager.Instance.todayDish.cookingTime, 
+            KitchenGameManager.Instance.todayDish.timeOffset);
+        
+        Debug.Log(value);
+
+        if (value == -1)
+        {
+            Debug.Log("Too Early");
+        }
+        else if (value == 1)
+        {
+            Debug.Log("Damn! i over cooked it");
+            pastaInside = false;
+            timer = 0;
+            potPasta.SetActive(false);
+        }
+        else if (value == 0)
+        {
+            KitchenGameManager.Instance.CheckForComplete(0);
+        }
+        
         potParticles.SetActive(false);
     }
 

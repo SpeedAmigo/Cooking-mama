@@ -11,16 +11,13 @@ public class CounterFood : MinigameAbstract
     public FoodType foodType;
     
     [TabGroup("CounterFood")]
-    [SerializeField] protected bool continousUpdate = false;
+    [SerializeField] protected bool continousUpdate = true;
     [TabGroup("CounterFood")]
     [HideIf("useBowl")]
     [SerializeField] protected bool useBoard = true;
     [TabGroup("CounterFood")]
     [HideIf("useBoard")]
     [SerializeField] protected bool useBowl = false;
-    [TabGroup("CounterFood")]
-    [HideIf("useBoard")]
-    [SerializeField] protected bool usePot = false;
     [TabGroup("CounterFood")]
     [HideIf("useBoard")]
     [SerializeField] protected bool destroyOnUse = false;
@@ -35,8 +32,6 @@ public class CounterFood : MinigameAbstract
     [SerializeField] [ReadOnly] protected bool onBoard;
     [TabGroup("CounterFood")]
     [ShowIf("useBoard")]
-    [Required]
-    [SerializeField] protected Sprite secondarySprite;
     [TabGroup("CounterFood")]
     [SerializeField] [ReadOnly] protected Vector2 lastSafePosition;
     [TabGroup("CounterFood")]
@@ -49,7 +44,6 @@ public class CounterFood : MinigameAbstract
     public bool IsHeld => isHeld;
     public bool UseBoard => useBoard;
     public bool UseBowl => useBowl;
-    public bool UsePot => usePot;
     public bool DestroyOnUse => destroyOnUse;
     public Vector2 StartPosition => startPosition;
     public bool OnBoard { get => onBoard; set => onBoard = value; }
@@ -97,18 +91,12 @@ public class CounterFood : MinigameAbstract
         } 
         lastSafePosition = transform.position;
     }
-
-    public void ChangeSprite()
-    {
-        renderer.sprite = secondarySprite;
-    }
     
     private void LateUpdate()
     {
         if (continousUpdate && isHeld)
         {
             gameObject.transform.position = GetWorldPosition(manager.MinigameCamera);
-            Debug.Log("OnLateUpdate");
         }
     }
     

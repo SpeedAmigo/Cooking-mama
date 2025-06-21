@@ -5,9 +5,14 @@ using UnityEngine.EventSystems;
 
 public class BathroomItem : MinigameAbstract
 {
+    [SerializeField] private int itemIndex;
+    [SerializeField] private MaskType maskType;
+    
     private Vector3 startPosition;
     private SpriteRenderer renderer;
     private bool isHeld;
+    
+    [SerializeField] private SophieScript sophieScript;
 
     private void Start()
     {
@@ -30,10 +35,28 @@ public class BathroomItem : MinigameAbstract
 
     public override void OnPointerUp(PointerEventData eventData)
     {
+        if (sophieScript != null)
+        {
+            sophieScript.PutItemOnFace(itemIndex, maskType);
+        }
+        
         isHeld = false;
         renderer.sortingOrder--;
         transform.DOMove(startPosition, 0.5f);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.TryGetComponent(out SophieScript sophieScript)) return;
+        this.sophieScript = sophieScript;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.TryGetComponent(out SophieScript sophieScript)) return;
+        this.sophieScript = null;
+    }
+    
 
     public override void OnPointerClick(PointerEventData eventData) { }
 }

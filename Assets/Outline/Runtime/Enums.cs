@@ -90,4 +90,11 @@ public enum DishType
     EggToast
 }
 
+public enum MaskType
+{
+    PurpleMask,
+    GreenMask,
+    BubbleMask
+}
+
  

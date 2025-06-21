@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KitchenMinigame.unity
     guid: 8e13432851e47e345a49e95b0660605a
+  - enabled: 1
+    path: Assets/Scenes/BathroomMinigame.unity
+    guid: e14c08e8f4c1bdb42b863e5e8d1c52c3
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 public class PointsContainerScript : MonoBehaviour
 {
     [SerializeField] private SophieScript sophieScript;
-    private HashSet<SkinPointScript> points;
+    private HashSet<SkinPointScript> points = new();
     
     public void AddToPoints(SkinPointScript pointScript)
     {

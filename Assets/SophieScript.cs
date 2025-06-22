@@ -104,6 +104,7 @@ public class SophieScript : MinigameAbstract
 
     public override void OnPointerClick(PointerEventData eventData)
     {
+        if (!maskOnFace) return;
         animator.SetTrigger("Bend");
     }
     

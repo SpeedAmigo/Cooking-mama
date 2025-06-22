@@ -2458,6 +2458,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6816510880658502644, guid: fd95102a9682e5844b32dd1e715ece40, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+    - target: {fileID: 6816510880658502644, guid: fd95102a9682e5844b32dd1e715ece40, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816510880658502644, guid: fd95102a9682e5844b32dd1e715ece40, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816510880658502644, guid: fd95102a9682e5844b32dd1e715ece40, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816510880658502644, guid: fd95102a9682e5844b32dd1e715ece40, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7597064891148880871, guid: fd95102a9682e5844b32dd1e715ece40, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

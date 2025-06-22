@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -6,8 +7,14 @@ using UnityEngine;
 [InlineEditor(InlineEditorModes.GUIOnly)]
 public class SoObjectText : ScriptableObject
 {
-    [MultiLineProperty(5)]
+    public bool randomText = true;
+    
+    [MultiLineProperty(5)] [ShowIf("randomText")]
     public string[] popUpText;
+    [MultiLineProperty(5)] [HideIf("randomText")]
+    public string[] chainText;
+    [HideIf("randomText")]
+    public float delayTime = 0.5f;
     
     public void ShowText(string[] texts)
     {
@@ -15,6 +22,27 @@ public class SoObjectText : ScriptableObject
         
         if (string.IsNullOrEmpty(text)) return;
         EventsManager.InvokeShowObjectText(text);
+    }
+
+    public void ShowTextInChain(string[] texts, float delay)
+    {
+        if (texts == null || texts.Length == 0) return;
+        
+        Sequence sequence = DOTween.Sequence();
+
+        foreach (string text in texts)
+        {
+            if (string.IsNullOrEmpty(text)) continue;
+
+            sequence.AppendCallback(() =>
+            {
+                EventsManager.InvokeShowObjectText(text);
+            });
+            
+            sequence.AppendInterval(delay);
+        }
+        
+        sequence.Play();
     }
 
     private string GetRandomText(string[] texts)

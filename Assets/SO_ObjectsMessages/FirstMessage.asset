@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
   m_Name: FirstMessage
   m_EditorClassIdentifier: 
+  randomText: 0
   popUpText:
   - "So much to do\u2026 And for the first time, alone. Nevada, my chicks, my turtles\u2026\u2019\r\n\u2018They\u2019ll
     be alright without me, surely?\r\n"
+  chainText:
+  - "So much to do\u2026 And for the first time, alone."
+  - "Nevada, my chicks, my turtles\u2026\u2019\r\n"
+  - "\u2018They\u2019ll be alright without me, surely?"
+  delayTime: 5

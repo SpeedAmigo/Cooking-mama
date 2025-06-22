@@ -21,6 +21,8 @@ public class MinigameManager : Interaction, IInputHandler
     
     private void Awake()
     {
+        base.Awake();
+        
         uniqueID = gameObject.name;
 
         if (ES3.KeyExists("LastPlayed_" + uniqueID) && loadDayInt)

@@ -8,6 +8,7 @@ public class BedroomManager : MonoBehaviour
     [SerializeField] private GameObject bed;
     [SerializeField] private GameObject[] paperTrashes;
     [SerializeField] private SoObjectText firstText;
+    [SerializeField] private DayNightScript dayNightScript;
 
     public bool bedCleaned; 
 
@@ -36,6 +37,11 @@ public class BedroomManager : MonoBehaviour
         if (!bedCleaned) return;
         
         MinigameComplete();
+        
+        if (1 == dayNightScript.GetDayCount() && bedCleaned)
+        {
+            dayNightScript.SetDayCycle(DayCycles.Night);
+        }
     }
 
     private void SayFirstText()

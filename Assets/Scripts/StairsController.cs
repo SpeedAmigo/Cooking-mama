@@ -12,6 +12,8 @@ public class StairsController : MonoBehaviour
     [SerializeField] private DayNightScript dayNightScript;
     [TabGroup("Dependencies")]
     [SerializeField] private SO_TransitionProperties properties;
+    [TabGroup("Dependencies")]
+    [SerializeField] private SoObjectText textObject;
     [TabGroup("Properties")]
     [SceneDropdown] [SerializeField] private string sceneName;
     [TabGroup("Properties")]
@@ -35,7 +37,14 @@ public class StairsController : MonoBehaviour
         if (collision.TryGetComponent(out PlayerScript player))
         {
             if (!canTransition) return;
-            if (unlockOnDay > dayNightScript.GetDayCount()) return;
+            if (unlockOnDay > dayNightScript.GetDayCount())
+            {
+                if (textObject != null)
+                {
+                    textObject.ShowText(textObject.popUpText);
+                }
+                return;
+            }
             
             TransitionManager.IsTransitioning = true;
             GameStateManager.ChangeGameState(GameState.SceneLoading);

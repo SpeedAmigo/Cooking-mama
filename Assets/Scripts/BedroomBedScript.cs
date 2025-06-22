@@ -10,7 +10,6 @@ public class BedroomBedScript : MinigameManager
     public List<DayBeginText> dayBeginTexts = new();
     
     [SerializeField] private Image image;
-    [SerializeField] private DayNightScript globalTimer;
     [SerializeField] private GameObject popUpTextParent;
     
     [SerializeField] private List<TMP_Text> dayTexts = new();
@@ -25,7 +24,7 @@ public class BedroomBedScript : MinigameManager
     {
         if (GameStateManager.CurrentGameState != GameState.InGame) return;
         
-        if (globalTimer.CurrentDayCycle == DayCycles.Night)
+        if (dayNightScript.CurrentDayCycle == DayCycles.Night)
         {
             ImageAnimation();
         }
@@ -110,7 +109,7 @@ public class BedroomBedScript : MinigameManager
         
         foreach (var dayBeginText in dayBeginTexts)
         {
-            if (dayBeginText.textForDay == globalTimer.GetDayCount())
+            if (dayBeginText.textForDay == dayNightScript.GetDayCount())
             { 
                 targetDayText = dayBeginText;
             }
@@ -137,11 +136,11 @@ public class BedroomBedScript : MinigameManager
     
     private void ChangeDayCycle()
     {
-        globalTimer.SetDayCycle(DayCycles.Sunrise);
+        dayNightScript.SetDayCycle(DayCycles.Sunrise);
             
-        if (globalTimer.GetDayCount() < 7)
+        if (dayNightScript.GetDayCount() < 7)
         {
-            globalTimer.IncreaseDayCount();
+            dayNightScript.IncreaseDayCount();
         }
     }
 

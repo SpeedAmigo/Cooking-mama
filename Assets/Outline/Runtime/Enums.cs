@@ -56,7 +56,8 @@ public enum MinigameType
     Minesweeper,
     Books,
     BedroomCleaning,
-    KitchenMinigame
+    KitchenMinigame,
+    BathroomMinigame
 }
 
 public enum VCAType

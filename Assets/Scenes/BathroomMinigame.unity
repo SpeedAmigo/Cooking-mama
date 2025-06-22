@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 88758726}
   - component: {fileID: 88758728}
   - component: {fileID: 88758727}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 128477580}
   - component: {fileID: 128477582}
   - component: {fileID: 128477583}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AScrub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,6 +343,90 @@ PolygonCollider2D:
       - {x: 0.3229167, y: -0.125}
       - {x: 0.3229167, y: 0.125}
   m_UseDelaunayMesh: 0
+--- !u!1 &331369265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 331369267}
+  - component: {fileID: 331369266}
+  m_Layer: 3
+  m_Name: Light 2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &331369266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331369265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.3
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 879df4c5000000001598f86c
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0.6397996, y: 0.35605, z: 0}
+    m_Extent: {x: 9.4223995, y: 5.50255, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -8.209263, y: -4.6455464, z: 0}
+  - {x: 9.56202, y: -4.6310005, z: 0}
+  - {x: 9.547475, y: 5.3291984, z: 0}
+  - {x: -8.281991, y: 5.3582897, z: 0}
+--- !u!4 &331369267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331369265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6921352, y: -0.36813623, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &380955778
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 380955779}
   - component: {fileID: 380955780}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MaskObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 392474988}
   - component: {fileID: 392474987}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +613,7 @@ GameObject:
   - component: {fileID: 433453985}
   - component: {fileID: 433453986}
   - component: {fileID: 433453987}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: F0_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509235022}
   - component: {fileID: 509235023}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +853,7 @@ GameObject:
   - component: {fileID: 561568794}
   - component: {fileID: 561568795}
   - component: {fileID: 561568796}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sophie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1087,7 @@ GameObject:
   - component: {fileID: 689653824}
   - component: {fileID: 689653827}
   - component: {fileID: 689653828}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1057,7 +1141,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1156,7 +1240,7 @@ GameObject:
   - component: {fileID: 753571002}
   - component: {fileID: 753571004}
   - component: {fileID: 753571005}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Noxezema
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1313,7 +1397,7 @@ GameObject:
   - component: {fileID: 777362807}
   - component: {fileID: 777362809}
   - component: {fileID: 777362810}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NeutrogenaSoap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1468,13 +1552,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 811484226}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ItemsToDisable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &811484226
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,7 +1588,7 @@ GameObject:
   - component: {fileID: 812680575}
   - component: {fileID: 812680576}
   - component: {fileID: 812680577}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: F0_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1656,7 +1740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 878577737}
   - component: {fileID: 878577738}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PointsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1704,7 +1788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 883232794}
   - component: {fileID: 883232793}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1793,7 +1877,7 @@ GameObject:
   - component: {fileID: 915888437}
   - component: {fileID: 915888439}
   - component: {fileID: 915888440}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Towel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1955,7 +2039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175844567}
   - component: {fileID: 1175844568}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MinigameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2010,7 +2094,7 @@ GameObject:
   - component: {fileID: 1228107891}
   - component: {fileID: 1228107893}
   - component: {fileID: 1228107894}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Nivea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2165,7 +2249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499859578}
   - component: {fileID: 1499859577}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ActualSoap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2251,7 +2335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1610539714}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2287,7 +2371,7 @@ GameObject:
   - component: {fileID: 1616146335}
   - component: {fileID: 1616146337}
   - component: {fileID: 1616146338}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PhisodermTonic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2444,7 +2528,7 @@ GameObject:
   - component: {fileID: 1625881602}
   - component: {fileID: 1625881604}
   - component: {fileID: 1625881605}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WitchHazel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2607,7 +2691,7 @@ GameObject:
   - component: {fileID: 1684544973}
   - component: {fileID: 1684544975}
   - component: {fileID: 1684544976}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MintMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2766,7 +2850,7 @@ GameObject:
   - component: {fileID: 1724672484}
   - component: {fileID: 1724672485}
   - component: {fileID: 1724672486}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: F0_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2925,3 +3009,4 @@ SceneRoots:
   - {fileID: 1228107892}
   - {fileID: 1175844567}
   - {fileID: 915888438}
+  - {fileID: 331369267}

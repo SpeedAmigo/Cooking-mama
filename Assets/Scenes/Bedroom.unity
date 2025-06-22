@@ -4020,6 +4020,7 @@ MonoBehaviour:
   - {fileID: 608086326}
   - {fileID: 1230156463}
   firstText: {fileID: 11400000, guid: 9cef980640e406a43911a9e4310a4f02, type: 2}
+  dayNightScript: {fileID: 849513985}
   bedCleaned: 0
 --- !u!1 &2093162872 stripped
 GameObject:
@@ -4389,6 +4390,14 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1911401226}
+    - target: {fileID: 6218615234923438542, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}
+      propertyPath: textObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e95f7d3a8da13a44ab9c72f057fb3f1, type: 2}
+    - target: {fileID: 6218615234923438542, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}
+      propertyPath: unlockOnDay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6218615234923438542, guid: db11de4bbae524f4e9b3fe76adef677f, type: 3}
       propertyPath: fadeDuration
       value: 1
@@ -6218,6 +6227,10 @@ PrefabInstance:
       objectReference: {fileID: 2132233172}
     - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
       propertyPath: globalTimer
+      value: 
+      objectReference: {fileID: 849513985}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: dayNightScript
       value: 
       objectReference: {fileID: 849513985}
     - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}

@@ -1,10 +1,6 @@
-using System;
 using DG.Tweening;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class SophieScript : MinigameAbstract
 {
@@ -13,7 +9,8 @@ public class SophieScript : MinigameAbstract
     [SerializeField] private Sprite greenMask;
     [SerializeField] private Sprite bubbleMask;
     [SerializeField] private SpriteRenderer maskRenderer;
-    
+
+    public bool cleanedFace;
     public bool maskOnFace;
     public bool needToWipe;
     public int currentItemIndex;
@@ -45,6 +42,12 @@ public class SophieScript : MinigameAbstract
 
     public void PutItemOnFace(int itemIndex, MaskType maskType)
     {
+        if (!cleanedFace)
+        {
+            Debug.Log("I need to clean my face first");
+            return;
+        }
+        
         if (maskOnFace)
         {
             Debug.Log("I must take this off first");

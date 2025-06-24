@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f49b411daa9ecf245a84da6d1f8df0ff
+guid: 6497e67cd56c1e049b78119d83be28d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3949859224856032659
-    second: ezgif.com-animated-gif-maker11_0
+      213: -3940206678731888948
+    second: noise2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ezgif.com-animated-gif-maker11_0
+      name: noise2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6a08a556f74f29c0800000000000000
-      internalID: -3949859224856032659
+      spriteID: cc6609cd6e29159c0800000000000000
+      internalID: -3940206678731888948
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ezgif.com-animated-gif-maker11_0: -3949859224856032659
+      noise2_0: -3940206678731888948
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

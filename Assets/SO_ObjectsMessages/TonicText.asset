@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08059eebebe993840b3eb7f3fbf98377, type: 3}
-  m_Name: DayCycle
+  m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
+  m_Name: TonicText
   m_EditorClassIdentifier: 
-  dayCycle: 1
-  dayCount: 5
+  randomText: 1
+  popUpText:
+  - "I remember that the Nivea was the last\u2026 is it time for the thing with a
+    weird name? Witch hazel\u2026was\r\n it?"
+  chainText: []
+  delayTime: 0.5

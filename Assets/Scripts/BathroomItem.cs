@@ -57,6 +57,5 @@ public class BathroomItem : MinigameAbstract
         this.sophieScript = null;
     }
     
-
     public override void OnPointerClick(PointerEventData eventData) { }
 }

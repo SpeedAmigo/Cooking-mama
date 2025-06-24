@@ -15,6 +15,10 @@ public class SoObjectText : ScriptableObject
     public string[] chainText;
     [HideIf("randomText")]
     public float delayTime = 0.5f;
+    [HideIf("randomText")]
+    public float durationTime = 0.5f;
+    [HideIf("randomText")]
+    public float initialDelayTime = 0.5f;
     
     public void ShowText(string[] texts)
     {
@@ -24,11 +28,13 @@ public class SoObjectText : ScriptableObject
         EventsManager.InvokeShowObjectText(text);
     }
 
-    public void ShowTextInChain(string[] texts, float delay)
+    public void ShowTextInChain(string[] texts, float duration, float initialDelay, float delay)
     {
         if (texts == null || texts.Length == 0) return;
         
         Sequence sequence = DOTween.Sequence();
+        
+        sequence.AppendInterval(initialDelay);
 
         foreach (string text in texts)
         {
@@ -36,11 +42,17 @@ public class SoObjectText : ScriptableObject
 
             sequence.AppendCallback(() =>
             {
-                EventsManager.InvokeShowObjectText(text);
+                EventsManager.InvokeShowChainText(text, duration);
             });
             
+            sequence.AppendInterval(duration);
             sequence.AppendInterval(delay);
         }
+        
+        sequence.AppendCallback(() =>
+        {
+            EventsManager.InvokeHideObjectText();
+        });
         
         sequence.Play();
     }

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
+  m_Name: FirstBathroomMessage
+  m_EditorClassIdentifier: 
+  randomText: 0
+  popUpText: []
+  chainText:
+  - "It\u2019s so weird\u2026 To see myself this close, it\u2019s like I\u2019m trying
+    to read my own thoughts."
+  - " It\u2019s not like I\r\n don\u2019t understand them as they are right now,
+    I would very gladly stop listening"
+  - "It\u2019s good to listen to your gut. Your brain and heart constantly fighting
+    for you to notice them.\r\n Which one will you listen to now?"
+  - To my body I think, or at least my face. It needs some help before it completely
+    drowns in sebum
+  - "\u2018I haven\u2019t done it in some time, but which product was first\u2026
+    wasn\u2019t that the fruit scrub?"
+  delayTime: 1
+  durationTime: 10
+  initialDelayTime: 1

@@ -46,8 +46,7 @@ public class BedroomManager : MonoBehaviour
 
     private void SayFirstText()
     {
-        firstText.ShowTextInChain(firstText.chainText, firstText.delayTime);
-        //firstText.ShowText(firstText.popUpText);
+        firstText.ShowTextInChain(firstText.chainText,5f, 1f, 0.2f);
     }
 
     private void MinigameComplete()

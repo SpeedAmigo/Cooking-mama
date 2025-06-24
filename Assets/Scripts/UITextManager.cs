@@ -11,17 +11,20 @@ public class UITextManager : MonoBehaviour
     [SerializeField] private float showupSpeed = 0.5f;
     
     [SerializeField] [Unit(Units.Second)] private float timeCounter;
+    [SerializeField] [Unit(Units.Second)] private float initialTimeCounter;
     
     private void OnEnable()
     {
         EventsManager.ShowObjectText += ShowText;
         EventsManager.HideObjectText += HideObjectText;
+        EventsManager.ShowChainText += ShowChainText;
     }
 
     private void OnDisable()
     {
         EventsManager.ShowObjectText -= ShowText;
         EventsManager.HideObjectText -= HideObjectText;
+        EventsManager.ShowChainText -= ShowChainText;
     }
 
     private void Start()
@@ -51,7 +54,14 @@ public class UITextManager : MonoBehaviour
     
     private void ShowText(string passedText)
     {
-        timeCounter = 5f;
+        timeCounter = initialTimeCounter;
+        StartCoroutine(ShowTextCorutine(passedText));
+    }
+
+    private void ShowChainText(string passedText, float duration)
+    {
+        StopAllCoroutines();
+        timeCounter = duration;
         StartCoroutine(ShowTextCorutine(passedText));
     }
 

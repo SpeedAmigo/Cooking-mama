@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08059eebebe993840b3eb7f3fbf98377, type: 3}
-  m_Name: DayCycle
+  m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
+  m_Name: AscrubText
   m_EditorClassIdentifier: 
-  dayCycle: 1
-  dayCount: 5
+  randomText: 1
+  popUpText:
+  - "Shouldn\u2019t I cleanse my skin now? I think it was the one with the blue bottle\u2026"
+  chainText: []
+  delayTime: 0.5

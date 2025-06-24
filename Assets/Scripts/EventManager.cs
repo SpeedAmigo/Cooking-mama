@@ -10,6 +10,7 @@ public static class EventsManager
     public static event Action<BedroomMinigameManager> OnGetBedroomMinigameManager;
     public static event Action BedroomMinigameCompleteEvent;
     public static event Action<string> ShowObjectText;
+    public static event Action<string, float> ShowChainText;
     public static event Action HideObjectText;
     public static event Action<Color, float> LightColorChangeEvent;
     public static event Action ChangeTimeEvent;
@@ -43,6 +44,11 @@ public static class EventsManager
     public static void InvokeShowObjectText(string text)
     {
         ShowObjectText?.Invoke(text);
+    }
+
+    public static void InvokeShowChainText(string text, float duration)
+    {
+        ShowChainText?.Invoke(text, duration);
     }
 
     public static void InvokeLightColorChange(Color color, float duration)

@@ -9,7 +9,10 @@ public class SophieScript : MinigameAbstract
     [SerializeField] private Sprite greenMask;
     [SerializeField] private Sprite bubbleMask;
     [SerializeField] private SpriteRenderer maskRenderer;
-
+    [SerializeField] private SoObjectText[] texts;
+    [SerializeField] private SoObjectText[] hints;
+    [SerializeField] private SoObjectText startText;
+    
     public bool cleanedFace;
     public bool maskOnFace;
     public bool needToWipe;
@@ -19,6 +22,8 @@ public class SophieScript : MinigameAbstract
     {
         animator = GetComponent<Animator>();
         maskRenderer.gameObject.SetActive(false);
+        
+        startText.ShowTextInChain(startText.chainText, startText.durationTime, startText.initialDelayTime, startText.delayTime);
     }
 
     public void FadeOutBubble(float magnitude)
@@ -45,18 +50,21 @@ public class SophieScript : MinigameAbstract
         if (!cleanedFace)
         {
             Debug.Log("I need to clean my face first");
+            texts[0].ShowText(texts[0].popUpText);
             return;
         }
         
         if (maskOnFace)
         {
             Debug.Log("I must take this off first");
+            texts[1].ShowText(texts[1].popUpText);
             return;
         }
 
         if (needToWipe)
         {
-            Debug.Log("I neet to wipe it first");
+            Debug.Log("I need to wipe it first");
+            texts[2].ShowText(texts[2].popUpText);
             return;
         }
         
@@ -65,14 +73,44 @@ public class SophieScript : MinigameAbstract
         if (difference > 1 || currentItemIndex > itemIndex)
         {
             Debug.Log("Not this one");
+            texts[3].ShowText(texts[3].popUpText);
             return;
         }
 
         maskOnFace = true;
         currentItemIndex = itemIndex;
+        ShowHint(currentItemIndex);
         maskRenderer.DOFade(1f, 0f);
         maskRenderer.gameObject.SetActive(true);
         maskRenderer.sprite = GetMask(maskType);
+    }
+
+    private void ShowHint(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                hints[0].ShowText(texts[0].popUpText);
+                break;
+            case 1:
+                hints[1].ShowText(texts[1].popUpText);
+                break;
+            case 2:
+                hints[2].ShowText(texts[2].popUpText);
+                break;
+            case 3:
+                hints[3].ShowText(texts[3].popUpText);
+                break;
+            case 4:
+                hints[4].ShowText(texts[4].popUpText);
+                break;
+            case 5:
+                hints[5].ShowText(texts[5].popUpText);
+                break;
+            case 7:
+                hints[7].ShowText(texts[7].popUpText);
+                break;
+        }
     }
 
     private void HideMaskAnim(int value)

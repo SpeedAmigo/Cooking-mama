@@ -7,6 +7,7 @@ public class PotScript : MinigameAbstract
     public float timer;
     public bool firedUp;
     
+    [SerializeField] private TimerScript timerScript;
     [SerializeField] private bool isAbove;
     [SerializeField] private GameObject potPasta;
     [SerializeField] private GameObject potParticles;
@@ -43,7 +44,7 @@ public class PotScript : MinigameAbstract
         {
             StartTimer();
         }
-
+        
         potParticles.SetActive(firedUp);
 
         if (!isAbove || currentFood == null) return;
@@ -69,7 +70,12 @@ public class PotScript : MinigameAbstract
 
     private void StartTimer()
     {
+        timerScript.gameObject.SetActive(true);
+        
         timer += Time.deltaTime;
+        
+        float trimmed = Mathf.Round(timer * 10) / 10;
+        timerScript.SetText(trimmed);
     }
 
     public void FireUp()

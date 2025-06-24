@@ -10,6 +10,7 @@ public class KitchenGameManager : MonoBehaviour
     [SerializeField] private Camera minigameCamera;
     [SerializeField] private DayNightScript dayNightScript;
     [SerializeField] private BoxCollider2D[] safeColliders;
+    [SerializeField] private Transform fridgeParent;
 
     public List<FoodType> currentBowlItems = new();
     public List<FoodType> currentPanItems  = new();
@@ -132,9 +133,9 @@ public class KitchenGameManager : MonoBehaviour
         return true;
     }
 
-    public bool CheckIfSafe(Vector3 position)
+    public bool CheckIfSafe(Transform objTransform)
     {
-        Vector2 pos2D = new Vector2(position.x, position.y);
+        Vector2 pos2D = new Vector2(objTransform.position.x, objTransform.position.y);
         
         foreach (var collider in safeColliders)
         {
@@ -146,10 +147,34 @@ public class KitchenGameManager : MonoBehaviour
             if (pos2D.x >= min.x && pos2D.x <= max.x 
                 && pos2D.y >= min.y && pos2D.y <= max.y)
             {
+                TryReparentIfSafe(objTransform);
                 return true;
             }
         }
         return false;
+    }
+    
+    private void TryReparentIfSafe(Transform objPosition)
+    {
+        Vector2 pos = objPosition.position;
+
+        for (int i = 0; i < safeColliders.Length; i++)
+        {
+            Bounds bounds = safeColliders[i].bounds;
+
+            if (bounds.Contains(pos))
+            {
+                if (i == 0 || i == 1)
+                {
+                    objPosition.SetParent(null);
+                }
+                else
+                {
+                    objPosition.SetParent(fridgeParent);
+                }
+                return;
+            }
+        }
     }
 }
 

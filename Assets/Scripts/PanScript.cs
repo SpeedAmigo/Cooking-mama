@@ -7,6 +7,7 @@ public class PanScript : MinigameAbstract
     public CounterFood currentFood;
     public float timer;
     
+    [SerializeField] private TimerScript timerScript;
     [SerializeField] private bool firedUp;
     [SerializeField] private bool isAbove;
     [SerializeField] private GameObject panThing;
@@ -84,7 +85,12 @@ public class PanScript : MinigameAbstract
 
     private void StartTimer()
     {
+        timerScript.gameObject.SetActive(true);
+        
         timer += Time.deltaTime;
+        
+        float trimmed = Mathf.Round(timer * 10) / 10;
+        timerScript.SetText(trimmed);
     }
 
     public void FireUp()

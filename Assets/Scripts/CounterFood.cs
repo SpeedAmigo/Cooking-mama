@@ -82,7 +82,7 @@ public class CounterFood : MinigameAbstract
         isHeld = false;
         renderer.sortingOrder--;
 
-        bool isSafe = manager.CheckIfSafe(transform.position);
+        bool isSafe = manager.CheckIfSafe(transform);
         
         if (!isSafe)
         {

@@ -112,6 +112,11 @@ public class DayNightScript : MonoBehaviour
         return targetColor;
     }
 
+    public void SetDayCount(int dayCount)
+    {
+        soDayCycle.dayCount = dayCount;
+    }
+
     public int GetDayCount()
     {
         return soDayCycle.dayCount;

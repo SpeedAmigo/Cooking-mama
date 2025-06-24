@@ -4431,7 +4431,7 @@ MonoBehaviour:
   minigameType: 1
   canSkipTime: 1
   canBePlayedAgain: 1
-  loadDayInt: 0
+  loadDayInt: 1
   dayNightScript: {fileID: 421194905}
   lastPlayedOnDay: 0
 --- !u!1 &907324882

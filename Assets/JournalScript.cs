@@ -55,11 +55,15 @@ public class JournalScript : MonoBehaviour
 
         if (imageType.dayNumber == dayNumber)
         {
+            imageType.text.ShowChainText(imageType.text.chainText);
+            
+            /*
             imageType.text.ShowTextInChain
                 (imageType.text.chainText, 
                     imageType.text.durationTime, 
                     imageType.text.initialDelayTime, 
                     imageType.text.delayTime);
+                    */
         }
         
         if (imageType.dayNumber <= dayNumber)
@@ -96,6 +100,7 @@ public class JournalScript : MonoBehaviour
 
         if (journalBody.activeInHierarchy)
         {
+            pageNumber = 1;
             ToggleBookPhoto(1);
         }
     }

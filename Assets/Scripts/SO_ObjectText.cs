@@ -28,35 +28,12 @@ public class SoObjectText : ScriptableObject
         EventsManager.InvokeShowObjectText(text);
     }
 
-    public void ShowTextInChain(string[] texts, float duration, float initialDelay, float delay)
+    public void ShowChainText(string[] texts)
     {
-        if (texts == null || texts.Length == 0) return;
-        
-        Sequence sequence = DOTween.Sequence();
-        
-        sequence.AppendInterval(initialDelay);
-
-        foreach (string text in texts)
-        {
-            if (string.IsNullOrEmpty(text)) continue;
-
-            sequence.AppendCallback(() =>
-            {
-                EventsManager.InvokeShowChainText(text, duration);
-            });
-            
-            sequence.AppendInterval(duration);
-            sequence.AppendInterval(delay);
-        }
-        
-        sequence.AppendCallback(() =>
-        {
-            EventsManager.InvokeHideObjectText();
-        });
-        
-        sequence.Play();
+        if (texts.Length == 0) return;
+        EventsManager.InvokeShowChainText(texts);
     }
-
+    
     private string GetRandomText(string[] texts)
     {
         if (texts.Length <= 0) return null;

@@ -10,8 +10,9 @@ public static class EventsManager
     public static event Action<BedroomMinigameManager> OnGetBedroomMinigameManager;
     public static event Action BedroomMinigameCompleteEvent;
     public static event Action<string> ShowObjectText;
-    public static event Action<string, float> ShowChainText;
+    public static event Action<string[]> ShowChainText;
     public static event Action HideObjectText;
+    public static event Action ClearObjectText;
     public static event Action<Color, float> LightColorChangeEvent;
     public static event Action ChangeTimeEvent;
     public static event Action<Light2D> LightReference;
@@ -45,10 +46,10 @@ public static class EventsManager
     {
         ShowObjectText?.Invoke(text);
     }
-
-    public static void InvokeShowChainText(string text, float duration)
+    
+    public static void InvokeShowChainText(string[] text)
     {
-        ShowChainText?.Invoke(text, duration);
+        ShowChainText?.Invoke(text);
     }
 
     public static void InvokeLightColorChange(Color color, float duration)
@@ -69,5 +70,10 @@ public static class EventsManager
     public static void InvokeHideObjectText()
     {
         HideObjectText?.Invoke();
+    }
+
+    public static void InvokeClearObjectText()
+    {
+        ClearObjectText?.Invoke();
     }
 }

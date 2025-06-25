@@ -23,7 +23,7 @@ public class SophieScript : MinigameAbstract
         animator = GetComponent<Animator>();
         maskRenderer.gameObject.SetActive(false);
         
-        startText.ShowTextInChain(startText.chainText, startText.durationTime, startText.initialDelayTime, startText.delayTime);
+        startText.ShowChainText(startText.chainText);
     }
 
     public void FadeOutBubble(float magnitude)

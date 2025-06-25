@@ -48,7 +48,8 @@ public class MinigameManager : Interaction, IInputHandler
         if (GameStateManager.CurrentGameState != GameState.InGame) return;
 
         lastPlayedOnDay = dayNightScript.GetDayCount();
-        EventsManager.InvokeHideObjectText();
+        //EventsManager.InvokeHideObjectText();
+        EventsManager.InvokeClearObjectText();
         SceneManager.LoadScene(minigameType.ToString(), LoadSceneMode.Additive);
         GameStateManager.ChangeGameState(GameState.Minigame);
         InputManager.Instance.RegisterHandler(this);

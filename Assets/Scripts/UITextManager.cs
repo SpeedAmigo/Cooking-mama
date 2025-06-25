@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class UITextManager : MonoBehaviour
 {
+    [SerializeField] private bool showingChainText;
+    private string[] currentChainTexts; 
+    private int currentChainTextIndex;
+    
+    
     [SerializeField] private Image textHolder;
     [SerializeField] private TMP_Text text;
     [SerializeField] private float showupSpeed = 0.5f;
@@ -17,6 +22,7 @@ public class UITextManager : MonoBehaviour
     {
         EventsManager.ShowObjectText += ShowText;
         EventsManager.HideObjectText += HideObjectText;
+        EventsManager.ClearObjectText += ClearObjectText;
         EventsManager.ShowChainText += ShowChainText;
     }
 
@@ -24,6 +30,7 @@ public class UITextManager : MonoBehaviour
     {
         EventsManager.ShowObjectText -= ShowText;
         EventsManager.HideObjectText -= HideObjectText;
+        EventsManager.ClearObjectText -= ClearObjectText;
         EventsManager.ShowChainText -= ShowChainText;
     }
 
@@ -34,7 +41,7 @@ public class UITextManager : MonoBehaviour
 
     private void Update()
     {
-        if (timeCounter > 0)
+        if (!showingChainText && timeCounter > 0)
         {
             timeCounter -= Time.deltaTime;
 
@@ -44,8 +51,13 @@ public class UITextManager : MonoBehaviour
                 StartCoroutine(HideText());
             }
         }
+
+        if (showingChainText && Input.GetKeyDown(KeyCode.F))
+        {
+            ShowNextTextInChain();
+        }
         
-        if (Input.GetKeyDown(KeyCode.F))
+        if (!showingChainText && Input.GetKeyDown(KeyCode.F))
         {
             StartCoroutine(HideText());
             timeCounter = 0f;
@@ -57,17 +69,48 @@ public class UITextManager : MonoBehaviour
         timeCounter = initialTimeCounter;
         StartCoroutine(ShowTextCorutine(passedText));
     }
-
-    private void ShowChainText(string passedText, float duration)
+    
+    private void ShowChainText(string[] passedTexts)
     {
+        showingChainText = true;
+        currentChainTexts = passedTexts;
+        currentChainTextIndex = 0;
+        
+        ShowNextTextInChain();
+    }
+    private void ShowNextTextInChain()
+    {
+        if (currentChainTextIndex >= currentChainTexts.Length)
+        {
+            showingChainText = false;
+            StartCoroutine(HideText());
+            return;
+        }
+
+        string nextText = currentChainTexts[currentChainTextIndex];
+        currentChainTextIndex++;
+
         StopAllCoroutines();
-        timeCounter = duration;
-        StartCoroutine(ShowTextCorutine(passedText));
+        StartCoroutine(ShowTextCorutine(nextText));
     }
 
     private void HideObjectText()
     {
         StartCoroutine(HideText());
+    }
+
+    private void ClearObjectText()
+    {
+        StopAllCoroutines();
+        
+        text.text = "";
+        textHolder.material.SetFloat("_Progress", 0f);
+        textHolder.gameObject.SetActive(false);
+        
+        showingChainText = false;
+        currentChainTexts = null;
+        currentChainTextIndex = 0;
+        timeCounter = 0f;
     }
     
     private IEnumerator ShowTextCorutine(string passedText)

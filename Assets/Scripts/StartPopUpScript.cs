@@ -2,15 +2,12 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class StartPopUpScript : MonoBehaviour, IInputHandler
 {
-    [SerializeField] private GameObject chapterPopUp;
     [SerializeField] private GameObject narratorPopUp;
     
     [SerializeField] private UnityEvent onDisable;
-    [SerializeField] private List<TMPro.TMP_Text> chapterOnePopUp;
     [SerializeField] private List<TMPro.TMP_Text> texts;
     [SerializeField] private TMPro.TMP_Text skipText;
 
@@ -30,7 +27,6 @@ public class StartPopUpScript : MonoBehaviour, IInputHandler
             return;
         }
         
-        //chapterPopUp.SetActive(true);
         narratorPopUp.gameObject.SetActive(true);
         InputManager.Instance.RegisterHandler(this);
         GameStateManager.ChangeGameState(GameState.PauseMenu);
@@ -42,37 +38,7 @@ public class StartPopUpScript : MonoBehaviour, IInputHandler
     private void ShowTexts()
     {
         Sequence sequence = DOTween.Sequence();
-
-        /*
-        foreach (var chapter in chapterOnePopUp)
-        {
-            chapter.gameObject.SetActive(true);
-            
-            sequence.Join(chapter.DOFade(1, 1.5f));
-        }
-
-        sequence.AppendInterval(3f);
         
-        foreach (var chapter in chapterOnePopUp)
-        {
-            sequence.Join(chapter.DOFade(0, 1.5f));
-        }
-
-        sequence.AppendCallback(() =>
-        {
-            foreach (var chapter in chapterOnePopUp)
-            {
-                chapter.gameObject.SetActive(false);
-            }
-
-            chapterPopUp.SetActive(false);
-        });
-        
-        sequence.AppendInterval(1f);
-        
-        narratorPopUp.SetActive(true);
-        
-        */
         foreach (var text in texts)
         {
             text.gameObject.SetActive(true);
@@ -118,8 +84,8 @@ public class StartPopUpScript : MonoBehaviour, IInputHandler
             GameStateManager.ChangeGameState(GameState.InGame);
             onDisable?.Invoke();
             popUpShowed = true;
-            ES3.Save("PopUpShowed", popUpShowed);
             narratorPopUp.gameObject.SetActive(false);
+            ES3.Save("PopUpShowed", popUpShowed);
         }
     }
 }

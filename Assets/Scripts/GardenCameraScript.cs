@@ -6,6 +6,7 @@ public class GardenCameraScript : MonoBehaviour
 {
     [SerializeField] private Camera gardenCam;
     [SerializeField] private Transform player;
+    [SerializeField] private Transform southCameraStopper;
     
     public readonly float startOffset = 0.35f;
     public float currentOffset = 0;
@@ -33,9 +34,9 @@ public class GardenCameraScript : MonoBehaviour
     {
         gardenCam.transform.position = MoveCamera(gardenCam, player);
 
-        if (gardenCam.transform.position.y < -0.3784375f)
+        if (gardenCam.transform.position.y < southCameraStopper.position.y)
         {
-            gardenCam.transform.position = new Vector3(gardenCam.transform.position.x, -0.3784375f, gardenCam.transform.position.z);
+            gardenCam.transform.position = new Vector3(gardenCam.transform.position.x, southCameraStopper.position.y, gardenCam.transform.position.z);
         }
     }
 }

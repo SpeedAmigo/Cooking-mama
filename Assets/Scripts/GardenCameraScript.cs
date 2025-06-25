@@ -32,5 +32,10 @@ public class GardenCameraScript : MonoBehaviour
     private void LateUpdate()
     {
         gardenCam.transform.position = MoveCamera(gardenCam, player);
+
+        if (gardenCam.transform.position.y < -0.3784375f)
+        {
+            gardenCam.transform.position = new Vector3(gardenCam.transform.position.x, -0.3784375f, gardenCam.transform.position.z);
+        }
     }
 }

@@ -11,6 +11,7 @@ public class KitchenGameManager : MonoBehaviour
     [SerializeField] private DayNightScript dayNightScript;
     [SerializeField] private BoxCollider2D[] safeColliders;
     [SerializeField] private Transform fridgeParent;
+    [SerializeField] private SoObjectText minigameStartText;
 
     public List<FoodType> currentBowlItems = new();
     public List<FoodType> currentPanItems  = new();
@@ -41,6 +42,12 @@ public class KitchenGameManager : MonoBehaviour
     private void Start()
     {
         todayDish = GetTodayDish(dayNightScript.GetDayCount());
+        minigameStartText.chainText = new[]
+        {
+            $"Should we make something simple, perhaps a {todayDish.dishName.ToString()}?"
+        };
+        
+        minigameStartText.ShowChainText(minigameStartText.chainText);
     }
     
     private Dish GetTodayDish(int currentDay)

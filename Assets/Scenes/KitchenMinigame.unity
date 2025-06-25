@@ -868,6 +868,7 @@ MonoBehaviour:
   - {fileID: 1276794823}
   - {fileID: 2118678393}
   fridgeParent: {fileID: 1644270231}
+  minigameStartText: {fileID: 11400000, guid: 1c6689339184bf645a164716b77cdf27, type: 2}
   currentBowlItems: 
   currentPanItems: 
   currentPotItems: 
@@ -1389,19 +1390,20 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Bread
 
+
     Egg
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2592,7 +2594,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1720023059296797216, guid: d6cd50ebd44754b41a209d83d3f91589, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4285538272864102163, guid: d6cd50ebd44754b41a209d83d3f91589, type: 3}
       propertyPath: _globalLight
@@ -2653,7 +2655,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 561865837}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -2728,15 +2730,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: French Toast
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3296,21 +3298,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bread
+  m_text: 'Boil pasta in a pot.
 
-    Egg
 
-'
+    Boiling time: 6 seconds
+
+
+    Put an egg into
+    a pan and fry it.
+
+
+    Frying time: 4 seconds'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3327,8 +3335,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4386,21 +4394,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bread
+  m_text: 'Cut the bread.
 
-    Egg
 
-'
+    Add the cut bread to the pan with the egg and fry
+    it together.
+
+
+    Frying time: 4 seconds'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4526,21 +4537,32 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bread
+  m_text: 'Cut the meat.
 
-    Egg
+
+    Boil pasta in a pot.
+
+
+    Boiling time: 6 seconds
+
+
+    Put
+    the cut meat and passata into a pan.
+
+
+    Fry for 6 seconds.
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4557,8 +4579,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4934,7 +4956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1157834141
 Transform:
   m_ObjectHideFlags: 0
@@ -6176,19 +6198,18 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Bread
 
-    Egg
 
-'
+    egg'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6316,15 +6337,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Spaghetti
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6981,15 +7002,15 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7117,15 +7138,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: pasta with egg
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7290,21 +7311,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bread
+  m_text: 'Cut the bread.
 
-    Egg
 
-'
+    Crack an egg and mix it with the cut bread in a bowl.
+
+
+    Fry
+    for 5 seconds.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7321,8 +7345,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7642,21 +7666,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bread
+  m_text: 'Pasta
+
 
     Egg
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7782,21 +7807,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bread
+  m_text: 'Apple
 
-    Egg
+
+    Milk
+
+
+    eggs
+
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8455,21 +8485,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bread
+  m_text: 'Cut the apple.
 
-    Egg
+
+    Add milk and an egg into a bowl.
+
+
+    Swirl the
+    mixture.
+
+
+    Fry for 6 seconds.
+
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8486,8 +8525,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8595,21 +8634,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bread
+  m_text: 'Meat
 
-    Egg
 
-'
+    Pasta
+
+
+    Passata'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9207,15 +9248,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: toast with egg
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
+  m_sharedMaterial: {fileID: -5230530444182253336, guid: 109d5667ce3a1134b82f42d23eb566c4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283126360
+  m_fontColor: {r: 0.34509805, g: 0.32156864, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
+  m_Name: JournalDayFourText
+  m_EditorClassIdentifier: 
+  randomText: 0
+  popUpText: []
+  chainText:
+  - You used to bring these colors to life.
+  - Even the dull ones glowed in your hands.
+  - 'Now
+
+    they just sit there, waiting... like me.'
+  - 'The room feels gray without you in it, even with all
+
+    your paints still
+    here.'
+  - 'Sometimes I wonder... If you had stayed, would I still feel
+
+    anything?'
+  - 'Or did you take everything good with you? I try to be strong, but most days
+    I
+
+    just sit, stare.'
+  - Like those brushes. What am I supposed to do with all this emptiness?
+  delayTime: 0.5
+  durationTime: 5
+  initialDelayTime: 0.5

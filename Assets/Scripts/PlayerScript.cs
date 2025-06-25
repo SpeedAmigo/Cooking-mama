@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour, IInputHandler
     
     [SerializeField] private float _speed;
     [SerializeField] private UnityEvent onEscape;
+    [SerializeField] private UnityEvent onJournal;
     
     public void Step()
     {
@@ -65,6 +66,11 @@ public class PlayerScript : MonoBehaviour, IInputHandler
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             onEscape?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            onJournal?.Invoke();   
         }
     }
     

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
+  m_Name: JournalDayFifthText
+  m_EditorClassIdentifier: 
+  randomText: 0
+  popUpText: []
+  chainText:
+  - I took this photo after watering the plants.
+  - 'Just... to see myself again. I almost deleted
+
+    it.'
+  - "I didn\u2019t think I deserved to smile anymore. But when I look at it now,
+    I see something\r\nelse."
+  - Not just sadness. Not just loss.
+  - 'I see someone who made it through. Someone
+
+    who''s still here.'
+  - "You\u2019re not in this one, Ezra, but that\u2019s okay."
+  - "Because you\u2019re still in all\r\nthe ones before. And I carry them with me."
+  - "I carry you with me. But I\u2019m learning to\r\ncarry myself, too."
+  delayTime: 0.5
+  durationTime: 5
+  initialDelayTime: 0.5

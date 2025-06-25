@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
+  m_Name: JournalDayOneText
+  m_EditorClassIdentifier: 
+  randomText: 0
+  popUpText: []
+  chainText:
+  - 'I keep expecting to hear your footsteps in the hall... that hummed tune you
+    always
+
+    sang when you made coffee.'
+  - "This photo...it\u2019s proof, isn\u2019t it? That you were just here."
+  - Just a few days ago. I still feel your arm around me when I wake up.
+  - 'I still leave space
+
+    for you in bed, without thinking.'
+  - "Maybe... maybe this is just a bad dream. Maybe\r\ntomorrow I'll wake up and
+    you\u2019ll be here, making dumb jokes and warming up\r\nleftovers."
+  - "You can\u2019t be gone, Ezra. You can\u2019t."
+  delayTime: 0.5
+  durationTime: 5
+  initialDelayTime: 0.2

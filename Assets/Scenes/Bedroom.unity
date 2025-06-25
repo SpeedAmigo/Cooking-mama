@@ -6960,6 +6960,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2132233172}
     - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
+      propertyPath: loadDayInt
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 15900168448986981, guid: 35d527f1fe526a743971b0db8d2d5814, type: 3}
       propertyPath: globalTimer
       value: 
       objectReference: {fileID: 849513985}

@@ -8249,9 +8249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectText: {fileID: 0}
   minigameType: 2
-  canSkipTime: 0
+  canSkipTime: 1
   canBePlayedAgain: 0
-  loadDayInt: 0
+  loadDayInt: 1
   dayNightScript: {fileID: 1619149971}
   lastPlayedOnDay: 0
 --- !u!1 &2129371017

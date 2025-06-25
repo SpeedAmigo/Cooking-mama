@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
   m_Name: Kitchen Text
   m_EditorClassIdentifier: 
+  randomText: 1
   popUpText:
-  - Kitchen Text
+  - "My stomach\u2019s growling, I didn\u2019t realise how hungry I am\u2026"
+  chainText: []
+  delayTime: 0.5
+  durationTime: 0.5
+  initialDelayTime: 0.5

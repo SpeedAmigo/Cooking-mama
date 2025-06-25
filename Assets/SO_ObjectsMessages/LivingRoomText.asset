@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
   m_Name: LivingRoomText
   m_EditorClassIdentifier: 
+  randomText: 1
   popUpText:
-  - 'Living Room Text '
+  - "This bookcase really needs some rearranging, it lost all of its color\u2026"
+  chainText: []
+  delayTime: 0.5
+  durationTime: 0.5
+  initialDelayTime: 0.5

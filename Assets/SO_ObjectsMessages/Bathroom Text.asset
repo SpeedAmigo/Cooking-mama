@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomText: 1
   popUpText:
-  - Bathroom Text
+  - "Maybe I could revisit my old skincare routine? My face is getting really rough\u2026"
   chainText: []
   delayTime: 0.5
+  durationTime: 0.5
+  initialDelayTime: 0.5

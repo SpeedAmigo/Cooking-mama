@@ -76,6 +76,19 @@ public class StartPopUpScript : MonoBehaviour, IInputHandler
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        { 
+            InputManager.Instance.UnregisterHandler(this);
+            GameStateManager.ChangeGameState(GameState.InGame);
+            onDisable?.Invoke();
+            popUpShowed = true;
+            narratorPopUp.gameObject.SetActive(false);
+            ES3.Save("PopUpShowed", popUpShowed);
+        }
+    }
+
     public void HandleInput()
     {
         if (Input.GetKeyDown(KeyCode.Space) && finished)

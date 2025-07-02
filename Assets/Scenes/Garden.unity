@@ -5410,6 +5410,9 @@ MonoBehaviour:
   canSkipTime: 1
   canBePlayedAgain: 1
   loadDayInt: 1
+  soObjectTexts:
+  - {fileID: 11400000, guid: d39d1434c39f904468f091a7364288d9, type: 2}
+  - {fileID: 11400000, guid: 0a09039855d01ee4da095243c96dc6c1, type: 2}
   dayNightScript: {fileID: 421194905}
   lastPlayedOnDay: 0
 --- !u!1 &907324882

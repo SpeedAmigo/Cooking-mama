@@ -13,6 +13,8 @@ public class MinigameManager : Interaction, IInputHandler
     public bool canBePlayedAgain;
     [TabGroup("Minigame")] 
     public bool loadDayInt;
+    [TabGroup("Minigame")] 
+    [SerializeField] private SoObjectText[] soObjectTexts; 
     [TabGroup("Dependencies")] 
     public DayNightScript dayNightScript;
 
@@ -36,12 +38,20 @@ public class MinigameManager : Interaction, IInputHandler
         if (!enabled) return;
         if (dayNightScript.CurrentDayCycle == DayCycles.Night)
         {
-            Debug.Log("I should go to sleep");
+            if (soObjectTexts.Length > 0)
+            {
+                soObjectTexts[0].ShowText(soObjectTexts[0].popUpText);
+            }
             return;
         }
 
         if (lastPlayedOnDay == dayNightScript.GetDayCount() && !canBePlayedAgain)
         {
+            if (soObjectTexts.Length >= 1)
+            {
+                soObjectTexts[1].ShowText(soObjectTexts[1].popUpText);
+            }
+            
             return;
         }
         

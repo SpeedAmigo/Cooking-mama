@@ -13,6 +13,7 @@ public class UITextManager : MonoBehaviour
     
     [SerializeField] private Image textHolder;
     [SerializeField] private TMP_Text text;
+    [SerializeField] private TMP_Text text2;
     [SerializeField] private float showupSpeed = 0.5f;
     
     [SerializeField] [Unit(Units.Second)] private float timeCounter;
@@ -104,6 +105,7 @@ public class UITextManager : MonoBehaviour
         StopAllCoroutines();
         
         text.text = "";
+        text2.gameObject.SetActive(false);
         textHolder.material.SetFloat("_Progress", 0f);
         textHolder.gameObject.SetActive(false);
         
@@ -118,6 +120,7 @@ public class UITextManager : MonoBehaviour
         textHolder.gameObject.SetActive(true);
         textHolder.material.SetFloat("_Progress", 0);
         text.text = "";
+        text2.gameObject.SetActive(true);
         
         float elapsedTime = 0f;
 

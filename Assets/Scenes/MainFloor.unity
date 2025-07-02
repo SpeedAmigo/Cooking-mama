@@ -990,6 +990,9 @@ MonoBehaviour:
   canSkipTime: 1
   canBePlayedAgain: 0
   loadDayInt: 1
+  soObjectTexts:
+  - {fileID: 11400000, guid: d39d1434c39f904468f091a7364288d9, type: 2}
+  - {fileID: 11400000, guid: 0a09039855d01ee4da095243c96dc6c1, type: 2}
   dayNightScript: {fileID: 1619149971}
   lastPlayedOnDay: 0
 --- !u!1 &152040939
@@ -6844,6 +6847,9 @@ MonoBehaviour:
   canSkipTime: 1
   canBePlayedAgain: 0
   loadDayInt: 1
+  soObjectTexts:
+  - {fileID: 11400000, guid: d39d1434c39f904468f091a7364288d9, type: 2}
+  - {fileID: 11400000, guid: 0a09039855d01ee4da095243c96dc6c1, type: 2}
   dayNightScript: {fileID: 1619149971}
   lastPlayedOnDay: 0
 --- !u!61 &1667798448
@@ -8284,6 +8290,9 @@ MonoBehaviour:
   canSkipTime: 1
   canBePlayedAgain: 0
   loadDayInt: 1
+  soObjectTexts:
+  - {fileID: 11400000, guid: d39d1434c39f904468f091a7364288d9, type: 2}
+  - {fileID: 11400000, guid: 0a09039855d01ee4da095243c96dc6c1, type: 2}
   dayNightScript: {fileID: 1619149971}
   lastPlayedOnDay: 0
 --- !u!1 &2129371017
@@ -8846,6 +8855,18 @@ PrefabInstance:
       propertyPath: canBePlayedAgain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5823979712614564360, guid: 923ac8017ed4644488cdae3089cd4fbf, type: 3}
+      propertyPath: soObjectTexts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823979712614564360, guid: 923ac8017ed4644488cdae3089cd4fbf, type: 3}
+      propertyPath: 'soObjectTexts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d39d1434c39f904468f091a7364288d9, type: 2}
+    - target: {fileID: 5823979712614564360, guid: 923ac8017ed4644488cdae3089cd4fbf, type: 3}
+      propertyPath: 'soObjectTexts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a09039855d01ee4da095243c96dc6c1, type: 2}
     - target: {fileID: 7486544337353614166, guid: 923ac8017ed4644488cdae3089cd4fbf, type: 3}
       propertyPath: m_Material
       value: 

@@ -18,6 +18,8 @@ public class MinigameManager : Interaction, IInputHandler
     [TabGroup("Dependencies")] 
     public DayNightScript dayNightScript;
 
+    [SerializeField] private GameObject minigameExit;
+    
     private string uniqueID;
     [SerializeField] private int lastPlayedOnDay;
     
@@ -69,9 +71,21 @@ public class MinigameManager : Interaction, IInputHandler
     {
         if (!enabled) return;
         
-        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            minigameExit.SetActive(!minigameExit.activeInHierarchy);
+
+            if (minigameExit.activeInHierarchy)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+            
+            
+            /*
             SceneManager.UnloadSceneAsync(minigameType.ToString());
             GameStateManager.ChangeGameState(GameState.InGame);
 
@@ -82,7 +96,25 @@ public class MinigameManager : Interaction, IInputHandler
             
             SaveLastPlayedDay();
             InputManager.Instance.UnregisterHandler(this);
+            */
         }
+    }
+    
+    public void UnloadMinigame()
+    {
+        Time.timeScale = 1;
+        minigameExit.SetActive(false);
+        
+        SceneManager.UnloadSceneAsync(minigameType.ToString());
+        GameStateManager.ChangeGameState(GameState.InGame);
+        
+        if (canSkipTime)
+        {
+            EventsManager.InvokeChangeTimeEvent();
+        }
+        
+        SaveLastPlayedDay();
+        InputManager.Instance.UnregisterHandler(this);
     }
 
     private void SaveLastPlayedDay()

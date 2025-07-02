@@ -4823,6 +4823,13 @@ MonoBehaviour:
   - {fileID: 1621123986}
   cam: {fileID: 1579550491}
   endText: {fileID: 11400000, guid: c681c53387ac5db4b8d8104742b88855, type: 2}
+  correctSoundRef:
+    Guid:
+      Data1: -381298212
+      Data2: 1190014857
+      Data3: -1105171547
+      Data4: -27699827
+    Path: event:/BooksCorrectSound
 --- !u!1 &1975287709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5204,7 +5211,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.36458334}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.125, y: 0.7291667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5

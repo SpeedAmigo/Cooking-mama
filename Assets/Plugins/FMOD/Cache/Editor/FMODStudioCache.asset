@@ -92,13 +92,14 @@ MonoBehaviour:
   - {fileID: 2316690671866940378}
   - {fileID: 3370245258975296749}
   - {fileID: 1349419525952409592}
+  - {fileID: 8940841672447179656}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2136476068722442468}
   StringsBanks:
   - {fileID: 3761879970504260450}
   cacheVersion: 131847
-  cacheTime: 638844670061502285
+  cacheTime: 638870600222920566
   SerializableEventsDict:
   - key: event:/SteppingSounds
     index: 0
@@ -106,6 +107,8 @@ MonoBehaviour:
     index: 1
   - key: event:/Minesweeper
     index: 2
+  - key: event:/BooksCorrectSound
+    index: 3
 --- !u!114 &790174201561398578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +124,7 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638844670061502285
+  lastModified: 638870600222920566
   FileSizes: []
   Exists: 1
 --- !u!114 &1349419525952409592
@@ -167,7 +170,7 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638844670060195476
+  lastModified: 638870600221315619
   FileSizes: []
   Exists: 1
 --- !u!114 &2316690671866940378
@@ -240,8 +243,35 @@ MonoBehaviour:
   Path: Assets/FmodBuild/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638844670060205434
+  lastModified: 638870600221315619
   FileSizes:
   - Name: 
-    Value: 1192
+    Value: 1240
   Exists: 1
+--- !u!114 &8940841672447179656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BooksCorrectSound
+  m_EditorClassIdentifier: 
+  Path: event:/BooksCorrectSound
+  Guid:
+    Data1: -381298212
+    Data2: 1190014857
+    Data3: -1105171547
+    Data4: -27699827
+  Banks:
+  - {fileID: 790174201561398578}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1776

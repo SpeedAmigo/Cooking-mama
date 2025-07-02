@@ -1,13 +1,15 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using FMODUnity;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
 
 public class BookShelfScript : MonoBehaviour
 {
     [SerializeField] private List<ShelfManager> shelfs = new();
     [SerializeField] private Camera cam;
     [SerializeField] private SoObjectText endText;
+
+    [SerializeField] private EventReference correctSoundRef;
+    private FMOD.Studio.EventInstance correctSoundInstance;
 
     private void Awake()
     {
@@ -27,5 +29,10 @@ public class BookShelfScript : MonoBehaviour
             }
         }
         endText.ShowChainText(endText.chainText);
+        
+        correctSoundInstance = RuntimeManager.CreateInstance(correctSoundRef);
+        Debug.Log(correctSoundInstance);
+        correctSoundInstance.start();
+        correctSoundInstance.release();
     }
 }

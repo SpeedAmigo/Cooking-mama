@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomText: 1
   popUpText:
-  - I must take this off first
+  - I must take this mask off first
   chainText: []
   delayTime: 0.5
+  durationTime: 0.5
+  initialDelayTime: 0.5

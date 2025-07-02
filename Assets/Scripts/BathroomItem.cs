@@ -38,6 +38,7 @@ public class BathroomItem : MinigameAbstract
         if (sophieScript != null)
         {
             sophieScript.PutItemOnFace(itemIndex, maskType);
+            Debug.Log("dziala");
         }
         
         isHeld = false;

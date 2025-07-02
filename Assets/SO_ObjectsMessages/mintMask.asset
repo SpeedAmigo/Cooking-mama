@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
   m_Name: mintMask
   m_EditorClassIdentifier: 
-  randomText: 1
+  randomText: 0
   popUpText:
   - "Mmm\u2026 What about the green tonic? My skin always struggled with keeping
     the pH in check"
-  chainText: []
+  chainText:
+  - "Mmm\u2026 What about the green tonic? My skin always struggled with keeping
+    the pH in check"
   delayTime: 0.5
+  durationTime: 0.5
+  initialDelayTime: 0.5

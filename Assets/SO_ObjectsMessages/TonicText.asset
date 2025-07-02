@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
   m_Name: TonicText
   m_EditorClassIdentifier: 
-  randomText: 1
+  randomText: 0
   popUpText:
   - "I remember that the Nivea was the last\u2026 is it time for the thing with a
     weird name? Witch hazel\u2026was\r\n it?"
-  chainText: []
+  chainText:
+  - "I remember that the Nivea was the last\u2026 is it time for the thing with a
+    weird name? Witch hazel\u2026was\r\n it?"
   delayTime: 0.5
+  durationTime: 0.5
+  initialDelayTime: 0.5

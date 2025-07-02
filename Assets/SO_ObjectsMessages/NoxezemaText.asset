@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
   m_Name: NoxezemaText
   m_EditorClassIdentifier: 
-  randomText: 1
+  randomText: 0
   popUpText:
   - "At some point I used the soap\u2026 at least I think i did"
-  chainText: []
+  chainText:
+  - "At some point I used the soap\u2026 at least I think i did"
   delayTime: 0.5
+  durationTime: 0.5
+  initialDelayTime: 0.5

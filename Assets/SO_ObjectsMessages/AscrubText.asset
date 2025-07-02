@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d21112e831024bad8f7752c5889fb, type: 3}
   m_Name: AscrubText
   m_EditorClassIdentifier: 
-  randomText: 1
+  randomText: 0
   popUpText:
   - "Shouldn\u2019t I cleanse my skin now? I think it was the one with the blue bottle\u2026"
-  chainText: []
+  chainText:
+  - "Shouldn\u2019t I cleanse my skin now? I think it was the one with the blue bottle\u2026"
   delayTime: 0.5
+  durationTime: 0.5
+  initialDelayTime: 0.5

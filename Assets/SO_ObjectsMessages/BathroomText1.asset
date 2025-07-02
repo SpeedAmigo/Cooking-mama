@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomText: 1
   popUpText:
-  - I need to clean my face first
+  - I need to get rid of that pimples first
   chainText: []
   delayTime: 0.5
+  durationTime: 0.5
+  initialDelayTime: 0.5

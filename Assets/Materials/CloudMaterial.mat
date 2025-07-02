@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Pixelize: 85
-    - _Progress: -0.0017834703
+    - _Progress: -0.0060124197
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors: []

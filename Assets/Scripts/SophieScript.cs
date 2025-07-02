@@ -49,14 +49,14 @@ public class SophieScript : MinigameAbstract
     {
         if (!cleanedFace)
         {
-            Debug.Log("I need to clean my face first");
+            Debug.Log("Clean face");
             texts[0].ShowText(texts[0].popUpText);
             return;
         }
         
         if (maskOnFace)
         {
-            Debug.Log("I must take this off first");
+            Debug.Log("Mask on debug");
             texts[1].ShowText(texts[1].popUpText);
             return;
         }
@@ -83,32 +83,31 @@ public class SophieScript : MinigameAbstract
         maskRenderer.DOFade(1f, 0f);
         maskRenderer.gameObject.SetActive(true);
         maskRenderer.sprite = GetMask(maskType);
+        
+        Debug.Log("end Debug");
     }
 
     private void ShowHint(int index)
     {
         switch (index)
         {
-            case 0:
-                hints[0].ShowText(texts[0].popUpText);
-                break;
             case 1:
-                hints[1].ShowText(texts[1].popUpText);
+                hints[0].ShowChainText(hints[0].chainText);
                 break;
             case 2:
-                hints[2].ShowText(texts[2].popUpText);
+                hints[1].ShowChainText(hints[1].chainText);
                 break;
             case 3:
-                hints[3].ShowText(texts[3].popUpText);
+                hints[2].ShowChainText(hints[2].chainText);
                 break;
             case 4:
-                hints[4].ShowText(texts[4].popUpText);
+                hints[3].ShowChainText(hints[3].chainText);
                 break;
             case 5:
-                hints[5].ShowText(texts[5].popUpText);
+                hints[4].ShowChainText(hints[4].chainText);
                 break;
             case 7:
-                hints[7].ShowText(texts[7].popUpText);
+                hints[5].ShowChainText(hints[5].chainText);
                 break;
         }
     }

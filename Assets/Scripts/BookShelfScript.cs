@@ -7,6 +7,7 @@ public class BookShelfScript : MonoBehaviour
 {
     [SerializeField] private List<ShelfManager> shelfs = new();
     [SerializeField] private Camera cam;
+    [SerializeField] private SoObjectText endText;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public class BookShelfScript : MonoBehaviour
             shelf.minigameCamera = cam;
         }
     }
-
+    
     public void CheckShelfs()
     {
         for (int i = 0; i < shelfs.Count; i++)
@@ -25,6 +26,6 @@ public class BookShelfScript : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("CorrectOrder!");
+        endText.ShowChainText(endText.chainText);
     }
 }

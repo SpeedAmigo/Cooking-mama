@@ -1900,7 +1900,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
@@ -6846,7 +6846,7 @@ MonoBehaviour:
   minigameType: 5
   canSkipTime: 1
   canBePlayedAgain: 0
-  loadDayInt: 1
+  loadDayInt: 0
   soObjectTexts:
   - {fileID: 11400000, guid: d39d1434c39f904468f091a7364288d9, type: 2}
   - {fileID: 11400000, guid: 0a09039855d01ee4da095243c96dc6c1, type: 2}

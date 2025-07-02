@@ -35,6 +35,8 @@ public class MinigameManager : Interaction, IInputHandler
     
     public override void Interact()
     {
+        if (GameStateManager.CurrentGameState != GameState.InGame) return;
+        
         if (!enabled) return;
         if (dayNightScript.CurrentDayCycle == DayCycles.Night)
         {
@@ -55,8 +57,6 @@ public class MinigameManager : Interaction, IInputHandler
             return;
         }
         
-        if (GameStateManager.CurrentGameState != GameState.InGame) return;
-
         lastPlayedOnDay = dayNightScript.GetDayCount();
         //EventsManager.InvokeHideObjectText();
         EventsManager.InvokeClearObjectText();

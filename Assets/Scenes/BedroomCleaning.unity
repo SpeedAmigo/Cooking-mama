@@ -787,8 +787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df416c06eafc9324ba542a3ebf2cec05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseMagnitude: 20
-  webRemovingValue: 0.05
+  mouseMagnitude: 10
+  webRemovingValue: 0.08
   lastMousePos: {x: 0, y: 0}
   currentMousePos: {x: 0, y: 0}
   deltaMousePos: {x: 0, y: 0}
@@ -1197,8 +1197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df416c06eafc9324ba542a3ebf2cec05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseMagnitude: 20
-  webRemovingValue: 0.05
+  mouseMagnitude: 10
+  webRemovingValue: 0.08
   lastMousePos: {x: 0, y: 0}
   currentMousePos: {x: 0, y: 0}
   deltaMousePos: {x: 0, y: 0}
@@ -1966,8 +1966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df416c06eafc9324ba542a3ebf2cec05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseMagnitude: 20
-  webRemovingValue: 0.05
+  mouseMagnitude: 10
+  webRemovingValue: 0.08
   lastMousePos: {x: 0, y: 0}
   currentMousePos: {x: 0, y: 0}
   deltaMousePos: {x: 0, y: 0}
@@ -2351,8 +2351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df416c06eafc9324ba542a3ebf2cec05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseMagnitude: 20
-  webRemovingValue: 0.05
+  mouseMagnitude: 10
+  webRemovingValue: 0.08
   lastMousePos: {x: 0, y: 0}
   currentMousePos: {x: 0, y: 0}
   deltaMousePos: {x: 0, y: 0}

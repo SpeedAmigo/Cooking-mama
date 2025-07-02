@@ -13,12 +13,6 @@ public class SoObjectText : ScriptableObject
     public string[] popUpText;
     [MultiLineProperty(5)] [HideIf("randomText")]
     public string[] chainText;
-    [HideIf("randomText")]
-    public float delayTime = 0.5f;
-    [HideIf("randomText")]
-    public float durationTime = 0.5f;
-    [HideIf("randomText")]
-    public float initialDelayTime = 0.5f;
     
     public void ShowText(string[] texts)
     {
